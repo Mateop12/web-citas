@@ -1,0 +1,130 @@
+---
+import SectionHeader from './ui/SectionHeader.astro';
+
+const solutions = [
+  {
+    title: 'Atención automática 24/7',
+    description: 'El asistente responde a cualquier hora sin saturar la línea de recepción.',
+  },
+  {
+    title: 'Recordatorios inteligentes',
+    description: 'Confirmaciones por WhatsApp, Correo y SMS, reducen ausentismo y citas olvidadas.',
+  },
+  {
+    title: 'Agenda optimizada',
+    description: 'Espacios liberados se reasignan a pacientes en lista de espera.',
+  },
+  {
+    title: 'Interoperabilidad con historia clínica',
+    description: 'Se conecta con cualquier software de historia clínica vía API. Sin doble digitación y tiempos de agendamiento más cortos.',
+  },
+];
+
+const metrics = [
+  { value: '70', suffix: '%', prefix: '', label: 'Menos llamadas', fill: 70 },
+  { value: '100', suffix: '%', prefix: '', label: 'Confirmaciones automáticas', fill: 100 },
+  { value: '65', suffix: '%', prefix: '−', label: 'Tiempo de agendamiento', note: 'Con integración HC', fill: 65 },
+  { value: '24/7', static: true, label: 'Disponibilidad', fill: 100 },
+];
+---
+
+<section id="solucion" class="section-padding">
+  <div class="container-custom">
+    <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-20">
+      <div>
+        <SectionHeader
+          badge="La solución"
+          title="Automatización que respeta el ritmo de tu clínica"
+          description="GEN.AI une WhatsApp, IA y tu agenda en una plataforma. Lo repetitivo lo hace el sistema; tu equipo se concentra en la atención al paciente."
+          align="left"
+        />
+
+        <ul class="mt-10 space-y-5">
+          {solutions.map((item) => (
+            <li class="flex gap-4 border-l-2 border-line pl-5 transition-colors hover:border-secondary" data-animate>
+              <div>
+                <h3 class="font-medium text-ink">{item.title}</h3>
+                <p class="mt-1 text-sm leading-relaxed text-muted">{item.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="solution-panel-wrap lg:sticky lg:top-28" data-animate="fade-right">
+        <aside id="solution-panel" class="solution-panel" aria-label="Impacto y testimonio">
+          <div class="solution-panel-glow" aria-hidden="true"></div>
+
+          <figure class="solution-panel-quote">
+            <svg class="solution-panel-quote-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+            </svg>
+            <blockquote>
+              <p class="font-display text-[1.15rem] leading-snug font-semibold text-ink sm:text-xl">
+                Pasamos de agendar manualmente en el sistema a autoagendar con GEN.AI
+              </p>
+            </blockquote>
+            <figcaption class="mt-4 text-sm text-muted">
+              Clínica Genezen
+            </figcaption>
+          </figure>
+
+          <div class="solution-panel-metrics">
+            <p class="solution-panel-metrics-label">
+              <span class="solution-live-dot" aria-hidden="true"></span>
+              Impacto promedio en clínicas
+            </p>
+            <dl class="solution-metrics-grid">
+              {metrics.map((m, i) => (
+                <div
+                  class="solution-metric"
+                  data-metric
+                  data-fill={m.fill}
+                  style={`--metric-delay: ${i * 0.12}s; --fill: ${m.fill}%`}
+                >
+                  <dt class="solution-metric-value font-mono-data text-3xl font-medium tracking-tight text-ink sm:text-[2rem]">
+                    {m.static ? (
+                      <span class="text-secondary">{m.value}</span>
+                    ) : (
+                      <span data-counter={m.value} data-prefix={m.prefix} data-suffix={m.suffix}>
+                        {m.prefix}0{m.suffix}
+                      </span>
+                    )}
+                  </dt>
+                  <dd class="mt-1 text-sm font-medium text-ink">{m.label}</dd>
+                  {m.note && <dd class="mt-0.5 text-xs text-muted">{m.note}</dd>}
+                  <div class="solution-metric-bar" aria-hidden="true">
+                    <span class="solution-metric-fill"></span>
+                  </div>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div class="solution-panel-integration">
+            <div class="solution-integration-flow" aria-hidden="true">
+              <span>Agenda</span>
+              <span class="solution-integration-pulse"></span>
+              <span>GEN.AI</span>
+              <span class="solution-integration-pulse"></span>
+              <span>HIS</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="solution-integration-icon" aria-hidden="true">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              </span>
+              <div>
+                <p class="text-sm font-semibold text-white">Interoperabilidad con historia clínica</p>
+                <p class="mt-1 text-xs leading-relaxed text-white/60">
+                  Compatible con cualquier software HC vía API · menos digitación, agendamiento más rápido
+                </p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>

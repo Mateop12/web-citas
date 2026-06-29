@@ -1,0 +1,59 @@
+---
+interface Props {
+  variant?: 'light' | 'dark';
+  size?: 'sm' | 'md';
+  showName?: boolean;
+  showTagline?: boolean;
+  stacked?: boolean;
+  href?: string;
+  class?: string;
+}
+
+const {
+  variant = 'dark',
+  size = 'md',
+  showName = true,
+  showTagline = false,
+  stacked = false,
+  href = '/',
+  class: className = '',
+} = Astro.props;
+
+const iconSize = size === 'sm' ? 'h-11 w-11 rounded-xl' : 'h-12 w-12 rounded-2xl';
+const nameSize = size === 'sm' ? 'text-base' : 'text-xl';
+const nameColor = variant === 'light' ? 'text-white' : 'text-ink';
+const accentColor = variant === 'light' ? 'text-accent' : 'text-primary';
+const shadow = variant === 'dark' ? 'shadow-lg shadow-ink/20' : '';
+const linkClass = stacked
+  ? `group inline-flex flex-col items-start gap-2 ${className}`
+  : `group inline-flex items-center gap-2.5 ${className}`;
+---
+
+<div class={stacked ? 'space-y-2' : undefined}>
+  <a href={href} class={linkClass} aria-label="GEN.AI - Inicio">
+    <span class="inline-flex items-center gap-2.5">
+      <img
+        src="/favicon.ico"
+        alt=""
+        class={`${iconSize} ${shadow} object-cover transition-transform duration-300 group-hover:scale-105`}
+        width={size === 'sm' ? 44 : 48}
+        height={size === 'sm' ? 44 : 48}
+        loading="eager"
+      />
+      {
+        showName && (
+          <span class={`font-display ${nameSize} font-semibold tracking-tight ${nameColor}`}>
+            GEN<span class={accentColor}>.AI</span>
+          </span>
+        )
+      }
+    </span>
+  </a>
+  {
+    showTagline && (
+      <p class={`eyebrow ${stacked ? 'text-[9px] leading-snug' : ''} ${variant === 'light' ? 'text-accent' : ''}`}>
+        Agendamiento clínico · IA · WhatsApp
+      </p>
+    )
+  }
+</div>

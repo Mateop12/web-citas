@@ -1,0 +1,74 @@
+---
+import Button from './ui/Button.astro';
+import BrandLogo from './ui/BrandLogo.astro';
+
+const navLinks = [
+  { href: '#problema', label: 'Problema', section: 'problema' },
+  { href: '#solucion', label: 'Solución', section: 'solucion' },
+  { href: '#nuestros-plus', label: 'Plus', section: 'nuestros-plus' },
+  { href: '#whatsapp', label: 'Producto', section: 'whatsapp' },
+  { href: '#faq', label: 'FAQ', section: 'faq' },
+];
+---
+
+<header id="navbar" class="fixed top-0 z-50 w-full">
+  <nav
+    class="container-custom flex items-center justify-between px-4 py-5 sm:px-6 lg:px-8"
+    aria-label="Navegación principal"
+  >
+    <BrandLogo variant="dark" />
+
+    <ul class="hidden items-center gap-1 md:flex">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="nav-link relative px-4 py-2 text-sm font-medium text-muted transition-colors hover:text-ink"
+            data-section={link.section}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="hidden items-center gap-2 md:flex">
+      <Button openDemoModal variant="primary" size="sm">
+        Solicitar demo
+      </Button>
+    </div>
+
+    <button
+      id="mobile-menu-toggle"
+      class="flex h-10 w-10 items-center justify-center rounded-xl border border-line bg-white text-muted transition-colors hover:text-ink md:hidden"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden border-t border-line bg-white px-4 py-4 md:hidden" role="menu">
+    <ul class="flex flex-col gap-1">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="block rounded-xl px-4 py-3 text-sm font-medium text-ink transition-colors hover:bg-surface"
+            role="menuitem"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li class="mt-3 border-t border-line pt-3">
+        <Button openDemoModal variant="primary" size="sm" class="w-full">
+          Solicitar demo
+        </Button>
+      </li>
+    </ul>
+  </div>
+</header>

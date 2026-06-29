@@ -1,0 +1,144 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { LEGAL } from '../../data/legal';
+---
+
+<LegalLayout
+  title="Protección de datos clínicos"
+  description="Política de protección de datos clínicos y sensibles de GEN.AI conforme a la normativa colombiana en salud y Habeas Data."
+>
+  <h2>1. Objeto y alcance</h2>
+  <p>
+    Este documento complementa la Política de privacidad de <strong>{LEGAL.brand}</strong> y establece
+    los principios, roles y medidas específicas para el tratamiento de <strong>datos personales sensibles
+    de salud</strong> en el marco del agendamiento clínico, de conformidad con la legislación colombiana.
+  </p>
+
+  <h2>2. Normativa de referencia en Colombia</h2>
+  <ul>
+    <li>
+      <strong>Ley 1581 de 2012:</strong> los datos de salud son datos sensibles; su tratamiento requiere
+      autorización expresa del titular, salvo las excepciones legales.
+    </li>
+    <li>
+      <strong>Resolución 1995 de 1999:</strong> regula la historia clínica como documento privado,
+      obligatorio y sometido a reserva, con acceso restringido al equipo de salud y personas autorizadas.
+    </li>
+    <li>
+      <strong>Resolución 866 de 2021:</strong> establece el marco de referencia para la gestión de la
+      seguridad y confidencialidad de la información contenida en la historia clínica.
+    </li>
+    <li>
+      <strong>Ley 23 de 1981:</strong> consagra el deber de guardar secreto profesional sobre la
+      información clínica del paciente.
+    </li>
+    <li>
+      <strong>Ley Estatutaria 1751 de 2015:</strong> reconoce el derecho fundamental a la salud y la
+      protección de la intimidad del paciente.
+    </li>
+  </ul>
+
+  <h2>3. Clasificación de la información</h2>
+  <p>En el contexto de {LEGAL.brand} se distinguen:</p>
+  <ul>
+    <li>
+      <strong>Datos de agendamiento:</strong> identificación del paciente, contacto, EPS, especialidad,
+      profesional, sede, fecha, hora y estado de la cita.
+    </li>
+    <li>
+      <strong>Datos clínicos vinculados:</strong> información adicional que la institución configure
+      (motivo de consulta, observaciones operativas, autorizaciones EPS), sin reemplazar la historia
+      clínica completa en el HIS.
+    </li>
+    <li>
+      <strong>Metadatos de canal:</strong> registros de interacción por WhatsApp, web o call center
+      con fines de trazabilidad, auditoría y mejora del servicio.
+    </li>
+  </ul>
+
+  <h2>4. Principios aplicables</h2>
+  <ul>
+    <li><strong>Legalidad:</strong> tratamiento conforme a la Constitución y leyes colombianas.</li>
+    <li><strong>Finalidad:</strong> uso exclusivo para gestión de citas y operación autorizada.</li>
+    <li><strong>Libertad:</strong> con autorización previa, expresa e informada del titular.</li>
+    <li><strong>Veracidad:</strong> datos exactos, completos y actualizables.</li>
+    <li><strong>Transparencia:</strong> información clara sobre quién trata los datos y para qué.</li>
+    <li><strong>Acceso restringido:</strong> solo personal con perfil y necesidad operativa.</li>
+    <li><strong>Seguridad:</strong> medidas técnicas y organizativas proporcionales al riesgo.</li>
+    <li><strong>Confidencialidad:</strong> deber de reserva de quienes acceden a la información.</li>
+  </ul>
+
+  <h2>5. Roles: responsable y encargado</h2>
+  <h3>Institución de salud (Responsable del tratamiento)</h3>
+  <ul>
+    <li>Define las finalidades del agendamiento y la base legal del tratamiento.</li>
+    <li>Obtiene y documenta la autorización del paciente para datos sensibles.</li>
+    <li>Designa perfiles de acceso de su personal en la plataforma.</li>
+    <li>Atiende derechos de los titulares en primera instancia cuando actúa como responsable.</li>
+  </ul>
+  <h3>{LEGAL.company} (Encargado del tratamiento)</h3>
+  <ul>
+    <li>Trata los datos únicamente según instrucciones documentadas del cliente.</li>
+    <li>Implementa medidas de seguridad alineadas con la Resolución 866 de 2021.</li>
+    <li>Notifica incidentes de seguridad conforme al contrato y a la normativa aplicable.</li>
+    <li>No utiliza los datos de pacientes para fines comerciales propios ajenos al servicio contratado.</li>
+  </ul>
+
+  <h2>6. Autorización del titular</h2>
+  <p>
+    El paciente debe ser informado de manera previa, expresa e inequívoca sobre: (i) la finalidad del
+    agendamiento digital; (ii) los canales utilizados (WhatsApp, web, call center); (iii) la identidad
+    del responsable (institución de salud); (iv) sus derechos ARCO; y (v) la posibilidad de revocar
+    la autorización. La institución cliente es responsable de incorporar estos avisos en sus procesos
+    de admisión, portal de citas y comunicaciones al paciente.
+  </p>
+
+  <h2>7. Medidas de seguridad</h2>
+  <p>{LEGAL.brand} adopta, entre otras, las siguientes medidas:</p>
+  <ul>
+    <li>Cifrado de datos en tránsito (TLS/HTTPS) y cifrado en reposo cuando aplique.</li>
+    <li>Control de acceso basado en roles (RBAC) y autenticación segura.</li>
+    <li>Registro de auditoría de acciones críticas sobre agendas y citas.</li>
+    <li>Copias de seguridad y planes de continuidad operativa.</li>
+    <li>Evaluación periódica de riesgos y actualización de controles.</li>
+    <li>Cláusulas de confidencialidad con personal y proveedores que acceden a la información.</li>
+  </ul>
+
+  <h2>8. Transferencias y interoperabilidad con HIS</h2>
+  <p>
+    Cuando {LEGAL.brand} se integra con sistemas de historia clínica u otros aplicativos de la
+    institución, solo se transmiten los datos estrictamente necesarios para confirmar, registrar o
+    actualizar la cita. Toda integración se documenta contractualmente y se realiza por canales seguros
+    (API REST, VPN u otros acordados), respetando la reserva de la historia clínica.
+  </p>
+
+  <h2>9. Incidentes de seguridad</h2>
+  <p>
+    Ante un incidente que afecte datos clínicos o sensibles, {LEGAL.company} activará su protocolo
+    interno de respuesta, notificará al cliente responsable en los plazos contractuados y colaborará
+    en las acciones de contención, investigación y, cuando corresponda, reporte a autoridades
+    (Ministerio de Salud, SIC u otras competentes).
+  </p>
+
+  <h2>10. Derechos del paciente</h2>
+  <p>El paciente puede ejercer ante la institución de salud, y en su caso ante {LEGAL.company} como encargado:</p>
+  <ul>
+    <li>Acceder a sus datos de agendamiento.</li>
+    <li>Rectificar información inexacta.</li>
+    <li>Solicitar actualización de datos de contacto.</li>
+    <li>Revocar la autorización cuando no exista deber legal de conservación.</li>
+    <li>Presentar reclamaciones ante la Superintendencia de Industria y Comercio.</li>
+  </ul>
+  <p>
+    Solicitudes: <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>.
+    Plazo de respuesta: quince (15) días hábiles, prorrogables ocho (8) días hábiles.
+  </p>
+
+  <h2>11. Conservación y eliminación</h2>
+  <p>
+    Los datos de agendamiento se conservan mientras exista relación contractual con la institución y
+    durante los términos exigidos por la normativa sanitaria para trazabilidad de atención. Finalizado
+    el contrato, se procederá a la devolución, anonimización o eliminación segura conforme al acuerdo
+    y a la ley, sin perjuicio de los deberes de custodia de la historia clínica a cargo del prestador.
+  </p>
+</LegalLayout>

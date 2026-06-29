@@ -1,0 +1,94 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { LEGAL } from '../../data/legal';
+---
+
+<LegalLayout
+  title="Términos de servicio"
+  description="Términos y condiciones de uso del software GEN.AI para agendamiento clínico en Colombia y Latinoamérica."
+>
+  <h2>1. Aceptación</h2>
+  <p>
+    Al acceder al sitio web, solicitar una demo o utilizar la plataforma <strong>{LEGAL.brand}</strong>,
+    usted acepta estos Términos de servicio en nombre propio o de la institución de salud que representa.
+    Si no está de acuerdo, debe abstenerse de usar el servicio.
+  </p>
+
+  <h2>2. Descripción del servicio</h2>
+  <p>
+    {LEGAL.brand} es una solución de software como servicio (SaaS) para agendamiento clínico que integra
+    autoagendamiento por WhatsApp y portal web, panel administrativo, gestión de call center e
+    interoperabilidad con sistemas de información hospitalaria (HIS), según el plan contratado.
+  </p>
+
+  <h2>3. Usuarios del servicio</h2>
+  <ul>
+    <li><strong>Instituciones clientes:</strong> IPS, clínicas, hospitales y centros de diagnóstico.</li>
+    <li><strong>Usuarios autorizados:</strong> personal administrativo, líderes y agentes de call center.</li>
+    <li><strong>Pacientes:</strong> personas que agendan citas a través de los canales habilitados por la institución.</li>
+  </ul>
+
+  <h2>4. Cuentas y acceso</h2>
+  <p>
+    El cliente es responsable de la veracidad de la información registrada, de asignar credenciales de
+    acceso solo a personal autorizado y de notificar de inmediato cualquier uso no autorizado.
+    {LEGAL.company} podrá suspender cuentas ante incumplimientos graves o riesgos de seguridad.
+  </p>
+
+  <h2>5. Obligaciones del cliente en materia de datos clínicos</h2>
+  <p>La institución de salud cliente se obliga a:</p>
+  <ul>
+    <li>Obtener las autorizaciones exigidas por la Ley 1581 de 2012 para el tratamiento de datos sensibles de salud.</li>
+    <li>Cumplir la Resolución 1995 de 1999 y la Resolución 866 de 2021 en la gestión de información clínica.</li>
+    <li>Informar a los pacientes sobre el uso de canales digitales para agendamiento.</li>
+    <li>No utilizar la plataforma para fines distintos a la gestión de citas y operación autorizada.</li>
+  </ul>
+
+  <h2>6. Propiedad intelectual</h2>
+  <p>
+    El software, marca, diseño, documentación y know-how de {LEGAL.brand} son propiedad de
+    {LEGAL.company} o sus licenciantes. Se concede una licencia de uso limitada, no exclusiva e
+    intransferible durante la vigencia del contrato. Queda prohibida la ingeniería inversa,
+    copia no autorizada o sublicencia del producto.
+  </p>
+
+  <h2>7. Niveles de servicio y disponibilidad</h2>
+  <p>
+    Procuramos mantener la plataforma disponible de forma continua, salvo mantenimientos programados
+    o eventos de fuerza mayor. Los niveles específicos de servicio (SLA) se detallan en el acuerdo
+    comercial suscrito con cada cliente.
+  </p>
+
+  <h2>8. Limitación de responsabilidad</h2>
+  <p>
+    {LEGAL.brand} es una herramienta de apoyo operativo. No sustituye el criterio médico, la decisión
+    clínica ni las obligaciones legales de la institución prestadora de servicios de salud. En la
+    medida permitida por la ley colombiana, {LEGAL.company} no será responsable por daños indirectos,
+    lucro cesante o interrupciones derivadas de causas ajenas a su control razonable.
+  </p>
+
+  <h2>9. Confidencialidad</h2>
+  <p>
+    Las partes se obligan a mantener confidencial la información comercial, técnica y de pacientes
+    a la que accedan con ocasión del servicio, conforme a la normativa de protección de datos y
+    secreto profesional en salud.
+  </p>
+
+  <h2>10. Terminación</h2>
+  <p>
+    Cualquiera de las partes puede terminar el contrato según las condiciones pactadas. Al finalizar,
+    {LEGAL.company} facilitará la exportación de datos de agendamiento disponibles y procederá a la
+    eliminación o devolución de la información conforme al acuerdo y a la ley.
+  </p>
+
+  <h2>11. Ley aplicable y jurisdicción</h2>
+  <p>
+    Estos términos se rigen por las leyes de la República de Colombia. Cualquier controversia se
+    someterá a los jueces competentes de Medellín, Antioquia, salvo pacto arbitral en contrato comercial.
+  </p>
+
+  <h2>12. Contacto</h2>
+  <p>
+    Para consultas contractuales o de soporte: <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>.
+  </p>
+</LegalLayout>

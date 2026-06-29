@@ -1,0 +1,106 @@
+---
+import SectionHeader from './ui/SectionHeader.astro';
+import BrandLogo from './ui/BrandLogo.astro';
+---
+<section id="aplicacion" class="section-padding bg-ink text-white">
+  <div class="container-custom">
+    <SectionHeader
+      badge="Aplicación web"
+      title="Panel pensado para equipos de salud"
+      description="Interfaz clara que tu personal aprende en minutos. Desde cualquier dispositivo, en la clínica o remoto."
+      light={true}
+    />
+
+    <div class="mt-14" data-animate="scale">
+      <div class="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.03] shadow-2xl">
+        <div class="flex items-center gap-2 border-b border-white/10 px-5 py-3">
+          <div class="flex gap-1.5">
+            <span class="h-2.5 w-2.5 rounded-full bg-red-400/80"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"></span>
+          </div>
+          <span class="font-mono-data ml-2 text-[10px] text-white/40">app.genai.co</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row">
+          <aside class="hidden w-44 shrink-0 border-r border-white/10 p-4 sm:block">
+            <div class="mb-4 border-b border-white/10 pb-4">
+              <BrandLogo variant="light" size="sm" showTagline={true} stacked={true} href="#" />
+            </div>
+            <nav class="space-y-1">
+              {['Dashboard', 'Calendario', 'Agenda', 'Pacientes', 'Reportes'].map((item, i) => (
+                <div class={`rounded-lg px-3 py-2 text-xs ${i === 1 ? 'bg-primary/30 font-medium text-accent' : 'text-white/45'}`}>
+                  {item}
+                </div>
+              ))}
+            </nav>
+          </aside>
+
+          <div class="flex-1 p-5 sm:p-6">
+            <div class="mb-5 flex items-center justify-between">
+              <h3 class="font-display text-lg font-semibold">Calendario — Junio 2026</h3>
+              <div class="flex gap-2">
+                <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[10px] text-white/50">Mes</span>
+                <span class="rounded-lg bg-primary/40 px-2.5 py-1 text-[10px] font-medium text-white">Semana</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-7 gap-1 text-center text-[10px] sm:text-xs">
+              {['L', 'M', 'X', 'J', 'V', 'S', 'D'].map((d) => (
+                <div class="py-2 font-medium text-white/35">{d}</div>
+              ))}
+              {Array.from({ length: 35 }, (_, i) => {
+                const day = i - 2;
+                const isToday = day === 26;
+                const hasApts = [3, 8, 15, 22, 26, 28].includes(day);
+                return (
+                  <div
+                    class={`rounded-lg p-1.5 ${
+                      day < 1 || day > 30
+                        ? 'text-white/15'
+                        : isToday
+                          ? 'bg-accent/20 font-semibold text-accent'
+                          : hasApts
+                            ? 'bg-white/5 text-white/70'
+                            : 'text-white/35'
+                    }`}
+                  >
+                    {day >= 1 && day <= 30 ? day : ''}
+                  </div>
+                );
+              })}
+            </div>
+
+            <div class="mt-5 rounded-xl border border-white/10 bg-white/[0.02] p-3">
+              <p class="mb-2 text-[10px] font-medium text-white/40">Hoy — 26 jun</p>
+              {[
+                { t: '08:00', p: 'María G.', e: 'Cardiología' },
+                { t: '10:30', p: 'Juan P.', e: 'Pediatría' },
+                { t: '14:00', p: 'Laura M.', e: 'Dermatología' },
+              ].map((apt) => (
+                <div class="flex items-center gap-2 rounded-lg px-2 py-1.5 text-[10px] text-white/60">
+                  <span class="font-mono-data text-accent">{apt.t}</span>
+                  <span>{apt.p}</span>
+                  <span class="ml-auto text-white/35">{apt.e}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-3">
+      {[
+        { t: 'Calendario', d: 'Vista mensual, semanal y diaria por especialista.' },
+        { t: 'Profesionales', d: 'Horarios, vacaciones y disponibilidad por médico.' },
+        { t: 'Reportes', d: 'Ocupación, ausentismo y productividad por periodo.' },
+      ].map((mod, i) => (
+        <article class="rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors hover:border-accent/30" data-animate data-delay={String(i + 1)}>
+          <h3 class="font-display font-semibold text-white">{mod.t}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-white/55">{mod.d}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

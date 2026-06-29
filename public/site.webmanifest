@@ -1,0 +1,24 @@
+{
+  "name": "GEN.AI — Agendamiento clínico con IA",
+  "short_name": "GEN.AI",
+  "description": "Plataforma de inteligencia artificial para IPS y clínicas en Colombia y Latinoamérica. Autoagendamiento del usuario,  Agendamiento con IA, informes gerenciales, turnos e interoperabilidad con HIS.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#163ba3",
+  "lang": "es-CO",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Problem from '../components/Problem.astro';
+import Solution from '../components/Solution.astro';
+import OurPlus from '../components/OurPlus.astro';
+import WhatsAppBot from '../components/WhatsAppBot.astro';
+import AppBooking from '../components/AppBooking.astro';
+import DashboardPreview from '../components/DashboardPreview.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Navbar />
+  <main id="main-content">
+    <Hero />
+    <Problem />
+    <Solution />
+    <OurPlus />
+    <WhatsAppBot />
+    <AppBooking />
+    <DashboardPreview />
+  <!--  <Testimonials /> -->
+    <FAQ />
+    <CTA />
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,449 @@
+---
+import { SITE } from '../data/seo';
+---
+
+<div
+  id="demo-modal"
+  class="demo-modal pointer-events-none fixed inset-0 z-[100] flex items-end justify-center p-4 opacity-0 transition-opacity duration-300 sm:items-center sm:p-6"
+  aria-hidden="true"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="demo-modal-title"
+>
+  <div
+    class="demo-modal-backdrop absolute inset-0 bg-ink/60 backdrop-blur-sm"
+    data-demo-close
+    aria-hidden="true"
+  ></div>
+
+  <div class="demo-modal-panel relative z-10 w-full max-w-lg translate-y-4 scale-[0.98] rounded-[1.75rem] border border-line bg-white opacity-0 shadow-[0_32px_80px_-24px_rgba(12,25,41,0.25)] transition-all duration-300 sm:translate-y-0">
+    <div class="flex items-start justify-between gap-4 border-b border-line px-6 py-5 sm:px-8">
+      <div>
+        <p class="eyebrow mb-2">Solicitar demo</p>
+        <h2 id="demo-modal-title" class="font-display text-xl font-bold text-ink sm:text-2xl">
+          Agenda una demo de {SITE.name}
+        </h2>
+        <p class="mt-1.5 text-sm text-muted">
+          Completa el formulario y nuestro equipo te contactará en menos de 24 horas.
+        </p>
+      </div>
+      <button
+        type="button"
+        class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-line text-muted transition-colors hover:border-primary/30 hover:text-ink"
+        data-demo-close
+        aria-label="Cerrar formulario"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <form id="demo-form" class="space-y-4 px-6 py-6 sm:px-8">
+      <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="sm:col-span-2">
+          <label for="demo-name" class="mb-1.5 block text-xs font-semibold text-ink">Nombre completo *</label>
+          <input
+            id="demo-name"
+            name="name"
+            type="text"
+            required
+            minlength="2"
+            autocomplete="name"
+            class="demo-input"
+            placeholder="Ej. María González"
+            aria-describedby="demo-name-error"
+          />
+          <p id="demo-name-error" class="demo-field-error" role="alert"></p>
+        </div>
+
+        <div>
+          <label for="demo-email" class="mb-1.5 block text-xs font-semibold text-ink">Correo corporativo *</label>
+          <input
+            id="demo-email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            class="demo-input"
+            placeholder="nombre@clinica.com"
+            aria-describedby="demo-email-error"
+          />
+          <p id="demo-email-error" class="demo-field-error" role="alert"></p>
+        </div>
+
+        <div>
+          <label for="demo-phone" class="mb-1.5 block text-xs font-semibold text-ink">Teléfono / WhatsApp *</label>
+          <input
+            id="demo-phone"
+            name="phone"
+            type="tel"
+            required
+            minlength="7"
+            autocomplete="tel"
+            class="demo-input"
+            placeholder="+57 300 123 4567"
+            aria-describedby="demo-phone-error"
+          />
+          <p id="demo-phone-error" class="demo-field-error" role="alert"></p>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="demo-institution" class="mb-1.5 block text-xs font-semibold text-ink">Institución *</label>
+          <input
+            id="demo-institution"
+            name="institution"
+            type="text"
+            required
+            minlength="2"
+            class="demo-input"
+            placeholder="Clínica, IPS, hospital o centro de diagnóstico"
+            aria-describedby="demo-institution-error"
+          />
+          <p id="demo-institution-error" class="demo-field-error" role="alert"></p>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="demo-role" class="mb-1.5 block text-xs font-semibold text-ink">Cargo</label>
+          <input
+            id="demo-role"
+            name="role"
+            type="text"
+            class="demo-input"
+            placeholder="Director, gerente, jefe de call center…"
+          />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="demo-message" class="mb-1.5 block text-xs font-semibold text-ink">¿Qué necesitas?</label>
+          <textarea
+            id="demo-message"
+            name="message"
+            rows="3"
+            class="demo-input resize-none"
+            placeholder="Número de sedes, especialidades, integración con HIS…"
+          ></textarea>
+        </div>
+      </div>
+
+      <p id="demo-form-error" class="hidden rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700" role="alert"></p>
+
+      <button
+        type="submit"
+        id="demo-form-submit"
+        class="flex w-full items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-secondary-dark disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        <span data-demo-submit-label>Enviar solicitud</span>
+        <svg data-demo-submit-spinner class="hidden h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+      </button>
+
+      <p class="text-center text-[11px] leading-relaxed text-muted">
+        Al enviar aceptas nuestra 
+        <a href="/legal/politica-de-privacidad" class="text-primary underline underline-offset-2"> política de privacidad</a>.
+      </p>
+    </form>
+
+    <div id="demo-form-success" class="hidden px-6 py-10 text-center sm:px-8 sm:py-12" role="status">
+      <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-secondary/10 text-secondary">
+        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h3 class="font-display text-xl font-bold text-ink">¡Solicitud enviada!</h3>
+      <p class="mt-2 text-sm leading-relaxed text-muted">
+        Recibimos tus datos. Un asesor de {SITE.name} te contactará pronto para agendar la demo.
+      </p>
+      <button
+        type="button"
+        class="mt-6 rounded-full border border-line px-6 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-primary/30 hover:bg-surface"
+        data-demo-close
+      >
+        Cerrar
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .demo-input {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+    color: var(--color-ink);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .demo-input::placeholder {
+    color: color-mix(in srgb, var(--color-muted) 70%, transparent);
+  }
+
+  .demo-input:focus {
+    outline: none;
+    border-color: color-mix(in srgb, var(--color-primary) 40%, var(--color-line));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 12%, transparent);
+  }
+
+  .demo-input.is-invalid {
+    border-color: #f87171;
+    box-shadow: 0 0 0 3px rgb(248 113 113 / 0.15);
+  }
+
+  .demo-field-error {
+    display: none;
+    margin-top: 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: #b91c1c;
+  }
+
+  .demo-field-error.is-visible {
+    display: block;
+  }
+
+  .demo-modal.is-open {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .demo-modal.is-open .demo-modal-panel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+</style>
+
+<script define:vars={{ adminEmail: SITE.email }}>
+  const FORM_ENDPOINT = `https://formsubmit.co/ajax/${adminEmail}`;
+
+  function openDemoModal() {
+    const modal = document.getElementById('demo-modal');
+    if (!modal) return;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const firstInput = modal.querySelector('input:not([type="hidden"])');
+    if (firstInput instanceof HTMLElement) {
+      window.setTimeout(() => firstInput.focus(), 150);
+    }
+  }
+
+  function closeDemoModal() {
+    const modal = document.getElementById('demo-modal');
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function clearDemoFieldErrors(form) {
+    form.querySelectorAll('.demo-field-error').forEach((el) => {
+      el.textContent = '';
+      el.classList.remove('is-visible');
+    });
+    form.querySelectorAll('.demo-input').forEach((el) => {
+      el.classList.remove('is-invalid');
+      el.removeAttribute('aria-invalid');
+    });
+  }
+
+  function setDemoFieldError(input, message) {
+    const errorId = input.getAttribute('aria-describedby');
+    const errorEl = errorId ? document.getElementById(errorId) : null;
+    input.classList.add('is-invalid');
+    input.setAttribute('aria-invalid', 'true');
+    if (errorEl) {
+      errorEl.textContent = message;
+      errorEl.classList.add('is-visible');
+    }
+  }
+
+  function validateDemoForm(form) {
+    clearDemoFieldErrors(form);
+
+    const fields = [
+      {
+        id: 'demo-name',
+        empty: 'Ingresa tu nombre completo.',
+        short: 'El nombre debe tener al menos 2 caracteres.',
+      },
+      {
+        id: 'demo-email',
+        empty: 'Ingresa tu correo corporativo.',
+        invalid: 'Ingresa un correo electrónico válido.',
+      },
+      {
+        id: 'demo-phone',
+        empty: 'Ingresa un teléfono o WhatsApp de contacto.',
+        short: 'El teléfono debe tener al menos 7 dígitos.',
+      },
+      {
+        id: 'demo-institution',
+        empty: 'Ingresa el nombre de la institución.',
+        short: 'La institución debe tener al menos 2 caracteres.',
+      },
+    ];
+
+    let firstInvalid = null;
+
+    for (const field of fields) {
+      const input = document.getElementById(field.id);
+      if (!(input instanceof HTMLInputElement)) continue;
+
+      input.value = input.value.trim();
+      const value = input.value;
+
+      if (!value) {
+        setDemoFieldError(input, field.empty);
+        if (!firstInvalid) firstInvalid = input;
+        continue;
+      }
+
+      if (field.id === 'demo-email' && !input.checkValidity()) {
+        setDemoFieldError(input, field.invalid);
+        if (!firstInvalid) firstInvalid = input;
+        continue;
+      }
+
+      if ((field.id === 'demo-name' || field.id === 'demo-institution') && value.length < 2) {
+        setDemoFieldError(input, field.short);
+        if (!firstInvalid) firstInvalid = input;
+        continue;
+      }
+
+      if (field.id === 'demo-phone' && value.replace(/\D/g, '').length < 7) {
+        setDemoFieldError(input, field.short);
+        if (!firstInvalid) firstInvalid = input;
+      }
+    }
+
+    if (firstInvalid instanceof HTMLInputElement) {
+      firstInvalid.focus();
+      return false;
+    }
+
+    return form.checkValidity();
+  }
+
+  function resetDemoForm() {
+    const form = document.getElementById('demo-form');
+    const success = document.getElementById('demo-form-success');
+    const error = document.getElementById('demo-form-error');
+    form?.classList.remove('hidden');
+    success?.classList.add('hidden');
+    error?.classList.add('hidden');
+    if (form instanceof HTMLFormElement) {
+      clearDemoFieldErrors(form);
+      form.reset();
+    }
+  }
+
+  function bindDemoModal() {
+    if (document.documentElement.dataset.demoModalBound === 'true') return;
+    document.documentElement.dataset.demoModalBound = 'true';
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      if (target.closest('[data-demo-trigger]')) {
+        event.preventDefault();
+        const menu = document.getElementById('mobile-menu');
+        const toggle = document.getElementById('mobile-menu-toggle');
+        menu?.classList.add('hidden');
+        toggle?.setAttribute('aria-expanded', 'false');
+        resetDemoForm();
+        openDemoModal();
+      }
+
+      if (target.closest('[data-demo-close]')) {
+        closeDemoModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeDemoModal();
+    });
+
+    const form = document.getElementById('demo-form');
+    form?.addEventListener('input', (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLInputElement) || !target.classList.contains('demo-input')) return;
+      if (!target.classList.contains('is-invalid')) return;
+
+      const errorId = target.getAttribute('aria-describedby');
+      const errorEl = errorId ? document.getElementById(errorId) : null;
+      target.classList.remove('is-invalid');
+      target.removeAttribute('aria-invalid');
+      errorEl?.classList.remove('is-visible');
+      if (errorEl) errorEl.textContent = '';
+    });
+
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!(form instanceof HTMLFormElement)) return;
+
+      if (!validateDemoForm(form)) return;
+
+      const submitBtn = document.getElementById('demo-form-submit');
+      const errorBox = document.getElementById('demo-form-error');
+      const successBox = document.getElementById('demo-form-success');
+      const spinner = submitBtn?.querySelector('[data-demo-submit-spinner]');
+      const label = submitBtn?.querySelector('[data-demo-submit-label]');
+
+      errorBox?.classList.add('hidden');
+
+      const formData = new FormData(form);
+      const payload = {
+        name: String(formData.get('name') ?? '').trim(),
+        email: String(formData.get('email') ?? '').trim(),
+        phone: String(formData.get('phone') ?? '').trim(),
+        institution: String(formData.get('institution') ?? '').trim(),
+        role: String(formData.get('role') ?? '').trim() || 'No indicado',
+        message: String(formData.get('message') ?? '').trim() || 'Sin mensaje adicional',
+        _subject: `Nueva solicitud de demo - ${document.title.split('|')[0]?.trim() || 'GEN.AI'}`,
+        _template: 'table',
+        _captcha: 'false',
+      };
+
+      submitBtn?.setAttribute('disabled', 'true');
+      spinner?.classList.remove('hidden');
+      if (label) label.textContent = 'Enviando…';
+
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) throw new Error('Error al enviar');
+
+        form.classList.add('hidden');
+        successBox?.classList.remove('hidden');
+      } catch {
+        if (errorBox) {
+          errorBox.textContent =
+            'No pudimos enviar tu solicitud. Intenta de nuevo o escríbenos a ' + adminEmail;
+          errorBox.classList.remove('hidden');
+        }
+      } finally {
+        submitBtn?.removeAttribute('disabled');
+        spinner?.classList.add('hidden');
+        if (label) label.textContent = 'Enviar solicitud';
+      }
+    });
+  }
+
+  bindDemoModal();
+  document.addEventListener('astro:page-load', bindDemoModal);
+</script>

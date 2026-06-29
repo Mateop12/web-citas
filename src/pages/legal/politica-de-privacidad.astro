@@ -1,0 +1,96 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { LEGAL } from '../../data/legal';
+---
+
+<LegalLayout
+  title="Política de privacidad"
+  description="Política de privacidad de GEN.AI conforme a la Ley 1581 de 2012 y normativa de protección de datos personales y clínicos en Colombia."
+>
+  <h2>1. Identificación del responsable</h2>
+  <p>
+    <strong>{LEGAL.company}</strong>, comercialmente identificada como <strong>{LEGAL.brand}</strong>,
+    con domicilio en Medellín, Colombia, es responsable del tratamiento de los datos personales recopilados
+    a través de este sitio web, del software de agendamiento clínico y de los canales de contacto asociados
+    (formularios, correo electrónico y WhatsApp comercial).
+  </p>
+  <p>
+    Para ejercer sus derechos o presentar consultas puede escribir a
+    <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>.
+  </p>
+
+  <h2>2. Marco normativo aplicable</h2>
+  <p>Esta política se rige, entre otras, por las siguientes disposiciones colombianas:</p>
+  <ul>
+    <li>Constitución Política de Colombia, artículo 15 (Habeas Data).</li>
+    <li>Ley 1581 de 2012 y Decreto 1377 de 2013 (protección de datos personales).</li>
+    <li>Ley Estatutaria 1751 de 2015 (derecho fundamental a la salud).</li>
+    <li>Ley 23 de 1981 (ética médica y deber de confidencialidad).</li>
+    <li>Resolución 1995 de 1999 y Resolución 866 de 2021 del Ministerio de Salud (historia clínica).</li>
+  </ul>
+
+  <h2>3. Datos que tratamos</h2>
+  <p>Según su interacción con la plataforma, podemos tratar:</p>
+  <ul>
+    <li><strong>Datos de identificación y contacto:</strong> nombre, documento, correo, teléfono, cargo e institución.</li>
+    <li><strong>Datos comerciales:</strong> información para demos, contratos y facturación.</li>
+    <li><strong>Datos de navegación:</strong> dirección IP, cookies y métricas de uso del sitio (ver Política de cookies).</li>
+    <li>
+      <strong>Datos relacionados con la salud (datos sensibles):</strong> cuando la institución cliente utiliza
+      {LEGAL.brand} para agendamiento, pueden registrarse especialidad, profesional, EPS, sede, fecha de cita
+      y otros datos vinculados a la prestación del servicio de salud.
+    </li>
+  </ul>
+
+  <h2>4. Finalidades del tratamiento</h2>
+  <ul>
+    <li>Prestar el servicio de agendamiento clínico por WhatsApp, web y call center.</li>
+    <li>Gestionar solicitudes de demo, soporte y comunicaciones comerciales.</li>
+    <li>Cumplir obligaciones contractuales, legales y de seguridad de la información.</li>
+    <li>Mejorar la plataforma mediante analítica agregada y no identificable cuando sea posible.</li>
+  </ul>
+
+  <h2>5. Rol de {LEGAL.brand} frente a instituciones de salud</h2>
+  <p>
+    Cuando una IPS, clínica u hospital contrata {LEGAL.brand}, la institución de salud actúa generalmente
+    como <strong>Responsable del tratamiento</strong> de los datos de sus pacientes, y {LEGAL.company}
+    actúa como <strong>Encargado del tratamiento</strong>, conforme al contrato de servicios y a la
+    autorización del titular, tratando la información únicamente según instrucciones documentadas del cliente
+    y con medidas de seguridad acordes a la naturaleza sensible de los datos clínicos.
+  </p>
+
+  <h2>6. Derechos de los titulares (ARCO y revocatoria)</h2>
+  <p>Usted puede, en los términos de la Ley 1581 de 2012:</p>
+  <ul>
+    <li>Conocer, actualizar y rectificar sus datos personales.</li>
+    <li>Solicitar prueba de la autorización otorgada.</li>
+    <li>Ser informado sobre el uso dado a sus datos.</li>
+    <li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC).</li>
+    <li>Revocar la autorización y/o solicitar la supresión cuando no exista deber legal o contractual.</li>
+  </ul>
+  <p>
+    Las solicitudes se atenderán en un plazo máximo de quince (15) días hábiles, prorrogables por ocho (8)
+    días hábiles adicionales cuando sea necesario, mediante escrito a {LEGAL.email}.
+  </p>
+
+  <h2>7. Transferencia y transmisión internacional</h2>
+  <p>
+    Los datos pueden alojarse en proveedores de infraestructura en la nube con estándares de seguridad
+    reconocidos. Cuando exista transferencia internacional, se adoptarán cláusulas contractuales y
+    garantías exigidas por la normativa colombiana para datos personales y, en particular, datos sensibles
+    de salud.
+  </p>
+
+  <h2>8. Seguridad y conservación</h2>
+  <p>
+    Implementamos controles técnicos, administrativos y organizacionales alineados con buenas prácticas
+    de la industria y la Resolución 866 de 2021. Los datos se conservan durante la vigencia de la relación
+    contractual y los plazos legales aplicables a historias clínicas y trazabilidad de citas.
+  </p>
+
+  <h2>9. Cambios a esta política</h2>
+  <p>
+    Podemos actualizar este documento. La versión vigente estará publicada en esta página con la fecha de
+    última modificación. Le recomendamos revisarla periódicamente.
+  </p>
+</LegalLayout>

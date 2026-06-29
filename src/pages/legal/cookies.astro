@@ -1,0 +1,101 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { LEGAL } from '../../data/legal';
+---
+
+<LegalLayout
+  title="Política de cookies"
+  description="Información sobre el uso de cookies y tecnologías similares en el sitio web de GEN.AI, conforme a la Ley 1581 de 2012."
+>
+  <h2>1. ¿Qué son las cookies?</h2>
+  <p>
+    Las cookies son archivos de texto que un sitio web almacena en su navegador para recordar preferencias,
+    medir el uso del sitio o mejorar la experiencia. Tecnologías similares incluyen píxeles, almacenamiento
+    local y identificadores de sesión.
+  </p>
+
+  <h2>2. Responsable</h2>
+  <p>
+    <strong>{LEGAL.company}</strong> ({LEGAL.brand}) utiliza cookies en <strong>genai.co</strong> y
+    subdominios asociados, en cumplimiento de la Ley 1581 de 2012 y principios de transparencia
+    en el tratamiento de datos personales.
+  </p>
+
+  <h2>3. Tipos de cookies que utilizamos</h2>
+
+  <h3>Cookies estrictamente necesarias</h3>
+  <p>
+    Permiten funciones básicas como la navegación, la seguridad y el acceso a áreas del sitio.
+    No requieren consentimiento previo porque son imprescindibles para el servicio.
+  </p>
+
+  <h3>Cookies de rendimiento y analítica</h3>
+  <p>
+    Nos ayudan a entender cómo los visitantes interactúan con el sitio (páginas visitadas, tiempo
+    de permanencia, origen del tráfico). La información se utiliza de forma agregada para mejorar
+    contenidos y rendimiento. Solo se activan con su consentimiento cuando la normativa o nuestra
+    configuración así lo exijan.
+  </p>
+
+  <h3>Cookies de funcionalidad</h3>
+  <p>
+    Recuerdan preferencias como idioma o región para personalizar su experiencia en visitas posteriores.
+  </p>
+
+  <h3>Cookies de marketing (si aplican)</h3>
+  <p>
+    Pueden utilizarse para medir la efectividad de campañas en redes o buscadores. No vendemos datos
+    personales a terceros. Cualquier cookie de este tipo requerirá su autorización expresa.
+  </p>
+
+  <h2>4. Cookies de terceros</h2>
+  <p>El sitio puede integrar servicios de terceros que instalan sus propias cookies, por ejemplo:</p>
+  <ul>
+    <li><strong>Google Fonts:</strong> carga tipográfica (puede registrar dirección IP del solicitante).</li>
+    <li><strong>WhatsApp / Meta:</strong> al usar enlaces o widgets de contacto comercial.</li>
+    <li><strong>Herramientas de analítica:</strong> si se habilitan en el futuro, se listarán aquí.</li>
+  </ul>
+  <p>
+    Le recomendamos revisar las políticas de privacidad de dichos proveedores para conocer sus prácticas
+    de tratamiento de datos.
+  </p>
+
+  <h2>5. Base legal y consentimiento</h2>
+  <p>
+    Conforme a la Ley 1581 de 2012, el tratamiento de datos personales obtenidos mediante cookies no
+    esenciales se realiza con base en su consentimiento previo, expreso e informado, el cual puede
+    revocar en cualquier momento eliminando las cookies desde su navegador o ajustando sus preferencias
+    cuando dispongamos de un panel de configuración.
+  </p>
+
+  <h2>6. Cómo gestionar o desactivar cookies</h2>
+  <p>Puede controlar las cookies desde la configuración de su navegador:</p>
+  <ul>
+    <li>Chrome: Configuración → Privacidad y seguridad → Cookies.</li>
+    <li>Firefox: Opciones → Privacidad y seguridad.</li>
+    <li>Safari: Preferencias → Privacidad.</li>
+    <li>Edge: Configuración → Cookies y permisos del sitio.</li>
+  </ul>
+  <p>
+    Tenga en cuenta que deshabilitar cookies necesarias puede afectar el funcionamiento del sitio.
+  </p>
+
+  <h2>7. Plazo de conservación</h2>
+  <p>
+    Las cookies de sesión se eliminan al cerrar el navegador. Las cookies persistentes se conservan
+    según el plazo indicado en cada cookie (habitualmente entre 30 días y 12 meses) o hasta que
+    usted las elimine manualmente.
+  </p>
+
+  <h2>8. Actualizaciones</h2>
+  <p>
+    Esta política puede modificarse para reflejar cambios tecnológicos o normativos. La fecha de
+    última actualización se indica al inicio del documento.
+  </p>
+
+  <h2>9. Contacto</h2>
+  <p>
+    Para consultas sobre cookies y datos personales:
+    <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>.
+  </p>
+</LegalLayout>

@@ -1,0 +1,63 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'whatsapp' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  target?: string;
+  rel?: string;
+  type?: 'button' | 'submit';
+  openDemoModal?: boolean;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+  target,
+  rel,
+  type = 'button',
+  openDemoModal = false,
+} = Astro.props;
+
+const base =
+  'group relative inline-flex items-center justify-center gap-2.5 font-semibold tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface overflow-hidden';
+
+const variants = {
+  primary:
+    'rounded-full bg-ink text-white shadow-[0_4px_24px_-4px_rgba(12,25,41,0.35)] hover:bg-primary hover:shadow-[0_8px_32px_-8px_rgba(22,59,163,0.45)] hover:-translate-y-0.5 active:translate-y-0',
+  secondary:
+    'rounded-full bg-secondary text-white shadow-[0_4px_24px_-4px_rgba(14,124,134,0.35)] hover:bg-secondary-dark hover:-translate-y-0.5',
+  outline:
+    'rounded-full border border-line bg-white text-ink hover:border-primary/30 hover:bg-surface-alt hover:-translate-y-0.5',
+  whatsapp:
+    'rounded-full bg-[#128C7E] text-white shadow-[0_4px_24px_-4px_rgba(18,140,126,0.35)] hover:bg-[#0d7268] hover:-translate-y-0.5',
+  ghost:
+    'rounded-full text-muted hover:text-ink hover:bg-white/80',
+};
+
+const sizes = {
+  sm: 'px-5 py-2.5 text-sm',
+  md: 'px-6 py-3 text-sm',
+  lg: 'px-8 py-3.5 text-base',
+};
+
+const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
+---
+
+{
+  openDemoModal ? (
+    <button type="button" data-demo-trigger class={classes}>
+      <slot />
+    </button>
+  ) : href ? (
+    <a href={href} class={classes} target={target} rel={rel}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes}>
+      <slot />
+    </button>
+  )
+}

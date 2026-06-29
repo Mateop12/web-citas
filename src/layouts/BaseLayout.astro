@@ -1,0 +1,156 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import DemoModal from '../components/DemoModal.astro';
+import '../styles/global.css';
+import { SITE, SEO, buildCanonicalUrl, buildStructuredData } from '../data/seo';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = SEO.title,
+  description = SEO.description,
+  keywords = SEO.keywords,
+  ogImage = '/og-image.svg',
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = buildCanonicalUrl(Astro.url.pathname, Astro.site?.href ?? SITE.url);
+const ogImageURL = new URL(ogImage, Astro.site ?? SITE.url).href;
+const structuredData = buildStructuredData(description);
+---
+
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={SITE.name} />
+    <meta name="publisher" content={SITE.name} />
+    <meta name="copyright" content={`© ${new Date().getFullYear()} ${SITE.name}`} />
+    <meta name="language" content="Spanish" />
+    <meta name="content-language" content="es-CO" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+    <meta name="googlebot" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Geo / regional targeting -->
+    <meta name="geo.region" content="CO" />
+    <meta name="geo.placename" content="Colombia" />
+    <meta name="geo.position" content="6.248;-75.574" />
+    <meta name="ICBM" content="6.248, -75.574" />
+    <meta name="target" content="IPS, clínicas, hospitales, laboratorios, Latinoamérica" />
+    <meta name="category" content="Salud, Tecnología, Software médico, Inteligencia artificial" />
+    <meta name="classification" content="Software de agendamiento clínico con IA, software de autoagendamiento " />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:alt" content={SEO.ogImageAlt} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:locale:alternate" content="es_419" />
+    <meta property="og:site_name" content={SITE.name} />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content={SEO.ogImageAlt} />
+    <meta name="twitter:site" content={SEO.twitterHandle} />
+
+    <!-- Mobile & PWA hints -->
+    <meta name="theme-color" content={SEO.themeColor} />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content={SITE.name} />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="es" href={canonicalURL} />
+    <link rel="alternate" hreflang="es-CO" href={canonicalURL} />
+    <link rel="alternate" hreflang="es-419" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org JSON-LD -->
+    {
+      structuredData.map((schema) => (
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      ))
+    }
+
+    <ClientRouter />
+  </head>
+  <body class="overflow-x-hidden">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:shadow-lg"
+    >
+      Saltar al contenido principal
+    </a>
+    <slot />
+
+    <DemoModal />
+
+    <script>
+      import {
+        initScrollAnimations,
+        initNavbarScroll,
+        initMobileMenu,
+        initFAQ,
+        initCounters,
+        initHeroParallax,
+        initSolutionPanel,
+        initWhatsAppTabs,
+        initNavSpy,
+      } from '../scripts/animations';
+
+      function initAll() {
+        initScrollAnimations();
+        initNavbarScroll();
+        initMobileMenu();
+        initFAQ();
+        initCounters();
+        initHeroParallax();
+        initSolutionPanel();
+        initWhatsAppTabs();
+        initNavSpy();
+      }
+
+      document.addEventListener('astro:page-load', initAll);
+    </script>
+  </body>
+</html>

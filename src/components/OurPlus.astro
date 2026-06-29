@@ -1,0 +1,78 @@
+---
+import Button from './ui/Button.astro';
+
+const plusItems = [
+  {
+    action: 'Reducir',
+    highlight: 'costos operativos',
+    caption: 'Automatización que libera recursos en recepción y call center',
+    icon: 'M13 17h8m0 0V9m0 8l-8-8-4 4-6-6',
+  },
+  {
+    action: 'Disminuir',
+    highlight: 'ausentismos',
+    caption: 'Recordatorios inteligentes por WhatsApp, Correo y SMS, confirmaciones automáticas',
+    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+  },
+  {
+    action: 'Disponibilidad',
+    highlight: '24/7',
+    caption: 'Agendamiento sin horarios de oficina, fines de semana y festivos incluidos',
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+  {
+    action: 'Autogestión',
+    highlight: 'del paciente',
+    caption: 'Reserva, cancela y reprograma citas sin depender de recepción',
+    icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
+  },
+  {
+    action: 'Informes',
+    highlight: 'gerenciales',
+    caption: 'Ocupación, demanda por especialidad, ausentismo y productividad en tiempo real',
+    icon: 'M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+  },
+];
+---
+
+<section id="nuestros-plus" class="section-padding bg-white">
+  <div class="container-custom">
+    <div class="mx-auto max-w-2xl text-center" data-animate>
+      <p class="eyebrow mb-4">Ventajas clave</p>
+      <h2 class="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.65rem]">
+        Nuestros <span class="text-secondary">plus</span>
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+        Beneficios concretos para clínicas, IPS y centros de diagnóstico que automatizan su agendamiento con GEN.AI.
+      </p>
+      <div class="mt-8">
+       <!-- <Button href="#testimonios" variant="primary" size="md">
+          Ver casos de éxito
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </Button> -->
+      </div>
+    </div>
+
+    <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      {plusItems.map((item, i) => (
+        <article
+          class="card-hover group flex flex-col rounded-[1.25rem] border border-line bg-white p-6 text-center"
+          data-animate
+          data-delay={String((i % 5) + 1)}
+        >
+          <div class="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-secondary transition-colors group-hover:bg-secondary group-hover:text-white">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+            </svg>
+          </div>
+
+          <h3 class="font-display text-xl font-bold text-secondary">{item.action}</h3>
+          <p class="mt-0.5 text-sm font-semibold text-ink">{item.highlight}</p>
+          <p class="mt-4 flex-1 text-xs leading-relaxed text-muted">{item.caption}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
