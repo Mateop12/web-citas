@@ -1,5 +1,6 @@
 ---
 import Button from './ui/Button.astro';
+import { SITE } from '../data/seo';
 
 const WHATSAPP_URL = 'https://wa.me/573003238106?text=Hola%2C%20me%20interesa%20conocer%20GEN.AI';
 
@@ -74,7 +75,7 @@ const doubled = [...pulseEvents, ...pulseEvents];
               <span class="h-2.5 w-2.5 rounded-full bg-amber-300"></span>
               <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
             </div>
-            <span class="font-mono-data text-[10px] text-muted">app.genai.co</span>
+            <span class="font-mono-data text-[10px] text-muted">{SITE.appHostname}</span>
           </div>
 
           <div class="p-5 sm:p-6">

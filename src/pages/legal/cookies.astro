@@ -1,6 +1,7 @@
 ---
 import LegalLayout from '../../layouts/LegalLayout.astro';
 import { LEGAL } from '../../data/legal';
+import { SITE } from '../../data/seo';
 ---
 
 <LegalLayout
@@ -16,7 +17,7 @@ import { LEGAL } from '../../data/legal';
 
   <h2>2. Responsable</h2>
   <p>
-    <strong>{LEGAL.company}</strong> ({LEGAL.brand}) utiliza cookies en <strong>genai.co</strong> y
+    <strong>{LEGAL.company}</strong> ({LEGAL.brand}) utiliza cookies en <strong>{SITE.hostname}</strong> y
     subdominios asociados, en cumplimiento de la Ley 1581 de 2012 y principios de transparencia
     en el tratamiento de datos personales.
   </p>

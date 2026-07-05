@@ -8,4 +8,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://genai.co/sitemap.xml
+Sitemap: https://gena.monkeymindsoftware.com/sitemap.xml
