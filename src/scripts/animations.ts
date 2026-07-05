@@ -230,6 +230,20 @@ export function initWhatsAppTabs() {
 
 export function initNavSpy() {
   const links = document.querySelectorAll('.nav-link[data-section]');
+  const normalizePath = (path: string) =>
+    path.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
+  const currentPath = normalizePath(window.location.pathname);
+
+  links.forEach((link) => {
+    const href = link.getAttribute('href') ?? '';
+    if (href.startsWith('/')) {
+      const linkPath = normalizePath(new URL(href, window.location.origin).pathname);
+      link.classList.toggle('is-active', linkPath === currentPath && currentPath !== '/');
+    }
+  });
+
+  if (currentPath !== '/') return;
+
   const sections = Array.from(links)
     .map((link) => {
       const id = link.getAttribute('data-section');

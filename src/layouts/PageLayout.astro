@@ -1,0 +1,71 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import PageBreadcrumb from '../components/ui/PageBreadcrumb.astro';
+import RelatedPages from '../components/ui/RelatedPages.astro';
+import Button from '../components/ui/Button.astro';
+import {
+  buildPageTitle,
+  type ProductPageSeo,
+} from '../data/pages-seo';
+import { SITE, buildBreadcrumbSchema, buildCanonicalUrl } from '../data/seo';
+
+interface Props {
+  page: ProductPageSeo;
+  showRelated?: boolean;
+  showPageCta?: boolean;
+}
+
+const { page, showRelated = true, showPageCta = true } = Astro.props;
+
+const pageTitle = buildPageTitle(page);
+const siteBase = Astro.site?.href ?? SITE.url;
+const canonicalPath = page.slug;
+
+const breadcrumbItems = [
+  { label: 'Inicio', href: '/' },
+  { label: page.breadcrumbLabel },
+];
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Inicio', url: buildCanonicalUrl('/', siteBase) },
+  { name: page.breadcrumbLabel, url: buildCanonicalUrl(canonicalPath, siteBase) },
+]);
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={page.description}
+  includeFaqSchema={page.key === 'faq'}
+  extraStructuredData={[breadcrumbSchema]}
+>
+  <Navbar />
+  <main id="main-content">
+    <header class="section-band border-b border-line/60 pt-28 pb-10 lg:pt-32 lg:pb-12">
+      <div class="container-custom px-4 sm:px-6 lg:px-8">
+        <PageBreadcrumb items={breadcrumbItems} />
+        <h1 class="font-display max-w-3xl text-3xl leading-[1.12] font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
+          {page.h1}
+        </h1>
+        <p class="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+          {page.intro}
+        </p>
+        {
+          showPageCta && page.key !== 'contacto' && (
+            <div class="mt-8">
+              <Button openDemoModal variant="primary" size="md">
+                Solicitar demo
+              </Button>
+            </div>
+          )
+        }
+      </div>
+    </header>
+
+    <slot />
+
+    {showRelated && <RelatedPages page={page} />}
+  </main>
+  <Footer />
+</BaseLayout>

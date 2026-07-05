@@ -1,0 +1,40 @@
+---
+import { getRelatedPages, type ProductPageSeo } from '../../data/pages-seo';
+
+interface Props {
+  page: ProductPageSeo;
+}
+
+const { page } = Astro.props;
+const related = getRelatedPages(page.relatedSlugs);
+---
+
+{
+  related.length > 0 && (
+    <aside class="border-t border-line bg-surface/40 py-12">
+      <div class="container-custom px-4 sm:px-6 lg:px-8">
+        <p class="eyebrow mb-4">Explora más</p>
+        <h2 class="font-display text-xl font-bold text-ink sm:text-2xl">Páginas relacionadas</h2>
+        <ul class="mt-6 grid gap-3 sm:grid-cols-3">
+          {
+            related.map((item) => (
+              <li>
+                <a
+                  href={item.slug}
+                  class="group flex h-full flex-col rounded-2xl border border-line bg-white p-5 transition-all hover:border-primary/30 hover:shadow-md"
+                >
+                  <span class="font-display text-sm font-semibold text-ink group-hover:text-primary">
+                    {item.breadcrumbLabel}
+                  </span>
+                  <span class="mt-2 line-clamp-2 text-xs leading-relaxed text-muted">
+                    {item.description}
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </aside>
+  )
+}

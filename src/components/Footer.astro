@@ -1,22 +1,22 @@
 ---
 import BrandLogo from './ui/BrandLogo.astro';
 import { LEGAL_NAV } from '../data/legal';
+import { PRODUCT_PAGES } from '../data/pages-seo';
 import { SITE } from '../data/seo';
 
 const currentYear = new Date().getFullYear();
 
 const footerLinks = {
   producto: [
-    { label: 'Nuestros plus', href: '#nuestros-plus' },
-    { label: 'WhatsApp', href: '#whatsapp' },
-    { label: 'Agendamiento web', href: '#agendamiento-web' },
-    { label: 'Panel administrativo', href: '#aplicacion' },
+    { label: 'Nosotros', href: PRODUCT_PAGES.nuestrosPlus.slug },
+    { label: 'Producto', href: PRODUCT_PAGES.whatsapp.slug },
+    { label: 'Panel', href: PRODUCT_PAGES.panel.slug },
   ],
   empresa: [
-    { label: 'Sobre nosotros', href: '#' },
-    { label: 'Blog', href: '#' },
-    { label: 'Casos de éxito', href: '#testimonios' },
-    { label: 'Contacto', href: '#demo' },
+    { label: 'Problema', href: PRODUCT_PAGES.problema.slug },
+    { label: 'Solución', href: PRODUCT_PAGES.solucion.slug },
+    { label: 'FAQ', href: PRODUCT_PAGES.faq.slug },
+    { label: 'Contacto', href: PRODUCT_PAGES.contacto.slug },
   ],
   legal: LEGAL_NAV.map(({ label, href }) => ({ label, href })),
 };

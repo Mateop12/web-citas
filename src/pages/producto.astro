@@ -1,0 +1,15 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import AppBooking from '../components/AppBooking.astro';
+import ProductOutreach from '../components/ProductOutreach.astro';
+import WhatsAppBot from '../components/WhatsAppBot.astro';
+import { getPageSeo } from '../data/pages-seo';
+
+const page = getPageSeo('whatsapp');
+---
+
+<PageLayout page={page}>
+  <AppBooking standalone previewMode="screenshot" variant="product" />
+  <ProductOutreach />
+  <WhatsAppBot standalone variant="product" />
+</PageLayout>

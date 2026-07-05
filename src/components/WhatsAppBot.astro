@@ -1,5 +1,30 @@
 ---
 import SectionHeader from './ui/SectionHeader.astro';
+import SectionMoreLink from './ui/SectionMoreLink.astro';
+import { PRODUCT_PAGES } from '../data/pages-seo';
+
+interface Props {
+  standalone?: boolean;
+  showMoreLink?: boolean;
+  variant?: 'default' | 'product';
+}
+
+const { standalone = false, showMoreLink = false, variant = 'default' } = Astro.props;
+const page = PRODUCT_PAGES.whatsapp;
+const isProduct = variant === 'product';
+
+const header = isProduct
+  ? {
+      badge: 'WhatsApp con IA',
+      title: 'Agendamiento conversacional en el canal más usado',
+      description:
+        'Parte del ecosistema multicanal de GEN.AI: el paciente escribe, la IA consulta disponibilidad y confirma la cita. Complementa tu portal web, SMS y correo con conversaciones naturales las 24 horas.',
+    }
+  : {
+      badge: 'WhatsApp',
+      title: 'El canal que tus pacientes ya usan',
+      description: 'Sin apps ni formularios. Conversaciones naturales que terminan en citas confirmadas.',
+    };
 
 const conversations = [
   {
@@ -46,14 +71,14 @@ const waSteps = [
 ];
 ---
 
-<section id="whatsapp" class="section-padding bg-white">
+<section {...(!standalone && { id: 'whatsapp' })} class={`section-padding ${isProduct ? 'bg-surface/30' : 'bg-white'}${standalone ? ' border-t border-line/60' : ''}`}>
   <div class="container-custom">
     <div class="grid gap-14 lg:grid-cols-2 lg:items-start">
       <div>
         <SectionHeader
-          badge="WhatsApp"
-          title="El canal que tus pacientes ya usan"
-          description="Sin apps ni formularios. Conversaciones naturales que terminan en citas confirmadas."
+          badge={header.badge}
+          title={header.title}
+          description={header.description}
           align="left"
         />
 
@@ -133,5 +158,11 @@ const waSteps = [
         ))}
       </div>
     </div>
+
+    {
+      showMoreLink && (
+        <SectionMoreLink href={page.slug} label={page.verMasLabel} class="mt-8 px-0" />
+      )
+    }
   </div>
 </section>

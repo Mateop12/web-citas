@@ -151,11 +151,26 @@ export function buildFAQSchema() {
   };
 }
 
-export function buildStructuredData(description: string) {
-  return [
+export function buildBreadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+export function buildStructuredData(description: string, options?: { includeFaq?: boolean }) {
+  const includeFaq = options?.includeFaq ?? true;
+  const schemas = [
     buildSoftwareSchema(description),
     buildOrganizationSchema(),
     buildWebSiteSchema(),
-    buildFAQSchema(),
   ];
+  if (includeFaq) schemas.push(buildFAQSchema());
+  return schemas;
 }

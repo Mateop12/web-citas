@@ -1,5 +1,15 @@
 ---
 import Button from './ui/Button.astro';
+import SectionMoreLink from './ui/SectionMoreLink.astro';
+import { PRODUCT_PAGES } from '../data/pages-seo';
+
+interface Props {
+  standalone?: boolean;
+  showMoreLink?: boolean;
+}
+
+const { standalone = false, showMoreLink = false } = Astro.props;
+const page = PRODUCT_PAGES.nuestrosPlus;
 
 const plusItems = [
   {
@@ -35,7 +45,7 @@ const plusItems = [
 ];
 ---
 
-<section id="nuestros-plus" class="section-padding bg-white">
+<section {...(!standalone && { id: 'nuestros-plus' })} class="section-padding bg-white">
   <div class="container-custom">
     <div class="mx-auto max-w-2xl text-center" data-animate>
       <p class="eyebrow mb-4">Ventajas clave</p>
@@ -74,5 +84,11 @@ const plusItems = [
         </article>
       ))}
     </div>
+
+    {
+      showMoreLink && (
+        <SectionMoreLink href={page.slug} label={page.verMasLabel} class="mt-8 px-0" />
+      )
+    }
   </div>
 </section>

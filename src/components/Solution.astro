@@ -1,5 +1,15 @@
 ---
 import SectionHeader from './ui/SectionHeader.astro';
+import SectionMoreLink from './ui/SectionMoreLink.astro';
+import { PRODUCT_PAGES } from '../data/pages-seo';
+
+interface Props {
+  standalone?: boolean;
+  showMoreLink?: boolean;
+}
+
+const { standalone = false, showMoreLink = false } = Astro.props;
+const page = PRODUCT_PAGES.solucion;
 
 const solutions = [
   {
@@ -28,7 +38,7 @@ const metrics = [
 ];
 ---
 
-<section id="solucion" class="section-padding">
+<section {...(!standalone && { id: 'solucion' })} class="section-padding">
   <div class="container-custom">
     <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-20">
       <div>
@@ -126,5 +136,11 @@ const metrics = [
         </aside>
       </div>
     </div>
+
+    {
+      showMoreLink && (
+        <SectionMoreLink href={page.slug} label={page.verMasLabel} class="mt-8 px-0" />
+      )
+    }
   </div>
 </section>

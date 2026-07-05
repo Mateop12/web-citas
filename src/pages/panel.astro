@@ -1,0 +1,11 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import DashboardPreview from '../components/DashboardPreview.astro';
+import { getPageSeo } from '../data/pages-seo';
+
+const page = getPageSeo('panel');
+---
+
+<PageLayout page={page}>
+  <DashboardPreview standalone />
+</PageLayout>

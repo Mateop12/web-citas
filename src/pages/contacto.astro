@@ -1,0 +1,11 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CTA from '../components/CTA.astro';
+import { getPageSeo } from '../data/pages-seo';
+
+const page = getPageSeo('contacto');
+---
+
+<PageLayout page={page} showPageCta={false}>
+  <CTA standalone />
+</PageLayout>

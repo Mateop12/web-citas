@@ -1,13 +1,14 @@
 ---
 import Button from './ui/Button.astro';
 import BrandLogo from './ui/BrandLogo.astro';
+import { PRODUCT_PAGES } from '../data/pages-seo';
 
 const navLinks = [
-  { href: '#problema', label: 'Problema', section: 'problema' },
-  { href: '#solucion', label: 'Solución', section: 'solucion' },
-  { href: '#nuestros-plus', label: 'Plus', section: 'nuestros-plus' },
-  { href: '#whatsapp', label: 'Producto', section: 'whatsapp' },
-  { href: '#faq', label: 'FAQ', section: 'faq' },
+  { href: PRODUCT_PAGES.problema.slug, label: 'Problema', section: 'problema' },
+  { href: PRODUCT_PAGES.solucion.slug, label: 'Solución', section: 'solucion' },
+  { href: PRODUCT_PAGES.nuestrosPlus.slug, label: 'Nosotros', section: 'nuestros-plus' },
+  { href: PRODUCT_PAGES.whatsapp.slug, label: 'Producto', section: 'whatsapp' },
+  { href: PRODUCT_PAGES.faq.slug, label: 'FAQ', section: 'faq' },
 ];
 ---
 

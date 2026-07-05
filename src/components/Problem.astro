@@ -1,5 +1,15 @@
 ---
 import SectionHeader from './ui/SectionHeader.astro';
+import SectionMoreLink from './ui/SectionMoreLink.astro';
+import { PRODUCT_PAGES } from '../data/pages-seo';
+
+interface Props {
+  standalone?: boolean;
+  showMoreLink?: boolean;
+}
+
+const { standalone = false, showMoreLink = false } = Astro.props;
+const page = PRODUCT_PAGES.problema;
 
 const problems = [
   {
@@ -25,7 +35,10 @@ const problems = [
 ];
 ---
 
-<section id="problema" class="section-padding border-y border-line/60 bg-white">
+<section
+  {...(!standalone && { id: 'problema' })}
+  class="section-padding border-y border-line/60 bg-white"
+>
   <div class="container-custom">
     <SectionHeader
       badge="El problema"
@@ -58,5 +71,11 @@ const problems = [
         </p>
       </article>
     </div>
+
+    {
+      showMoreLink && (
+        <SectionMoreLink href={page.slug} label={page.verMasLabel} class="mt-8 px-0" />
+      )
+    }
   </div>
 </section>

@@ -1,0 +1,11 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import OurPlus from '../components/OurPlus.astro';
+import { getPageSeo } from '../data/pages-seo';
+
+const page = getPageSeo('nuestrosPlus');
+---
+
+<PageLayout page={page}>
+  <OurPlus standalone />
+</PageLayout>

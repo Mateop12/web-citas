@@ -1,8 +1,18 @@
 ---
 import SectionHeader from './ui/SectionHeader.astro';
 import BrandLogo from './ui/BrandLogo.astro';
+import SectionMoreLink from './ui/SectionMoreLink.astro';
+import { PRODUCT_PAGES } from '../data/pages-seo';
+
+interface Props {
+  standalone?: boolean;
+  showMoreLink?: boolean;
+}
+
+const { standalone = false, showMoreLink = false } = Astro.props;
+const page = PRODUCT_PAGES.panel;
 ---
-<section id="aplicacion" class="section-padding bg-ink text-white">
+<section {...(!standalone && { id: 'aplicacion' })} class="section-padding bg-ink text-white">
   <div class="container-custom">
     <SectionHeader
       badge="Aplicación web"
@@ -102,5 +112,15 @@ import BrandLogo from './ui/BrandLogo.astro';
         </article>
       ))}
     </div>
+
+    {
+      showMoreLink && (
+        <SectionMoreLink
+          href={page.slug}
+          label={page.verMasLabel}
+          class="mt-8 px-0 [&_a]:text-accent [&_a:hover]:text-white"
+        />
+      )
+    }
   </div>
 </section>

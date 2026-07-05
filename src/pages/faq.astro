@@ -1,0 +1,11 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import FAQ from '../components/FAQ.astro';
+import { getPageSeo } from '../data/pages-seo';
+
+const page = getPageSeo('faq');
+---
+
+<PageLayout page={page}>
+  <FAQ standalone />
+</PageLayout>

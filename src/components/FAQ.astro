@@ -1,9 +1,19 @@
 ---
 import SectionHeader from './ui/SectionHeader.astro';
+import SectionMoreLink from './ui/SectionMoreLink.astro';
 import { faqs } from '../data/faqs';
+import { PRODUCT_PAGES } from '../data/pages-seo';
+
+interface Props {
+  standalone?: boolean;
+  showMoreLink?: boolean;
+}
+
+const { standalone = false, showMoreLink = false } = Astro.props;
+const page = PRODUCT_PAGES.faq;
 ---
 
-<section id="faq" class="section-padding bg-white">
+<section {...(!standalone && { id: 'faq' })} class="section-padding bg-white">
   <div class="container-custom">
     <SectionHeader
       badge="Preguntas frecuentes"
@@ -41,5 +51,11 @@ import { faqs } from '../data/faqs';
         </div>
       ))}
     </div>
+
+    {
+      showMoreLink && (
+        <SectionMoreLink href={page.slug} label={page.verMasLabel} class="mt-8 px-0" />
+      )
+    }
   </div>
 </section>

@@ -10,6 +10,8 @@ interface Props {
   keywords?: string;
   ogImage?: string;
   noindex?: boolean;
+  includeFaqSchema?: boolean;
+  extraStructuredData?: Record<string, unknown>[];
 }
 
 const {
@@ -18,11 +20,16 @@ const {
   keywords = SEO.keywords,
   ogImage = '/og-image.svg',
   noindex = false,
+  includeFaqSchema = true,
+  extraStructuredData = [],
 } = Astro.props;
 
 const canonicalURL = buildCanonicalUrl(Astro.url.pathname, Astro.site?.href ?? SITE.url);
 const ogImageURL = new URL(ogImage, Astro.site ?? SITE.url).href;
-const structuredData = buildStructuredData(description);
+const structuredData = [
+  ...buildStructuredData(description, { includeFaq: includeFaqSchema }),
+  ...extraStructuredData,
+];
 ---
 
 <!doctype html>
