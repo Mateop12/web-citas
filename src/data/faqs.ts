@@ -15,6 +15,7 @@ export const faqs: FAQItem[] = [
       'No. GEN.AI es 100% web y funciona desde cualquier navegador moderno. También es completamente responsive, por lo que puedes acceder desde tablets y celulares sin problemas.',
   },
   {
+    // TODO(dueño): lista de HIS integrados para nombrarlos aquí en vez de "los principales sistemas".
     question: '¿Se integra con mi sistema de historias clínicas actual?',
     answer:
       'Sí. GEN.AI se integra con los principales sistemas de historias clínicas (HIS) mediante API REST. También ofrecemos integración con Google Calendar, Outlook y sistemas personalizados.',
@@ -25,9 +26,10 @@ export const faqs: FAQItem[] = [
       'Utilizamos la API oficial de WhatsApp Business con inteligencia artificial que comprende lenguaje natural. El paciente escribe como lo haría con una persona y el bot guía la conversación para agendar, cancelar o reprogramar citas.',
   },
   {
+    // TODO(dueño): ISO 27001 retirado sin respaldo. Si el certificado es del hosting: "alojado en <proveedor> con certificación ISO 27001" + enlace.
     question: '¿Mis datos y los de mis pacientes están seguros?',
     answer:
-      'Absolutamente. Utilizamos cifrado AES-256 en tránsito y reposo, servidores con certificación ISO 27001 y cumplimos con normativas de protección de datos de salud. Realizamos respaldos automáticos cada 6 horas.',
+      'Absolutamente. Utilizamos cifrado AES-256 en tránsito y reposo y cumplimos con normativas de protección de datos de salud. Realizamos respaldos automáticos cada 6 horas.',
   },
   {
     question: '¿Ofrecen soporte técnico en español?',
@@ -40,3 +42,6 @@ export const faqs: FAQItem[] = [
       'Por supuesto. Ofrecemos una demo personalizada donde configuramos un entorno de prueba con los datos de tu clínica para que veas el sistema en acción con casos reales.',
   },
 ];
+
+// Resumen del home: respuestas cortas; el resto solo en /faq/ (evita texto duplicado)
+export const homeFaqs = faqs.slice(0, 3);

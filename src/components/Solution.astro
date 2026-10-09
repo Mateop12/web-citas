@@ -36,6 +36,9 @@ const metrics = [
   { value: '65', suffix: '%', prefix: '−', label: 'Tiempo de agendamiento', note: 'Con integración HC', fill: 65 },
   { value: '24/7', static: true, label: 'Disponibilidad', fill: 100 },
 ];
+
+// TODO(dueño): fuente de las métricas, p. ej. "Promedio en N clínicas, periodo X". Vacío = no se muestra.
+const metricsSource = '';
 ---
 
 <section {...(!standalone && { id: 'solucion' })} class="section-padding">
@@ -97,7 +100,7 @@ const metrics = [
                       <span class="text-secondary">{m.value}</span>
                     ) : (
                       <span data-counter={m.value} data-prefix={m.prefix} data-suffix={m.suffix}>
-                        {m.prefix}0{m.suffix}
+                        {m.prefix}{m.value}{m.suffix}
                       </span>
                     )}
                   </dt>
@@ -109,6 +112,7 @@ const metrics = [
                 </div>
               ))}
             </dl>
+            {metricsSource && <p class="mt-4 text-xs text-muted">{metricsSource}</p>}
           </div>
 
           <div class="solution-panel-integration">

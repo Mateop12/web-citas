@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada | GEN.AI"
+  description="La página que buscas no existe o cambió de dirección."
+  noindex
+>
+  <Navbar />
+  <main id="main-content" class="section-padding pt-36">
+    <div class="container-custom mx-auto max-w-xl px-4 text-center">
+      <p class="eyebrow mb-4">Error 404</p>
+      <h1 class="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+        No encontramos esta página
+      </h1>
+      <p class="mt-4 text-base leading-relaxed text-muted">
+        Puede que el enlace esté mal escrito o que la página haya cambiado de dirección.
+      </p>
+      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <Button href="/" variant="primary" size="md">Ir al inicio</Button>
+        <Button href="/contacto/" variant="outline" size="md">Solicitar demo</Button>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

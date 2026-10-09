@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import { LEGAL, LEGAL_NAV } from '../data/legal';
+import { SITE, buildBreadcrumbSchema, buildCanonicalUrl } from '../data/seo';
 
 interface Props {
   title: string;
@@ -11,12 +12,21 @@ interface Props {
 
 const { title, description } = Astro.props;
 const pageTitle = `${title} | ${LEGAL.brand}`;
+const siteBase = Astro.site?.href ?? SITE.url;
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Inicio', url: buildCanonicalUrl('/', siteBase) },
+  { name: title, url: buildCanonicalUrl(Astro.url.pathname, siteBase) },
+]);
 ---
 
-<BaseLayout title={pageTitle} description={description}>
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  extraStructuredData={[breadcrumbSchema]}
+>
   <Navbar />
-  <main id="main-content" class="bg-surface/40 pt-28 pb-16 lg:pt-32">
-    <div class="container-custom px-4 sm:px-6 lg:px-8">
+  <main id="main-content" class="bg-surface/40 px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40">
+    <div class="container-custom">
       <div class="mx-auto max-w-3xl">
         <p class="eyebrow mb-4">Documentos legales</p>
         <h1 class="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">{title}</h1>
@@ -33,7 +43,7 @@ const pageTitle = `${title} | ${LEGAL.brand}`;
                   'rounded-full border px-3 py-1.5 text-xs font-medium transition-colors',
                   Astro.url.pathname === link.href
                     ? 'border-primary bg-primary/10 text-primary'
-                    : 'border-line bg-white text-muted hover:border-primary/30 hover:text-ink',
+                    : 'border-line bg-card text-muted hover:border-primary/30 hover:text-ink',
                 ]}
               >
                 {link.label}
@@ -42,7 +52,7 @@ const pageTitle = `${title} | ${LEGAL.brand}`;
           }
         </nav>
 
-        <article class="legal-prose mt-10 rounded-[1.5rem] border border-line bg-white p-6 sm:p-10">
+        <article class="legal-prose mt-10 rounded-[1.5rem] border border-line bg-card p-6 sm:p-10">
           <slot />
         </article>
 

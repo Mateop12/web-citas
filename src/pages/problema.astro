@@ -4,8 +4,40 @@ import Problem from '../components/Problem.astro';
 import { getPageSeo } from '../data/pages-seo';
 
 const page = getPageSeo('problema');
+
+// Fuente verificada: Navarro Romero et al., DYNA 89(220), 2022, sección "Justification".
+// TODO(dueño): datos de llamadas perdidas en Colombia (no se encontró fuente oficial verificable)
+// o cifras propias de clientes con permiso para publicarlas.
+const STUDY_URL = 'https://doi.org/10.15446/dyna.v89n220.97160';
 ---
 
 <PageLayout page={page}>
   <Problem standalone />
+
+  <section class="section-padding bg-surface/50">
+    <div class="container-custom">
+      <div class="mx-auto max-w-3xl">
+        <p class="eyebrow mb-4">El ausentismo en cifras</p>
+        <h2 class="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+          En Bogotá se perdió el 13&nbsp;% de las citas agendadas
+        </h2>
+        <p class="mt-6 text-base leading-relaxed text-muted sm:text-lg">
+          Según un estudio publicado en la revista DYNA (2022), en 2016 se agendaron 3.253.172 citas médicas en Bogotá y los pacientes no asistieron a 422.971 de
+          ellas. Cada inasistencia es un cupo que otro paciente necesitaba y tiempo de un profesional que
+          queda sin usar.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+          El mismo estudio concluye que la hora a la que se hace la llamada de recordatorio no es un factor
+          determinante en la asistencia. En GEN.AI, además del recordatorio, el paciente puede confirmar,
+          cambiar o cancelar su cita en el mismo chat, y el cupo vuelve a la agenda a tiempo.
+        </p>
+        <p class="mt-6 border-l-2 border-line pl-4 text-sm text-muted">
+          Fuente: Navarro Romero, E. del C., García-Corrales, N., Gelves-Alarcón, Ó. M. y Arteaga-Sarmiento, W. J.
+          (2022). Aplicación del diseño experimental para el análisis de incumplimiento de las citas médicas del
+          Sistema de Salud Colombiano. <em>DYNA</em>, 89(220).
+          <a href={STUDY_URL} class="font-medium text-primary hover:underline" rel="noopener" target="_blank">doi:10.15446/dyna.v89n220.97160</a>
+        </p>
+      </div>
+    </div>
+  </section>
 </PageLayout>

@@ -6,17 +6,18 @@ import { SITE } from '../data/seo';
   id="demo-modal"
   class="demo-modal pointer-events-none fixed inset-0 z-[100] flex items-end justify-center p-4 opacity-0 transition-opacity duration-300 sm:items-center sm:p-6"
   aria-hidden="true"
+  inert
   role="dialog"
   aria-modal="true"
   aria-labelledby="demo-modal-title"
 >
   <div
-    class="demo-modal-backdrop absolute inset-0 bg-ink/60 backdrop-blur-sm"
+    class="demo-modal-backdrop absolute inset-0 bg-deep/60 backdrop-blur-sm"
     data-demo-close
     aria-hidden="true"
   ></div>
 
-  <div class="demo-modal-panel relative z-10 w-full max-w-lg translate-y-4 scale-[0.98] rounded-[1.75rem] border border-line bg-white opacity-0 shadow-[0_32px_80px_-24px_rgba(12,25,41,0.25)] transition-all duration-300 sm:translate-y-0">
+  <div class="demo-modal-panel relative z-10 w-full max-w-lg translate-y-4 scale-[0.98] rounded-[1.75rem] border border-line bg-card opacity-0 shadow-[0_32px_80px_-24px_rgba(12,25,41,0.25)] transition-all duration-300 sm:translate-y-0">
     <div class="flex items-start justify-between gap-4 border-b border-line px-6 py-5 sm:px-8">
       <div>
         <p class="eyebrow mb-2">Solicitar demo</p>
@@ -133,7 +134,7 @@ import { SITE } from '../data/seo';
       <button
         type="submit"
         id="demo-form-submit"
-        class="flex w-full items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-secondary-dark disabled:cursor-not-allowed disabled:opacity-60"
+        class="btn-accent flex min-h-[50px] w-full items-center justify-center gap-2 rounded-[9px] px-6 text-sm font-semibold transition-shadow disabled:opacity-60"
       >
         <span data-demo-submit-label>Enviar solicitud</span>
         <svg data-demo-submit-spinner class="hidden h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
@@ -144,7 +145,7 @@ import { SITE } from '../data/seo';
 
       <p class="text-center text-[11px] leading-relaxed text-muted">
         Al enviar aceptas nuestra 
-        <a href="/legal/politica-de-privacidad" class="text-primary underline underline-offset-2"> política de privacidad</a>.
+        <a href="/legal/politica-de-privacidad/" class="text-primary underline underline-offset-2"> política de privacidad</a>.
       </p>
     </form>
 
@@ -227,6 +228,7 @@ import { SITE } from '../data/seo';
     if (!modal) return;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
+    modal.inert = false;
     document.body.style.overflow = 'hidden';
     const firstInput = modal.querySelector('input:not([type="hidden"])');
     if (firstInput instanceof HTMLElement) {
@@ -239,6 +241,7 @@ import { SITE } from '../data/seo';
     if (!modal) return;
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
+    modal.inert = true;
     document.body.style.overflow = '';
   }
 
@@ -445,5 +448,4 @@ import { SITE } from '../data/seo';
   }
 
   bindDemoModal();
-  document.addEventListener('astro:page-load', bindDemoModal);
 </script>

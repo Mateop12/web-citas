@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { standalone = false, showMoreLink = false } = Astro.props;
-const page = PRODUCT_PAGES.nuestrosPlus;
+const page = PRODUCT_PAGES.solucion;
 
 const plusItems = [
   {
@@ -45,7 +45,7 @@ const plusItems = [
 ];
 ---
 
-<section {...(!standalone && { id: 'nuestros-plus' })} class="section-padding bg-white">
+<section {...(!standalone && { id: 'nuestros-plus' })} class="section-padding bg-card">
   <div class="container-custom">
     <div class="mx-auto max-w-2xl text-center" data-animate>
       <p class="eyebrow mb-4">Ventajas clave</p>
@@ -68,7 +68,7 @@ const plusItems = [
     <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
       {plusItems.map((item, i) => (
         <article
-          class="card-hover group flex flex-col rounded-[1.25rem] border border-line bg-white p-6 text-center"
+          class="card-hover group flex flex-col rounded-[1.25rem] border border-line bg-card p-6 text-center"
           data-animate
           data-delay={String((i % 5) + 1)}
         >
@@ -78,8 +78,10 @@ const plusItems = [
             </svg>
           </div>
 
-          <h3 class="font-display text-xl font-bold text-secondary">{item.action}</h3>
-          <p class="mt-0.5 text-sm font-semibold text-ink">{item.highlight}</p>
+          <h3 class="font-display text-xl font-bold text-secondary">
+            {item.action}{" "}
+            <span class="mt-0.5 block font-sans text-sm font-semibold text-ink">{item.highlight}</span>
+          </h3>
           <p class="mt-4 flex-1 text-xs leading-relaxed text-muted">{item.caption}</p>
         </article>
       ))}
@@ -87,7 +89,7 @@ const plusItems = [
 
     {
       showMoreLink && (
-        <SectionMoreLink href={page.slug} label={page.verMasLabel} class="mt-8 px-0" />
+        <SectionMoreLink href={page.slug} label="Explora los beneficios del autoagendamiento" class="mt-8 px-0" />
       )
     }
   </div>
