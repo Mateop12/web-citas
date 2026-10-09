@@ -54,86 +54,73 @@ export function buildCanonicalUrl(pathname: string, site = SITE.url) {
   return new URL(pathname, site).href;
 }
 
-export function buildSoftwareSchema(description: string) {
+const ID = {
+  organization: `${SITE.url}/#organization`,
+  website: `${SITE.url}/#website`,
+  software: `${SITE.url}/#software`,
+};
+
+// Cada valor debe verse en el sitio. Sin Offer/precio, aggregateRating ni Review hasta que existan visibles.
+// TODO(dueño): confirmar foundingDate (SITE.foundingDate) antes de agregarlo; teléfono visible antes de agregar telephone.
+export function buildSiteGraph() {
+  const url = `${SITE.url}/`;
   return {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: SITE.name,
-    applicationCategory: 'HealthApplication',
-    applicationSubCategory: 'Medical Scheduling Software',
-    operatingSystem: 'Web',
-    url: SITE.url,
-    description,
-    inLanguage: 'es',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'COP',
-      description: 'Demo personalizada sin costo',
-      availability: 'https://schema.org/InStock',
-      areaServed: ['CO', 'MX', 'PE', 'CL', 'EC', 'AR'],
-    },
-    featureList: [
-      'Agendamiento médico con inteligencia artificial',
-      'Autoagendamiento 24/7 por WhatsApp',
-      'Autoagendamiento 24/7 de pacientes',
-      'Informes gerenciales de ocupación y demanda',
-      'Gestión de turnos y profesionales',
-      'Interoperabilidad con software de historia clínica (HIS)',
-      'Confirmaciones y recordatorios automáticos',
-      'Dashboard administrativo multiusuario',
-      'Portal web de agendamiento para pacientes',
-    ],
-    audience: {
-      '@type': 'Audience',
-      audienceType: 'IPS, clínicas, hospitales, laboratorios y centros de diagnóstico',
-      geographicArea: {
-        '@type': 'GeoCircle',
-        geoMidpoint: {
-          '@type': 'GeoCoordinates',
-          latitude: 6.248,
-          longitude: -75.574,
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': ID.organization,
+        name: SITE.name,
+        legalName: SITE.legalName,
+        url,
+        logo: `${SITE.url}/logo.png`,
+        description:
+          'Software de inteligencia artificial para agendamiento médico en IPS y clínicas de Colombia: autoagendamiento 24/7, confirmaciones automáticas, informes gerenciales e interoperabilidad con HIS.',
+        email: SITE.email,
+        areaServed: 'CO',
+        address: { '@type': 'PostalAddress', addressLocality: 'Medellín', addressCountry: 'CO' },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'sales',
+          email: SITE.email,
+          availableLanguage: 'es',
         },
-        description: 'Colombia y Latinoamérica',
+        sameAs: SITE.sameAs,
       },
-    },
-  };
-}
-
-export function buildOrganizationSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: SITE.name,
-    legalName: SITE.legalName,
-    url: SITE.url,
-    email: SITE.email,
-    foundingDate: SITE.foundingDate,
-    areaServed: SITE.region,
-    sameAs: SITE.sameAs,
-    logo: `${SITE.url}/logo.png`,
-    description: SEO.description,
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'CO',
-      addressLocality: 'Medellín',
-    },
-  };
-}
-
-export function buildWebSiteSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: SITE.name,
-    url: SITE.url,
-    inLanguage: 'es-CO',
-    description: SEO.description,
-    publisher: {
-      '@type': 'Organization',
-      name: SITE.name,
-      url: SITE.url,
-    },
+      {
+        '@type': 'WebSite',
+        '@id': ID.website,
+        name: SITE.name,
+        url,
+        inLanguage: 'es-CO',
+        publisher: { '@id': ID.organization },
+      },
+      {
+        '@type': 'SoftwareApplication',
+        '@id': ID.software,
+        name: SITE.name,
+        url,
+        applicationCategory: 'HealthApplication',
+        applicationSubCategory: 'Medical Scheduling Software',
+        operatingSystem: 'Web',
+        inLanguage: 'es-CO',
+        description:
+          'Agendamiento médico con inteligencia artificial por WhatsApp, web y call center, con confirmaciones automáticas, informes gerenciales e interoperabilidad con HIS.',
+        featureList: [
+          'Autoagendamiento 24/7 por WhatsApp y portal web',
+          'Confirmaciones y recordatorios automáticos por WhatsApp, correo y SMS',
+          'Lista de espera y reasignación de cupos liberados',
+          'Informes gerenciales de ocupación y demanda',
+          'Panel con calendario, profesionales y reportes de ocupación',
+          'Interoperabilidad con software de historia clínica (HIS) vía API',
+        ],
+        audience: {
+          '@type': 'Audience',
+          audienceType: 'IPS, clínicas, hospitales y centros de diagnóstico',
+        },
+        provider: { '@id': ID.organization },
+      },
+    ],
   };
 }
 
@@ -163,15 +150,4 @@ export function buildBreadcrumbSchema(items: { name: string; url: string }[]) {
       item: item.url,
     })),
   };
-}
-
-export function buildStructuredData(description: string, options?: { includeFaq?: boolean }) {
-  const includeFaq = options?.includeFaq ?? true;
-  const schemas = [
-    buildSoftwareSchema(description),
-    buildOrganizationSchema(),
-    buildWebSiteSchema(),
-  ];
-  if (includeFaq) schemas.push(buildFAQSchema());
-  return schemas;
 }

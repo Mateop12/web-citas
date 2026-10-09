@@ -37,6 +37,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 <BaseLayout
   title={pageTitle}
   description={page.description}
+  includeSiteGraph={page.key === 'whatsapp'}
   includeFaqSchema={page.key === 'faq'}
   extraStructuredData={[breadcrumbSchema]}
 >
