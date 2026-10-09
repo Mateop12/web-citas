@@ -97,7 +97,7 @@ const metrics = [
                       <span class="text-secondary">{m.value}</span>
                     ) : (
                       <span data-counter={m.value} data-prefix={m.prefix} data-suffix={m.suffix}>
-                        {m.prefix}0{m.suffix}
+                        {m.prefix}{m.value}{m.suffix}
                       </span>
                     )}
                   </dt>

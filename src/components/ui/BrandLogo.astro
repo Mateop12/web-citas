@@ -19,7 +19,7 @@ const {
   class: className = '',
 } = Astro.props;
 
-const iconSize = size === 'sm' ? 'h-11 w-11 rounded-xl' : 'h-12 w-12 rounded-2xl';
+const iconSize = size === 'sm' ? 'h-11 w-11 rounded-full' : 'h-12 w-12 rounded-full';
 const nameSize = size === 'sm' ? 'text-base' : 'text-xl';
 const nameColor = variant === 'light' ? 'text-white' : 'text-ink';
 const accentColor = variant === 'light' ? 'text-accent' : 'text-primary';
@@ -33,7 +33,7 @@ const linkClass = stacked
   <a href={href} class={linkClass} aria-label="GEN.AI - Inicio">
     <span class="inline-flex items-center gap-2.5">
       <img
-        src="/favicon.ico"
+        src="/logo-96.png"
         alt=""
         class={`${iconSize} ${shadow} object-cover transition-transform duration-300 group-hover:scale-105`}
         width={size === 'sm' ? 44 : 48}

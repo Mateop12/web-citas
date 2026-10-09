@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import { LEGAL, LEGAL_NAV } from '../data/legal';
+import { SITE, buildBreadcrumbSchema, buildCanonicalUrl } from '../data/seo';
 
 interface Props {
   title: string;
@@ -11,9 +12,19 @@ interface Props {
 
 const { title, description } = Astro.props;
 const pageTitle = `${title} | ${LEGAL.brand}`;
+const siteBase = Astro.site?.href ?? SITE.url;
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Inicio', url: buildCanonicalUrl('/', siteBase) },
+  { name: title, url: buildCanonicalUrl(Astro.url.pathname, siteBase) },
+]);
 ---
 
-<BaseLayout title={pageTitle} description={description}>
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  includeFaqSchema={false}
+  extraStructuredData={[breadcrumbSchema]}
+>
   <Navbar />
   <main id="main-content" class="bg-surface/40 pt-28 pb-16 lg:pt-32">
     <div class="container-custom px-4 sm:px-6 lg:px-8">

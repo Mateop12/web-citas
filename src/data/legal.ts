@@ -9,8 +9,8 @@ export const LEGAL = {
 } as const;
 
 export const LEGAL_NAV = [
-  { label: 'Política de privacidad', href: '/legal/politica-de-privacidad' },
-  { label: 'Términos de servicio', href: '/legal/terminos-de-servicio' },
-  { label: 'Protección de datos clínicos', href: '/legal/proteccion-de-datos' },
-  { label: 'Política de cookies', href: '/legal/cookies' },
+  { label: 'Política de privacidad', href: '/legal/politica-de-privacidad/' },
+  { label: 'Términos de servicio', href: '/legal/terminos-de-servicio/' },
+  { label: 'Protección de datos clínicos', href: '/legal/proteccion-de-datos/' },
+  { label: 'Política de cookies', href: '/legal/cookies/' },
 ] as const;

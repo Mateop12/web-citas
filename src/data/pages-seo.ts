@@ -25,7 +25,7 @@ export interface ProductPageSeo {
 export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   problema: {
     key: 'problema',
-    slug: '/problema',
+    slug: '/problema/',
     title: 'Desafíos del agendamiento clínico en IPS y clínicas | GEN.AI',
     description:
       'Llamadas perdidas, ausentismo y agendas saturadas afectan la rentabilidad de tu clínica. Conoce los retos del agendamiento manual y cómo resolverlos con IA.',
@@ -33,13 +33,13 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
     intro:
       'Las IPS, clínicas y hospitales en Colombia pierden ingresos cada día por procesos manuales de citas. Desde llamadas no contestadas hasta cancelaciones sin aviso, estos problemas tienen solución con automatización inteligente.',
     breadcrumbLabel: 'Problema',
-    relatedSlugs: ['/solucion', '/nosotros', '/contacto'],
+    relatedSlugs: ['/solucion/', '/nosotros/', '/contacto/'],
     homeAnchor: '#problema',
     verMasLabel: 'Conoce los desafíos del agendamiento clínico',
   },
   solucion: {
     key: 'solucion',
-    slug: '/solucion',
+    slug: '/solucion/',
     title: 'Software de agendamiento clínico con IA | GEN.AI',
     description:
       'Automatiza citas médicas con inteligencia artificial. WhatsApp, web y call center integrados. Confirmaciones automáticas e interoperabilidad con HIS para IPS en Colombia.',
@@ -47,13 +47,13 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
     intro:
       'GEN.AI centraliza WhatsApp, portal web y call center en una sola plataforma. Tu equipo deja de repetir tareas manuales mientras los pacientes agendan, confirman y reprograman las 24 horas.',
     breadcrumbLabel: 'Solución',
-    relatedSlugs: ['/producto', '/panel', '/nosotros'],
+    relatedSlugs: ['/producto/', '/panel/', '/nosotros/'],
     homeAnchor: '#solucion',
     verMasLabel: 'Ver el software de agendamiento con IA',
   },
   nuestrosPlus: {
     key: 'nuestrosPlus',
-    slug: '/nosotros',
+    slug: '/nosotros/',
     title: 'Beneficios del autoagendamiento clínico | GEN.AI',
     description:
       'Reduce costos operativos, ausentismo y carga administrativa con autoagendamiento 24/7. Beneficios concretos para IPS, clínicas y centros de diagnóstico en Colombia.',
@@ -61,13 +61,13 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
     intro:
       'Más allá de agendar citas, GEN.AI impacta directamente la rentabilidad: menos personal en tareas repetitivas, mayor ocupación de agenda y pacientes que se autogestionan sin llamar a recepción.',
     breadcrumbLabel: 'Nosotros',
-    relatedSlugs: ['/problema', '/solucion', '/contacto'],
+    relatedSlugs: ['/problema/', '/solucion/', '/contacto/'],
     homeAnchor: '#nuestros-plus',
     verMasLabel: 'Explora los beneficios del autoagendamiento',
   },
   whatsapp: {
     key: 'whatsapp',
-    slug: '/producto',
+    slug: '/producto/',
     title: 'Software clínico con autoagendamiento, campañas y contacto multicanal | GEN.AI',
     description:
       'Portal web y móvil 24/7, WhatsApp con IA, SMS y correo. Campañas de demanda inducida y demanda insatisfecha para captar pacientes en IPS y clínicas de Colombia.',
@@ -75,13 +75,13 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
     intro:
       'GEN.AI concentra en un solo producto lo que hoy está disperso: portal de autoagendamiento web y móvil, WhatsApp con IA, SMS, correo, campañas de demanda inducida y recuperación de demanda insatisfecha. Más pacientes agendados, menos carga en recepción y trazabilidad en tu panel administrativo.',
     breadcrumbLabel: 'Producto',
-    relatedSlugs: ['/solucion', '/panel', '/nosotros'],
+    relatedSlugs: ['/solucion/', '/panel/', '/nosotros/'],
     homeAnchor: '#whatsapp',
     verMasLabel: 'Conoce el producto GEN.AI',
   },
   panel: {
     key: 'panel',
-    slug: '/panel',
+    slug: '/panel/',
     title: 'Panel administrativo de agendamiento clínico | GEN.AI',
     description:
       'Dashboard para equipos de salud: calendario, profesionales, reportes de ocupación y ausentismo. Panel web multiusuario para IPS y clínicas en Colombia.',
@@ -89,13 +89,13 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
     intro:
       'Líderes de call center, agentes y personal administrativo operan desde un panel intuitivo. Controla disponibilidad, visualiza métricas y toma decisiones con datos reales de ocupación.',
     breadcrumbLabel: 'Panel',
-    relatedSlugs: ['/solucion', '/producto', '/nosotros'],
+    relatedSlugs: ['/solucion/', '/producto/', '/nosotros/'],
     homeAnchor: '#aplicacion',
     verMasLabel: 'Conoce el panel administrativo',
   },
   faq: {
     key: 'faq',
-    slug: '/faq',
+    slug: '/faq/',
     title: 'Preguntas frecuentes sobre GEN.AI | Agendamiento clínico con IA',
     description:
       'Respuestas sobre implementación, integración con HIS, seguridad de datos clínicos, WhatsApp y autoagendamiento. FAQ de GEN.AI para IPS y clínicas.',
@@ -103,13 +103,13 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
     intro:
       'Resolvemos las dudas más comunes de directores, gerentes y equipos de salud antes de contratar o implementar la plataforma. Si no encuentras tu respuesta, solicita una demo personalizada.',
     breadcrumbLabel: 'FAQ',
-    relatedSlugs: ['/solucion', '/contacto', '/nosotros'],
+    relatedSlugs: ['/solucion/', '/contacto/', '/nosotros/'],
     homeAnchor: '#faq',
     verMasLabel: 'Ver todas las preguntas frecuentes',
   },
   contacto: {
     key: 'contacto',
-    slug: '/contacto',
+    slug: '/contacto/',
     title: 'Solicitar demo de GEN.AI | Contacto',
     description:
       'Agenda una demo personalizada de GEN.AI para tu IPS o clínica. Autoagendamiento con IA por WhatsApp, web y call center. Respuesta en menos de 24 horas.',
@@ -117,7 +117,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
     intro:
       'Cuéntanos sobre tu institución y te mostramos cómo GEN.AI puede automatizar el agendamiento, reducir ausentismo y mejorar la ocupación de tu agenda. Demo sin costo para IPS y clínicas en Colombia.',
     breadcrumbLabel: 'Contacto',
-    relatedSlugs: ['/faq', '/solucion', '/producto'],
+    relatedSlugs: ['/faq/', '/solucion/', '/producto/'],
     homeAnchor: '#demo',
     verMasLabel: 'Solicitar demo',
   },

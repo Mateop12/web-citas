@@ -13,7 +13,6 @@ export const SITE = {
   region: 'Latinoamérica',
   foundingDate: '2024',
   sameAs: [
-    'https://linkedin.com/company/genai',
     'https://www.instagram.com/monkeymind_software/',
   ],
 } as const;
@@ -22,7 +21,7 @@ export const SEO = {
   title:
     'GEN.AI — Software de IA para Agendamiento Médico | IPS, Clínicas y Hospitales',
   description:
-    'Plataforma de inteligencia artificial líder para IPS y clínicas en Colombia y Latinoamérica. Agendamiento con IA, informes gerenciales, turnos, interoperabilidad con HIS, autoagendamiento del paciente 24/7 .',
+    'Software de agendamiento clínico con IA para IPS y clínicas en Colombia: autoagendamiento 24/7 por WhatsApp y web, recordatorios e integración con HIS.',
   keywords: [
     'software IA salud Colombia',
     'inteligencia artificial IPS',
@@ -62,7 +61,7 @@ export function buildSoftwareSchema(description: string) {
     name: SITE.name,
     applicationCategory: 'HealthApplication',
     applicationSubCategory: 'Medical Scheduling Software',
-    operatingSystem: 'Web, iOS, Android',
+    operatingSystem: 'Web',
     url: SITE.url,
     description,
     inLanguage: 'es',
@@ -112,7 +111,7 @@ export function buildOrganizationSchema() {
     foundingDate: SITE.foundingDate,
     areaServed: SITE.region,
     sameAs: SITE.sameAs,
-    logo: `${SITE.url}/favicon.ico`,
+    logo: `${SITE.url}/logo.png`,
     description: SEO.description,
     address: {
       '@type': 'PostalAddress',
