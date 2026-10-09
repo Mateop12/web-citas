@@ -293,7 +293,7 @@ export function initThemeToggle() {
   const meta = document.querySelector('meta[name="theme-color"]');
   const sync = () => {
     const light = root.dataset.theme === 'light';
-    meta?.setAttribute('content', light ? '#f5f8f7' : '#0d1112');
+    meta?.setAttribute('content', light ? '#f4f7fb' : '#0c1929');
     document.querySelectorAll('[data-theme-toggle]').forEach((b) => b.setAttribute('aria-pressed', String(light)));
   };
   document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
