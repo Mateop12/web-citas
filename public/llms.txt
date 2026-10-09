@@ -1,0 +1,23 @@
+# GEN.AI
+
+> GEN.AI es una plataforma de autoagendamiento clínico con inteligencia artificial para IPS, clínicas y centros de diagnóstico en Colombia. Automatiza la asignación de citas por WhatsApp, portal web y call center, con confirmaciones automáticas e interoperabilidad con sistemas de historia clínica (HIS). Desarrollada por GEN.AI SAS (Medellín, Colombia). No confundir con "IA generativa" ni con otros productos llamados Gen AI.
+
+## Producto
+- [Inicio](https://gena.monkeymindtech.com/): Resumen de GEN.AI: atención 24/7, recordatorios, agenda optimizada
+- [Producto](https://gena.monkeymindtech.com/producto/): Portal de autoagendamiento web y móvil, WhatsApp con IA, SMS, correo y campañas de demanda inducida
+- [Solución](https://gena.monkeymindtech.com/solucion/): Cómo funciona el agendamiento automático: confirmaciones, recordatorios, reprogramación y lista de espera
+- [Problema](https://gena.monkeymindtech.com/problema/): Llamadas perdidas, citas olvidadas, agendas saturadas
+- [Panel](https://gena.monkeymindtech.com/panel/): Calendario, profesionales y reportes para equipos de salud
+
+## Preguntas frecuentes
+- [FAQ](https://gena.monkeymindtech.com/faq/): Implementación en 24 a 48 horas hábiles, API para HIS, chatbot de WhatsApp Business, cifrado AES-256, soporte en español (lun-vie 8:00-18:00 hora de Colombia)
+
+## Empresa y contacto
+- [Nosotros](https://gena.monkeymindtech.com/nosotros/)
+- [Contacto](https://gena.monkeymindtech.com/contacto/): info@monkeymindsoftware.com, WhatsApp +57 300 323 8106
+
+## Legal
+- [Política de privacidad](https://gena.monkeymindtech.com/legal/politica-de-privacidad/)
+- [Protección de datos](https://gena.monkeymindtech.com/legal/proteccion-de-datos/)
+- [Términos de servicio](https://gena.monkeymindtech.com/legal/terminos-de-servicio/)
+- [Política de cookies](https://gena.monkeymindtech.com/legal/cookies/)
