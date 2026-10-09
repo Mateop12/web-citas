@@ -3,9 +3,9 @@ import { faqs } from './faqs';
 export const SITE = {
   name: 'GEN.AI',
   legalName: 'GEN.AI SAS',
-  url: 'https://gena.monkeymindsoftware.com',
-  hostname: 'gena.monkeymindsoftware.com',
-  appHostname: 'app.gena.monkeymindsoftware.com',
+  url: 'https://gena.monkeymindtech.com',
+  hostname: 'gena.monkeymindtech.com',
+  appHostname: 'app.gena.monkeymindtech.com',
   email: 'info@monkeymindsoftware.com',
   locale: 'es_CO',
   language: 'es',
