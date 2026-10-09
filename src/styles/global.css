@@ -435,12 +435,14 @@
 
 .solution-metric-fill {
   @apply block h-full rounded-full bg-gradient-to-r from-primary to-secondary;
-  width: 0;
-  transition: width 1.1s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--metric-delay) + 0.2s);
+  width: var(--fill);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--metric-delay) + 0.2s);
 }
 
 .solution-metric.is-revealed .solution-metric-fill {
-  width: var(--fill);
+  transform: scaleX(1);
 }
 
 .solution-panel-integration {
@@ -470,6 +472,7 @@
 
 .solution-integration-pulse {
   @apply relative h-px flex-1 bg-white/15;
+  container-type: inline-size;
 }
 
 .solution-integration-pulse::after {
@@ -483,10 +486,10 @@
 }
 
 @keyframes solution-flow-pulse {
-  0% { left: 0; opacity: 0; }
+  0% { transform: translateX(0); opacity: 0; }
   20% { opacity: 1; }
   80% { opacity: 1; }
-  100% { left: calc(100% - 12px); opacity: 0; }
+  100% { transform: translateX(calc(100cqw - 12px)); opacity: 0; }
 }
 
 @keyframes solution-node-flash {
@@ -517,7 +520,7 @@
     transform: none;
   }
 
-  .solution-metric.is-revealed .solution-metric-fill {
-    width: var(--fill);
+  .solution-metric-fill {
+    transform: none;
   }
 }

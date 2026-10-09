@@ -1,6 +1,14 @@
 ---
-import { ClientRouter } from 'astro:transitions';
 import DemoModal from '../components/DemoModal.astro';
+import '@fontsource/source-sans-3/latin-400.css';
+import '@fontsource/source-sans-3/latin-400-italic.css';
+import '@fontsource/source-sans-3/latin-500.css';
+import '@fontsource/source-sans-3/latin-600.css';
+import '@fontsource/source-sans-3/latin-700.css';
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import '@fontsource/ibm-plex-mono/latin-500.css';
+import bodyFont from '@fontsource/source-sans-3/files/source-sans-3-latin-400-normal.woff2?url';
+import headingFont from '@fontsource/source-sans-3/files/source-sans-3-latin-700-normal.woff2?url';
 import '../styles/global.css';
 import { SITE, SEO, buildCanonicalUrl, buildFAQSchema, buildSiteGraph } from '../data/seo';
 
@@ -107,13 +115,9 @@ const structuredData = [
     <link rel="apple-touch-icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fuentes alojadas en el sitio (@fontsource, subset latin) -->
+    <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={headingFont} as="font" type="font/woff2" crossorigin />
 
     <!-- Schema.org JSON-LD -->
     {
@@ -122,7 +126,6 @@ const structuredData = [
       ))
     }
 
-    <ClientRouter />
   </head>
   <body class="overflow-x-hidden">
     <a
@@ -160,7 +163,7 @@ const structuredData = [
         initNavSpy();
       }
 
-      document.addEventListener('astro:page-load', initAll);
+      initAll();
     </script>
   </body>
 </html>
