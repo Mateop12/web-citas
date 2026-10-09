@@ -19,9 +19,9 @@ export const SITE = {
 
 export const SEO = {
   title:
-    'GEN.AI | Software de agendamiento médico con IA para IPS',
+    'Software de agendamiento de citas médicas con IA | GEN.AI',
   description:
-    'Autoagendamiento por WhatsApp y web, recordatorios y reportes para IPS y clínicas en Colombia. Implementación en 48 h. Solicita una demo.',
+    'Software de agendamiento clínico para IPS y clínicas en Colombia: agendamiento web, bot de WhatsApp y recordatorios de citas. Implementación en 48 h.',
   keywords: [
     'software IA salud Colombia',
     'inteligencia artificial IPS',

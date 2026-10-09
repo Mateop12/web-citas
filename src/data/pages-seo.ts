@@ -7,7 +7,11 @@ export type PageKey =
   | 'whatsapp'
   | 'panel'
   | 'faq'
-  | 'contacto';
+  | 'contacto'
+  | 'softwareIps'
+  | 'agendamientoWeb'
+  | 'botWhatsapp'
+  | 'recordatorios';
 
 export interface ProductPageSeo {
   key: PageKey;
@@ -33,7 +37,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
     intro:
       'Las IPS, clínicas y hospitales en Colombia pierden ingresos cada día por procesos manuales de citas. Desde llamadas no contestadas hasta cancelaciones sin aviso, estos problemas tienen solución con automatización inteligente.',
     breadcrumbLabel: 'Problema',
-    relatedSlugs: ['/solucion/', '/nosotros/', '/contacto/'],
+    relatedSlugs: ['/recordatorios-citas-medicas/', '/solucion/', '/contacto/'],
     homeAnchor: '#problema',
     verMasLabel: 'Conoce los desafíos del agendamiento clínico',
   },
@@ -47,7 +51,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
     intro:
       'GEN.AI centraliza WhatsApp, portal web y call center en una sola plataforma. Tu equipo deja de repetir tareas manuales mientras los pacientes agendan, confirman y reprograman las 24 horas.',
     breadcrumbLabel: 'Solución',
-    relatedSlugs: ['/producto/', '/panel/', '/nosotros/'],
+    relatedSlugs: ['/bot-whatsapp-citas/', '/agendamiento-web/', '/panel/'],
     homeAnchor: '#solucion',
     verMasLabel: 'Ver el software de agendamiento con IA',
   },
@@ -68,14 +72,14 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   whatsapp: {
     key: 'whatsapp',
     slug: '/producto/',
-    title: 'Portal de autoagendamiento y campañas para IPS | GEN.AI',
+    title: 'Plataforma GEN.AI: portal, WhatsApp y campañas para IPS',
     description:
       'Portal web y móvil 24/7, WhatsApp con IA, SMS y correo. Campañas de demanda inducida y demanda insatisfecha para captar pacientes en IPS y clínicas de Colombia.',
     h1: 'Plataforma completa de agendamiento, campañas y contacto al paciente',
     intro:
       'GEN.AI concentra en un solo producto lo que hoy está disperso: portal de autoagendamiento web y móvil, WhatsApp con IA, SMS, correo, campañas de demanda inducida y recuperación de demanda insatisfecha. Más pacientes agendados, menos carga en recepción y trazabilidad en tu panel administrativo.',
     breadcrumbLabel: 'Producto',
-    relatedSlugs: ['/solucion/', '/panel/', '/nosotros/'],
+    relatedSlugs: ['/agendamiento-web/', '/bot-whatsapp-citas/', '/recordatorios-citas-medicas/'],
     homeAnchor: '#whatsapp',
     verMasLabel: 'Conoce el producto GEN.AI',
   },
@@ -120,6 +124,62 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
     relatedSlugs: ['/faq/', '/solucion/', '/producto/'],
     homeAnchor: '#demo',
     verMasLabel: 'Solicitar demo',
+  },
+  softwareIps: {
+    key: 'softwareIps',
+    slug: '/software-para-ips/',
+    title: 'Software para IPS en Colombia: agendamiento con IA | GEN.AI',
+    description:
+      'Software de agendamiento para IPS en Colombia: portal web, bot de WhatsApp, recordatorios, campañas de demanda inducida e integración con tu HIS.',
+    h1: 'Software de agendamiento para IPS en Colombia',
+    intro:
+      'Una sola plataforma para la operación de citas de tu IPS: el paciente agenda por web o WhatsApp, tu call center trabaja sobre la misma agenda y la información llega a tu historia clínica.',
+    breadcrumbLabel: 'Software para IPS',
+    relatedSlugs: ['/agendamiento-web/', '/bot-whatsapp-citas/', '/recordatorios-citas-medicas/'],
+    homeAnchor: '',
+    verMasLabel: 'Ver el software para IPS',
+  },
+  agendamientoWeb: {
+    key: 'agendamientoWeb',
+    slug: '/agendamiento-web/',
+    title: 'Agendamiento web de citas médicas para IPS | GEN.AI',
+    description:
+      'Portal de agendamiento web para que tus pacientes reserven citas médicas en línea, 24/7, filtrando por EPS, especialidad, sede y médico. Sin apps.',
+    h1: 'Agendamiento web de citas médicas para tu IPS o clínica',
+    intro:
+      'Un portal de citas en línea con la imagen de tu institución. El paciente entra desde el navegador del celular o del computador, busca cupo y confirma su cita sin llamar.',
+    breadcrumbLabel: 'Agendamiento web',
+    relatedSlugs: ['/bot-whatsapp-citas/', '/recordatorios-citas-medicas/', '/software-para-ips/'],
+    homeAnchor: '',
+    verMasLabel: 'Ver el agendamiento web',
+  },
+  botWhatsapp: {
+    key: 'botWhatsapp',
+    slug: '/bot-whatsapp-citas/',
+    title: 'Bot de WhatsApp para agendar citas médicas | GEN.AI',
+    description:
+      'Chatbot con IA en la API oficial de WhatsApp Business para agendar, cancelar y reprogramar citas médicas las 24 horas, conectado a tu agenda y a tu HIS.',
+    h1: 'Bot de WhatsApp para agendar citas médicas',
+    intro:
+      'Un asistente con inteligencia artificial que atiende a tus pacientes por WhatsApp a cualquier hora: entiende lo que escriben, consulta la agenda y deja la cita confirmada.',
+    breadcrumbLabel: 'Bot de WhatsApp',
+    relatedSlugs: ['/agendamiento-web/', '/recordatorios-citas-medicas/', '/software-para-ips/'],
+    homeAnchor: '',
+    verMasLabel: 'Ver el bot de WhatsApp',
+  },
+  recordatorios: {
+    key: 'recordatorios',
+    slug: '/recordatorios-citas-medicas/',
+    title: 'Recordatorios de citas médicas por WhatsApp y SMS | GEN.AI',
+    description:
+      'Recordatorios y confirmación automática de citas médicas por WhatsApp, SMS y correo. El paciente confirma, reprograma o cancela y el cupo vuelve a tu agenda.',
+    h1: 'Recordatorios de citas médicas por WhatsApp, SMS y correo',
+    intro:
+      'Cada cita confirmada recibe su recordatorio automático. Si el paciente no puede asistir, lo dice en el mismo mensaje y el cupo queda libre para otra persona.',
+    breadcrumbLabel: 'Recordatorios de citas',
+    relatedSlugs: ['/bot-whatsapp-citas/', '/problema/', '/software-para-ips/'],
+    homeAnchor: '',
+    verMasLabel: 'Ver los recordatorios de citas',
   },
 };
 

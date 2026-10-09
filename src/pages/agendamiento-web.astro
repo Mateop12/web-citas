@@ -1,0 +1,11 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import LandingContent from '../components/LandingContent.astro';
+import { getPageSeo } from '../data/pages-seo';
+
+const page = getPageSeo('agendamientoWeb');
+---
+
+<PageLayout page={page}>
+  <LandingContent pageKey="agendamientoWeb" />
+</PageLayout>

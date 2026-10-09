@@ -13,31 +13,62 @@ const navLinks = [
   { href: PRODUCT_PAGES.faq.slug, label: 'FAQ' },
 ];
 
+const solutions = [
+  { href: PRODUCT_PAGES.softwareIps.slug, label: 'Software para IPS', text: 'Agenda, campañas e integración con HIS' },
+  { href: PRODUCT_PAGES.agendamientoWeb.slug, label: 'Agendamiento web', text: 'Portal de citas en línea 24/7' },
+  { href: PRODUCT_PAGES.botWhatsapp.slug, label: 'Bot de WhatsApp', text: 'Chatbot con IA para agendar citas' },
+  { href: PRODUCT_PAGES.recordatorios.slug, label: 'Recordatorios de citas', text: 'WhatsApp, SMS y correo' },
+];
+
 const current = Astro.url.pathname;
+const inSolutions = solutions.some((s) => s.href === current);
 ---
 
 <header id="navbar" class="fixed top-0 z-50 w-full border-b border-line bg-[var(--header)] px-4 backdrop-blur-xl sm:px-6 lg:px-8">
   <nav class="container-custom flex h-[78px] items-center justify-between gap-6 lg:h-[90px]" aria-label="Navegación principal">
     <BrandLogo variant="dark" />
 
-    <ul class="hidden items-center gap-7 lg:flex">
-      {navLinks.map((link) => {
-        const active = current === link.href;
-        return (
+    <ul class="hidden items-center gap-7 xl:flex">
+      {navLinks.map((link, i) => (
+        <>
           <li>
             <a
               href={link.href}
-              aria-current={active ? 'page' : undefined}
+              aria-current={current === link.href ? 'page' : undefined}
               class:list={[
                 'relative py-2 text-[13px] font-medium transition-colors hover:text-ink',
-                active ? 'text-ink after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:rounded-full after:bg-accent' : 'text-muted',
+                current === link.href ? 'text-ink after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:rounded-full after:bg-accent' : 'text-muted',
               ]}
             >
               {link.label}
             </a>
           </li>
-        );
-      })}
+          {i === 0 && (
+            <li>
+              <details class="nav-solutions relative">
+                <summary
+                  class:list={[
+                    'flex cursor-pointer list-none items-center gap-1.5 py-2 text-[13px] font-medium transition-colors hover:text-ink',
+                    inSolutions ? 'text-ink' : 'text-muted',
+                  ]}
+                >
+                  Soluciones <span class="text-accent" aria-hidden="true">+</span>
+                </summary>
+                <ul class="absolute top-full left-1/2 mt-4 w-80 -translate-x-1/2 rounded-xl border border-line bg-card p-2 shadow-[var(--shadow)]">
+                  {solutions.map((s) => (
+                    <li>
+                      <a href={s.href} aria-current={current === s.href ? 'page' : undefined} class="block rounded-lg px-4 py-3 transition-colors hover:bg-surface">
+                        <span class="block text-sm font-semibold text-ink">{s.label}</span>
+                        <span class="mt-0.5 block text-xs text-muted">{s.text}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
+          )}
+        </>
+      ))}
     </ul>
 
     <div class="flex items-center gap-3">
@@ -45,7 +76,7 @@ const current = Astro.url.pathname;
       <div class="hidden sm:block"><Button openDemoModal variant="primary" size="sm">Solicitar demo</Button></div>
       <button
         id="mobile-menu-toggle"
-        class="flex h-11 w-11 items-center justify-center rounded-full border border-line text-ink lg:hidden"
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-line text-ink xl:hidden"
         aria-label="Abrir menú"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -57,7 +88,16 @@ const current = Astro.url.pathname;
     </div>
   </nav>
 
-  <div id="mobile-menu" class="-mx-4 hidden border-t border-line bg-[var(--bg)] px-4 pt-2 pb-6 sm:-mx-6 sm:px-6 lg:hidden">
+  <div id="mobile-menu" class="-mx-4 hidden border-t border-line bg-[var(--bg)] px-4 pt-2 pb-6 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 xl:hidden">
+    <p class="pt-4 pb-1 text-[11px] font-semibold tracking-[0.18em] text-muted uppercase">Soluciones</p>
+    <ul class="flex flex-col">
+      {solutions.map((s) => (
+        <li>
+          <a href={s.href} class:list={['block border-b border-line py-3.5 text-base font-medium', current === s.href ? 'text-accent' : 'text-ink']}>{s.label}</a>
+        </li>
+      ))}
+    </ul>
+    <p class="pt-5 pb-1 text-[11px] font-semibold tracking-[0.18em] text-muted uppercase">GEN.AI</p>
     <ul class="flex flex-col">
       {navLinks.map((link) => (
         <li>
@@ -74,3 +114,14 @@ const current = Astro.url.pathname;
     <Button openDemoModal variant="primary" size="md" class="mt-5 w-full justify-between">Solicitar demo</Button>
   </div>
 </header>
+
+<style>
+  .nav-solutions summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-solutions[open] summary span {
+    display: inline-block;
+    transform: rotate(45deg);
+  }
+</style>

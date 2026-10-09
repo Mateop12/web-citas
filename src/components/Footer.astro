@@ -7,6 +7,12 @@ import { SITE } from '../data/seo';
 const currentYear = new Date().getFullYear();
 
 const footerLinks = {
+  Soluciones: [
+    { label: 'Software para IPS', href: PRODUCT_PAGES.softwareIps.slug },
+    { label: 'Agendamiento web', href: PRODUCT_PAGES.agendamientoWeb.slug },
+    { label: 'Bot de WhatsApp', href: PRODUCT_PAGES.botWhatsapp.slug },
+    { label: 'Recordatorios de citas', href: PRODUCT_PAGES.recordatorios.slug },
+  ],
   Producto: [
     { label: 'Producto', href: PRODUCT_PAGES.whatsapp.slug },
     { label: 'Solución', href: PRODUCT_PAGES.solucion.slug },
@@ -43,7 +49,7 @@ const socialLinks = [
 
 <footer class="border-t border-line px-4 sm:px-6 lg:px-8">
   <div class="container-custom pt-16 pb-10">
-    <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
       <div>
         <BrandLogo variant="dark" size="sm" />
         <p class="mt-6 max-w-sm text-sm leading-relaxed text-muted">

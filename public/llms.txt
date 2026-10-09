@@ -9,6 +9,12 @@
 - [Problema](https://gena.monkeymindtech.com/problema/): Llamadas perdidas, citas olvidadas, agendas saturadas
 - [Panel](https://gena.monkeymindtech.com/panel/): Calendario, profesionales y reportes para equipos de salud
 
+## Soluciones
+- [Software para IPS](https://gena.monkeymindtech.com/software-para-ips/): Agendamiento, campañas de demanda inducida e integración con HIS para IPS en Colombia
+- [Agendamiento web](https://gena.monkeymindtech.com/agendamiento-web/): Portal de citas en línea 24/7 con filtros por EPS, especialidad, sede y médico
+- [Bot de WhatsApp](https://gena.monkeymindtech.com/bot-whatsapp-citas/): Chatbot con IA en la API oficial de WhatsApp Business para agendar, cancelar y reprogramar
+- [Recordatorios de citas](https://gena.monkeymindtech.com/recordatorios-citas-medicas/): Recordatorios y confirmación por WhatsApp, SMS y correo, con lista de espera
+
 ## Preguntas frecuentes
 - [FAQ](https://gena.monkeymindtech.com/faq/): Implementación en 24 a 48 horas hábiles, API para HIS, chatbot de WhatsApp Business, cifrado AES-256, soporte en español (lun-vie 8:00-18:00 hora de Colombia)
 
