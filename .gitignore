@@ -24,3 +24,7 @@ mcp.json
 
 # jetbrains setting folder
 .idea/
+
+# auditoría SEO: HTML crudo regenerable con audit.py
+docs/seo/*/raw/
+__pycache__/
