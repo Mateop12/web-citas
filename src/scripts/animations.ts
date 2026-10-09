@@ -271,3 +271,19 @@ export function initNavSpy() {
 
   sections.forEach(({ el }) => observer.observe(el));
 }
+
+// Móvil: el botón flotante de WhatsApp tapaba las estadísticas del hero; se oculta mientras están en pantalla
+export function initFloatingWhatsApp() {
+  const button = document.getElementById('whatsapp-float');
+  const stats = document.getElementById('hero-stats');
+  if (!button || !stats) return;
+
+  const mobile = window.matchMedia('(max-width: 639px)');
+  const observer = new IntersectionObserver(([entry]) => {
+    const hide = mobile.matches && entry.isIntersecting;
+    button.style.opacity = hide ? '0' : '';
+    button.style.transform = hide ? 'translateY(1rem)' : '';
+    button.style.pointerEvents = hide ? 'none' : '';
+  });
+  observer.observe(stats);
+}

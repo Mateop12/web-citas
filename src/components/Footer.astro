@@ -73,7 +73,7 @@ const socialLinks = [
         <ul class="space-y-2.5">
           {footerLinks.producto.map((link) => (
             <li>
-              <a href={link.href} class="text-sm transition-colors hover:text-white">{link.label}</a>
+              <a href={link.href} class="relative after:absolute after:inset-x-0 after:-inset-y-3 after:content-[''] text-sm transition-colors hover:text-white">{link.label}</a>
             </li>
           ))}
         </ul>
@@ -84,7 +84,7 @@ const socialLinks = [
         <ul class="space-y-2.5">
           {footerLinks.empresa.map((link) => (
             <li>
-              <a href={link.href} class="text-sm transition-colors hover:text-white">{link.label}</a>
+              <a href={link.href} class="relative after:absolute after:inset-x-0 after:-inset-y-3 after:content-[''] text-sm transition-colors hover:text-white">{link.label}</a>
             </li>
           ))}
         </ul>
@@ -95,7 +95,7 @@ const socialLinks = [
         <ul class="space-y-2.5">
           {footerLinks.legal.map((link) => (
             <li>
-              <a href={link.href} class="text-sm transition-colors hover:text-white">{link.label}</a>
+              <a href={link.href} class="relative after:absolute after:inset-x-0 after:-inset-y-3 after:content-[''] text-sm transition-colors hover:text-white">{link.label}</a>
             </li>
           ))}
         </ul>
@@ -114,6 +114,7 @@ const socialLinks = [
 <!-- Floating WhatsApp button -->
 <a
   href="https://wa.me/573003238106?text=Hola%2C%20me%20interesa%20conocer%20GEN.AI"
+  id="whatsapp-float"
   class="fixed right-6 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#128C7E] text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
   aria-label="Contactar por WhatsApp"
   target="_blank"
