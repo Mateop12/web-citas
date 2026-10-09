@@ -81,7 +81,8 @@ export function initFAQ() {
 
 export function initCounters() {
   const counters = document.querySelectorAll('[data-counter]');
-  if (!counters.length) return;
+  // El HTML ya trae el valor final; sin animación si el usuario la reduce
+  if (!counters.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const animate = (el: Element) => {
     const target = Number(el.getAttribute('data-counter'));
