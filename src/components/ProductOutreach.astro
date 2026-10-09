@@ -73,7 +73,7 @@ const flow = [
     />
 
     <!-- Flujo automatizado -->
-    <div class="mt-12 overflow-hidden rounded-2xl border border-line bg-white p-5 sm:p-6" data-animate>
+    <div class="mt-12 overflow-hidden rounded-2xl border border-line bg-card p-5 sm:p-6" data-animate>
       <p class="eyebrow mb-5">Cómo se conecta con tu operación</p>
       <div class="flex flex-col gap-3 sm:flex-row sm:items-stretch">
         {flow.map((step, i) => (
@@ -132,7 +132,7 @@ const flow = [
 
       <div class="mt-10 grid gap-5 md:grid-cols-3">
         {channels.map((channel) => (
-          <article class="flex flex-col rounded-2xl border border-line bg-white p-6 shadow-sm" data-animate>
+          <article class="flex flex-col rounded-2xl border border-line bg-card p-6 shadow-sm" data-animate>
             <div class={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${channel.tint}`}>
               {
                 channel.icon === 'whatsapp' && (

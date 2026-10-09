@@ -45,7 +45,7 @@ const plusItems = [
 ];
 ---
 
-<section {...(!standalone && { id: 'nuestros-plus' })} class="section-padding bg-white">
+<section {...(!standalone && { id: 'nuestros-plus' })} class="section-padding bg-card">
   <div class="container-custom">
     <div class="mx-auto max-w-2xl text-center" data-animate>
       <p class="eyebrow mb-4">Ventajas clave</p>
@@ -68,7 +68,7 @@ const plusItems = [
     <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
       {plusItems.map((item, i) => (
         <article
-          class="card-hover group flex flex-col rounded-[1.25rem] border border-line bg-white p-6 text-center"
+          class="card-hover group flex flex-col rounded-[1.25rem] border border-line bg-card p-6 text-center"
           data-animate
           data-delay={String((i % 5) + 1)}
         >

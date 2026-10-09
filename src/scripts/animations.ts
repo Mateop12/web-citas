@@ -287,3 +287,24 @@ export function initFloatingWhatsApp() {
   });
   observer.observe(stats);
 }
+
+export function initThemeToggle() {
+  const root = document.documentElement;
+  const meta = document.querySelector('meta[name="theme-color"]');
+  const sync = () => {
+    const light = root.dataset.theme === 'light';
+    meta?.setAttribute('content', light ? '#f5f8f7' : '#0d1112');
+    document.querySelectorAll('[data-theme-toggle]').forEach((b) => b.setAttribute('aria-pressed', String(light)));
+  };
+  document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const light = root.dataset.theme !== 'light';
+      if (light) root.dataset.theme = 'light';
+      else delete root.dataset.theme;
+      try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch {}
+      sync();
+    });
+  });
+  sync();
+}
+

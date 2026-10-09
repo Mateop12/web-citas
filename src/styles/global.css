@@ -1,20 +1,67 @@
 @import "tailwindcss";
 
+/*
+  Sistema visual inspirado en Monkey RestoBar (producto hermano), llevado a salud:
+  oscuro por defecto con tema claro, acento menta (del logo GEN.AI) en vez de dorado.
+  Los colores de Tailwind apuntan a variables que cambian con [data-theme].
+*/
 @theme {
-  --color-ink: #0c1929;
-  --color-primary: #163ba3;
-  --color-primary-dark: #0f2d7a;
-  --color-secondary: #0e7c86;
-  --color-secondary-dark: #0a6168;
-  --color-accent: #5eead4;
-  --color-accent-soft: #c4b5fd;
-  --color-surface: #f4f7fb;
-  --color-surface-alt: #e8f0f5;
-  --color-muted: #5a6b7d;
-  --color-line: #d8e2ec;
-  --font-display: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-surface: var(--soft);
+  --color-surface-alt: var(--raised);
+  --color-card: var(--surface);
+  --color-deep: var(--deep);
+  --color-primary: var(--accent);
+  --color-primary-dark: var(--accent);
+  --color-secondary: var(--accent-2);
+  --color-secondary-dark: var(--accent-2);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent);
+  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #0d1112;
+  --soft: #111718;
+  --surface: #151b1c;
+  --raised: #1c2426;
+  --deep: #0a0e0f;
+  --text: #eef4f2;
+  --muted: #9aa8a5;
+  --line: #262f31;
+  --accent: #7fe3cf;
+  --accent-2: #4cc9b4;
+  --btn-from: #a9f1e2;
+  --btn-to: #52cbb6;
+  --btn-text: #062420;
+  --on-accent: #062420;
+  --header: rgb(13 17 18 / 0.93);
+  --shadow: 0 18px 65px rgb(0 0 0 / 0.25);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f5f8f7;
+  --soft: #edf2f1;
+  --surface: #ffffff;
+  --raised: #e6eeec;
+  --deep: #0f1819;
+  --text: #142120;
+  --muted: #586866;
+  --line: #d6e0de;
+  --accent: #0b7f73;
+  --accent-2: #0b7f73;
+  --btn-from: #8fe6d4;
+  --btn-to: #3fbba6;
+  --btn-text: #062420;
+  --on-accent: #ffffff;
+  --header: rgb(245 248 247 / 0.93);
+  --shadow: 0 18px 65px rgb(15 40 38 / 0.07);
 }
 
 @layer base {
@@ -37,9 +84,9 @@
   }
 
   body {
-    @apply bg-surface text-ink antialiased;
+    background: var(--bg);
+    color: var(--text);
     font-family: var(--font-sans);
-    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -47,72 +94,91 @@
   h1,
   h2,
   h3,
-  h4,
-  h5,
-  h6 {
+  h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.022em;
+    letter-spacing: -0.025em;
     text-wrap: balance;
   }
 
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
   ::selection {
-    @apply bg-primary/15 text-primary-dark;
+    background: color-mix(in oklab, var(--accent) 30%, transparent);
   }
 }
 
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
-    letter-spacing: -0.022em;
+    letter-spacing: -0.025em;
   }
 
   .font-mono-data {
-    font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent;
+  /* Titular de dos tonos: la segunda línea va en el acento (como la referencia) */
+  .text-gradient,
+  .tone {
+    color: var(--accent);
+  }
+
+  .display-xl {
+    font-family: var(--font-display);
+    @apply text-[2.5rem] leading-[1.04] font-bold sm:text-[3.4rem] lg:text-[3.9rem];
+    letter-spacing: -0.03em;
+  }
+
+  .display-lg {
+    font-family: var(--font-display);
+    @apply text-[2.1rem] leading-[1.06] font-bold sm:text-5xl lg:text-[3.1rem];
+    letter-spacing: -0.03em;
   }
 
   .glass-panel {
-    @apply border border-white/60 bg-white/75 backdrop-blur-2xl;
+    @apply border border-line bg-card;
   }
 
   .section-padding {
-    @apply px-4 py-20 sm:px-6 lg:px-8 lg:py-28;
+    @apply px-4 py-20 sm:px-6 lg:px-8 lg:py-24;
   }
 
   .container-custom {
-    @apply mx-auto max-w-7xl;
+    @apply mx-auto max-w-[80rem];
   }
 
   .card-hover {
-    @apply transition-all duration-500 ease-out;
+    @apply transition-[transform,border-color] duration-300 ease-out;
   }
 
   .card-hover:hover {
-    @apply -translate-y-1 border-primary/20 shadow-[0_20px_50px_-20px_rgba(22,59,163,0.18)];
-  }
-
-  .font-mono-data {
-    font-family: var(--font-mono);
+    @apply -translate-y-1 border-primary/40;
   }
 
   .eyebrow {
-    font-family: var(--font-sans);
-    @apply text-[11px] font-semibold tracking-[0.14em] text-secondary uppercase;
+    @apply text-[11px] font-semibold tracking-[0.18em] text-accent uppercase;
   }
 
   .section-band {
     @apply relative overflow-hidden;
   }
 
-  .section-band::before {
-    content: "";
-    @apply pointer-events-none absolute inset-0 opacity-40;
-    background: radial-gradient(ellipse 70% 50% at 10% 0%, rgb(22 59 163 / 0.06), transparent 60%);
+  /* Botón principal: degradado de acento, texto oscuro */
+  .btn-accent {
+    background: linear-gradient(115deg, var(--btn-from), var(--btn-to));
+    color: var(--btn-text);
+  }
+
+  .btn-accent:hover {
+    box-shadow: 0 12px 34px -12px color-mix(in oklab, var(--btn-to) 70%, transparent);
+  }
+
+  .panel {
+    @apply rounded-2xl border border-line bg-card;
   }
 }
 
@@ -202,7 +268,7 @@
 }
 
 .pulse-item {
-  @apply flex shrink-0 items-center gap-3 rounded-full border border-line bg-white px-4 py-2 text-sm whitespace-nowrap shadow-sm;
+  @apply flex shrink-0 items-center gap-3 rounded-full border border-line bg-card px-4 py-2 text-sm whitespace-nowrap shadow-sm;
 }
 
 .pulse-dot {
@@ -227,26 +293,18 @@
   will-change: transform;
 }
 
-/* Navbar */
-#navbar.scrolled nav {
-  @apply mx-auto mt-3 max-w-5xl rounded-2xl border border-line/80 bg-white/85 px-5 shadow-[0_8px_40px_-12px_rgba(12,25,41,0.12)] backdrop-blur-xl;
-}
-
-#navbar nav {
-  @apply transition-all duration-500;
-}
-
 /* Feature tabs */
 .feature-tab {
   @apply rounded-full border border-transparent px-4 py-2 text-sm font-medium text-muted transition-all duration-300;
 }
 
 .feature-tab:hover {
-  @apply border-line bg-white text-ink;
+  @apply border-line bg-card text-ink;
 }
 
 .feature-tab.is-active {
-  @apply border-primary/20 bg-primary text-white shadow-md shadow-primary/20;
+  background: var(--accent);
+  color: var(--btn-text);
 }
 
 .feature-panel {
@@ -305,7 +363,7 @@
 }
 
 .wa-tab.is-active {
-  @apply bg-white text-ink shadow-sm;
+  @apply bg-card text-ink shadow-sm;
 }
 
 .wa-panel {
@@ -323,7 +381,7 @@
 }
 
 .solution-panel {
-  @apply relative overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-[0_24px_64px_-32px_rgba(12,25,41,0.12)];
+  @apply relative overflow-hidden rounded-[1.75rem] border border-line bg-card shadow-[0_24px_64px_-32px_rgba(12,25,41,0.12)];
   transform-style: preserve-3d;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
   will-change: transform;
@@ -446,7 +504,7 @@
 }
 
 .solution-panel-integration {
-  @apply relative overflow-hidden border-t border-white/10 bg-ink px-7 py-5 sm:px-9;
+  @apply relative overflow-hidden border-t border-white/10 bg-deep px-7 py-5 sm:px-9;
 }
 
 .solution-integration-flow {

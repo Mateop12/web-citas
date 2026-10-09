@@ -1,14 +1,11 @@
 ---
 import DemoModal from '../components/DemoModal.astro';
-import '@fontsource/source-sans-3/latin-400.css';
-import '@fontsource/source-sans-3/latin-400-italic.css';
-import '@fontsource/source-sans-3/latin-500.css';
-import '@fontsource/source-sans-3/latin-600.css';
-import '@fontsource/source-sans-3/latin-700.css';
-import '@fontsource/ibm-plex-mono/latin-400.css';
-import '@fontsource/ibm-plex-mono/latin-500.css';
-import bodyFont from '@fontsource/source-sans-3/files/source-sans-3-latin-400-normal.woff2?url';
-import headingFont from '@fontsource/source-sans-3/files/source-sans-3-latin-700-normal.woff2?url';
+import '@fontsource/inter-tight/latin-400.css';
+import '@fontsource/inter-tight/latin-500.css';
+import '@fontsource/inter-tight/latin-600.css';
+import '@fontsource/inter-tight/latin-700.css';
+import bodyFont from '@fontsource/inter-tight/files/inter-tight-latin-400-normal.woff2?url';
+import headingFont from '@fontsource/inter-tight/files/inter-tight-latin-700-normal.woff2?url';
 import '../styles/global.css';
 import { SITE, SEO, buildCanonicalUrl, buildFAQSchema, buildSiteGraph } from '../data/seo';
 import type { FAQItem } from '../data/faqs';
@@ -96,7 +93,7 @@ const structuredData = [
     <meta name="twitter:image:alt" content={SEO.ogImageAlt} />
 
     <!-- Mobile & PWA hints -->
-    <meta name="theme-color" content={SEO.themeColor} />
+    <meta name="theme-color" content="#0d1112" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content={SITE.name} />
@@ -112,6 +109,11 @@ const structuredData = [
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Tema: oscuro por defecto; el claro se recuerda por visitante (antes del primer pintado) -->
+    <script is:inline>
+      try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+    </script>
 
     <!-- Fuentes alojadas en el sitio (@fontsource, subset latin) -->
     <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
@@ -148,6 +150,7 @@ const structuredData = [
         initWhatsAppTabs,
         initNavSpy,
         initFloatingWhatsApp,
+        initThemeToggle,
       } from '../scripts/animations';
 
       function initAll() {
@@ -161,6 +164,7 @@ const structuredData = [
         initWhatsAppTabs();
         initNavSpy();
         initFloatingWhatsApp();
+        initThemeToggle();
       }
 
       initAll();

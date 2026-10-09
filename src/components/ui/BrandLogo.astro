@@ -20,30 +20,31 @@ const {
 } = Astro.props;
 
 const iconSize = size === 'sm' ? 'h-11 w-11 rounded-full' : 'h-12 w-12 rounded-full';
-const nameSize = size === 'sm' ? 'text-base' : 'text-xl';
+const nameSize = size === 'sm' ? 'text-lg' : 'text-2xl';
 const nameColor = variant === 'light' ? 'text-white' : 'text-ink';
-const accentColor = variant === 'light' ? 'text-accent' : 'text-primary';
-const shadow = variant === 'dark' ? 'shadow-lg shadow-ink/20' : '';
 const linkClass = stacked
   ? `group inline-flex flex-col items-start gap-2 ${className}`
   : `group inline-flex items-center gap-2.5 ${className}`;
 ---
 
 <div class={stacked ? 'space-y-2' : undefined}>
-  <a href={href} class={linkClass} aria-label="GEN.AI - Inicio">
-    <span class="inline-flex items-center gap-2.5">
+  <a href={href} class={linkClass}>
+    <span class="inline-flex items-center gap-3">
       <img
         src="/logo-96.png"
         alt=""
-        class={`${iconSize} ${shadow} object-cover transition-transform duration-300 group-hover:scale-105`}
+        class={`${iconSize} object-cover`}
         width={size === 'sm' ? 44 : 48}
         height={size === 'sm' ? 44 : 48}
         loading="eager"
       />
       {
         showName && (
-          <span class={`font-display ${nameSize} font-semibold tracking-tight ${nameColor}`}>
-            GEN<span class={accentColor}>.AI</span>
+          <span class="flex flex-col leading-none">
+            <span class={`font-display ${nameSize} font-bold tracking-[-0.04em] ${nameColor}`}>GEN.AI</span>
+            <span class={`mt-1.5 text-[9px] font-semibold tracking-[0.32em] uppercase ${variant === 'light' ? 'text-white/60' : 'text-muted'}`}>
+              Agenda clínica
+            </span>
           </span>
         )
       }
@@ -51,9 +52,7 @@ const linkClass = stacked
   </a>
   {
     showTagline && (
-      <p class={`eyebrow ${stacked ? 'text-[9px] leading-snug' : ''} ${variant === 'light' ? 'text-accent' : ''}`}>
-        Agendamiento clínico · IA · WhatsApp
-      </p>
+      <p class={`text-[11px] ${variant === 'light' ? 'text-white/50' : 'text-muted'}`}>Agendamiento clínico con IA</p>
     )
   }
 </div>

@@ -71,7 +71,7 @@ const waSteps = [
 ];
 ---
 
-<section {...(!standalone && { id: 'whatsapp' })} class={`section-padding ${isProduct ? 'bg-surface/30' : 'bg-white'}${standalone ? ' border-t border-line/60' : ''}`}>
+<section {...(!standalone && { id: 'whatsapp' })} class={`section-padding ${isProduct ? 'bg-surface/30' : 'bg-card'}${standalone ? ' border-t border-line/60' : ''}`}>
   <div class="container-custom">
     <div class="grid gap-14 lg:grid-cols-2 lg:items-start">
       <div>
@@ -131,8 +131,8 @@ const waSteps = [
                     <div
                       class={`max-w-[88%] rounded-2xl px-3.5 py-2 text-sm leading-relaxed ${
                         msg.from === 'user'
-                          ? 'rounded-tr-md bg-[#dcf8c6] text-ink'
-                          : 'rounded-tl-md bg-white text-ink shadow-sm'
+                          ? 'rounded-tr-md bg-[#d9fdd3] text-[#111b21]'
+                          : 'rounded-tl-md bg-white text-[#111b21] shadow-sm'
                       }`}
                     >
                       <span class="whitespace-pre-line">{msg.text}</span>

@@ -22,27 +22,24 @@ const {
 } = Astro.props;
 
 const base =
-  'group relative inline-flex items-center justify-center gap-2.5 font-semibold tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface overflow-hidden';
+  'group relative inline-flex items-center justify-center font-semibold tracking-[-0.01em] transition-[transform,box-shadow,border-color,background-color,color] duration-200 active:translate-y-px';
 
+// Como la referencia: botón principal con degradado y flecha; secundario con borde
 const variants = {
-  primary:
-    'rounded-full bg-ink text-white shadow-[0_4px_24px_-4px_rgba(12,25,41,0.35)] hover:bg-primary hover:shadow-[0_8px_32px_-8px_rgba(22,59,163,0.45)] hover:-translate-y-0.5 active:translate-y-0',
-  secondary:
-    'rounded-full bg-secondary text-white shadow-[0_4px_24px_-4px_rgba(14,124,134,0.35)] hover:bg-secondary-dark hover:-translate-y-0.5',
-  outline:
-    'rounded-full border border-line bg-white text-ink hover:border-primary/30 hover:bg-surface-alt hover:-translate-y-0.5',
-  whatsapp:
-    'rounded-full bg-[#128C7E] text-white shadow-[0_4px_24px_-4px_rgba(18,140,126,0.35)] hover:bg-[#0d7268] hover:-translate-y-0.5',
-  ghost:
-    'rounded-full text-muted hover:text-ink hover:bg-white/80',
+  primary: 'btn-accent gap-6 rounded-[9px] hover:-translate-y-0.5',
+  secondary: 'btn-accent gap-6 rounded-[9px] hover:-translate-y-0.5',
+  outline: 'gap-3 rounded-[9px] border border-line bg-transparent text-ink hover:border-accent/60',
+  whatsapp: 'gap-3 rounded-[9px] bg-[#25D366] text-[#052e16] hover:-translate-y-0.5',
+  ghost: 'gap-3 rounded-[9px] text-muted hover:text-ink',
 };
 
 const sizes = {
-  sm: 'px-5 py-2.5 text-sm',
-  md: 'px-6 py-3 text-sm',
-  lg: 'px-8 py-3.5 text-base',
+  sm: 'min-h-11 px-5 text-[13px]',
+  md: 'min-h-[50px] px-6 text-sm',
+  lg: 'min-h-[54px] px-7 text-[15px]',
 };
 
+const arrow = variant === 'primary' || variant === 'secondary';
 const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
 ---
 
@@ -50,14 +47,17 @@ const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
   openDemoModal ? (
     <button type="button" data-demo-trigger class={classes}>
       <slot />
+      {arrow && <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" /></svg>}
     </button>
   ) : href ? (
     <a href={href} class={classes} target={target} rel={rel}>
       <slot />
+      {arrow && <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" /></svg>}
     </a>
   ) : (
     <button type={type} class={classes}>
       <slot />
+      {arrow && <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" /></svg>}
     </button>
   )
 }
