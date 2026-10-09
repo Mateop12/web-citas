@@ -54,16 +54,16 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   nuestrosPlus: {
     key: 'nuestrosPlus',
     slug: '/nosotros/',
-    title: 'Beneficios del autoagendamiento clínico | GEN.AI',
+    title: 'Nosotros | El equipo detrás de GEN.AI en Medellín',
     description:
-      'Reduce costos operativos, ausentismo y carga administrativa con autoagendamiento 24/7. Beneficios concretos para IPS, clínicas y centros de diagnóstico en Colombia.',
-    h1: 'Beneficios del autoagendamiento clínico para tu institución',
+      'Conoce a GEN.AI SAS, la empresa de Medellín que desarrolla GEN.AI, software de agendamiento clínico con IA para IPS y clínicas en Colombia.',
+    h1: 'Quiénes somos: el equipo detrás de GEN.AI',
     intro:
-      'Más allá de agendar citas, GEN.AI impacta directamente la rentabilidad: menos personal en tareas repetitivas, mayor ocupación de agenda y pacientes que se autogestionan sin llamar a recepción.',
+      'GEN.AI es un software de agendamiento clínico con IA desarrollado por GEN.AI SAS (Medellín, Colombia).',
     breadcrumbLabel: 'Nosotros',
     relatedSlugs: ['/problema/', '/solucion/', '/contacto/'],
     homeAnchor: '#nuestros-plus',
-    verMasLabel: 'Explora los beneficios del autoagendamiento',
+    verMasLabel: 'Conoce quiénes somos',
   },
   whatsapp: {
     key: 'whatsapp',

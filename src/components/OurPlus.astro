@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { standalone = false, showMoreLink = false } = Astro.props;
-const page = PRODUCT_PAGES.nuestrosPlus;
+const page = PRODUCT_PAGES.solucion;
 
 const plusItems = [
   {
@@ -89,7 +89,7 @@ const plusItems = [
 
     {
       showMoreLink && (
-        <SectionMoreLink href={page.slug} label={page.verMasLabel} class="mt-8 px-0" />
+        <SectionMoreLink href={page.slug} label="Explora los beneficios del autoagendamiento" class="mt-8 px-0" />
       )
     }
   </div>

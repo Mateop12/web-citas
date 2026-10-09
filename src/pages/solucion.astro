@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Solution from '../components/Solution.astro';
+import OurPlus from '../components/OurPlus.astro';
 import { getPageSeo } from '../data/pages-seo';
 
 const page = getPageSeo('solucion');
@@ -8,4 +9,5 @@ const page = getPageSeo('solucion');
 
 <PageLayout page={page}>
   <Solution standalone />
+  <OurPlus standalone />
 </PageLayout>
