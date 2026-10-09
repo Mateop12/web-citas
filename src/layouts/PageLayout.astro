@@ -10,6 +10,7 @@ import {
   type ProductPageSeo,
 } from '../data/pages-seo';
 import { SITE, buildBreadcrumbSchema, buildCanonicalUrl } from '../data/seo';
+import { faqs } from '../data/faqs';
 
 interface Props {
   page: ProductPageSeo;
@@ -38,7 +39,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   title={pageTitle}
   description={page.description}
   includeSiteGraph={page.key === 'whatsapp'}
-  includeFaqSchema={page.key === 'faq'}
+  faqItems={page.key === 'faq' ? faqs : undefined}
   extraStructuredData={[breadcrumbSchema]}
 >
   <Navbar />

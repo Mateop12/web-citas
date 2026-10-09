@@ -11,6 +11,7 @@ import bodyFont from '@fontsource/source-sans-3/files/source-sans-3-latin-400-no
 import headingFont from '@fontsource/source-sans-3/files/source-sans-3-latin-700-normal.woff2?url';
 import '../styles/global.css';
 import { SITE, SEO, buildCanonicalUrl, buildFAQSchema, buildSiteGraph } from '../data/seo';
+import type { FAQItem } from '../data/faqs';
 
 interface Props {
   title?: string;
@@ -19,7 +20,7 @@ interface Props {
   ogImage?: string;
   noindex?: boolean;
   includeSiteGraph?: boolean;
-  includeFaqSchema?: boolean;
+  faqItems?: FAQItem[];
   extraStructuredData?: Record<string, unknown>[];
 }
 
@@ -30,7 +31,7 @@ const {
   ogImage = '/og-image.png',
   noindex = false,
   includeSiteGraph = false,
-  includeFaqSchema = false,
+  faqItems,
   extraStructuredData = [],
 } = Astro.props;
 
@@ -38,7 +39,7 @@ const canonicalURL = buildCanonicalUrl(Astro.url.pathname, Astro.site?.href ?? S
 const ogImageURL = new URL(ogImage, Astro.site ?? SITE.url).href;
 const structuredData = [
   ...(includeSiteGraph ? [buildSiteGraph()] : []),
-  ...(includeFaqSchema ? [buildFAQSchema()] : []),
+  ...(faqItems ? [buildFAQSchema(faqItems)] : []),
   ...extraStructuredData,
 ];
 ---

@@ -42,3 +42,6 @@ export const faqs: FAQItem[] = [
       'Por supuesto. Ofrecemos una demo personalizada donde configuramos un entorno de prueba con los datos de tu clínica para que veas el sistema en acción con casos reales.',
   },
 ];
+
+// Resumen del home: respuestas cortas; el resto solo en /faq/ (evita texto duplicado)
+export const homeFaqs = faqs.slice(0, 3);

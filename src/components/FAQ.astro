@@ -1,7 +1,7 @@
 ---
 import SectionHeader from './ui/SectionHeader.astro';
 import SectionMoreLink from './ui/SectionMoreLink.astro';
-import { faqs } from '../data/faqs';
+import { faqs, homeFaqs } from '../data/faqs';
 import { PRODUCT_PAGES } from '../data/pages-seo';
 
 interface Props {
@@ -11,6 +11,7 @@ interface Props {
 
 const { standalone = false, showMoreLink = false } = Astro.props;
 const page = PRODUCT_PAGES.faq;
+const items = standalone ? faqs : homeFaqs;
 ---
 
 <section {...(!standalone && { id: 'faq' })} class="section-padding bg-white">
@@ -22,7 +23,7 @@ const page = PRODUCT_PAGES.faq;
     />
 
     <div class="mx-auto mt-12 max-w-2xl divide-y divide-line border-y border-line">
-      {faqs.map((faq, i) => (
+      {items.map((faq, i) => (
         <div data-faq-item data-animate data-delay={String((i % 3) + 1)}>
           <button
             type="button"

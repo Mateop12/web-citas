@@ -5,9 +5,60 @@ import OurPlus from '../components/OurPlus.astro';
 import { getPageSeo } from '../data/pages-seo';
 
 const page = getPageSeo('solucion');
+
+// Cada paso describe funciones que el sitio ya publica (FAQ, /producto/, panel).
+const steps = [
+  {
+    title: 'El paciente escribe por WhatsApp o entra al portal',
+    text: 'El asistente entiende lenguaje natural y consulta la agenda: muestra solo horarios reales disponibles para la especialidad y el profesional que el paciente necesita.',
+  },
+  {
+    title: 'La cita queda confirmada al instante',
+    text: 'El paciente elige el horario y recibe la confirmación en el mismo chat, sin esperar a que alguien de recepción conteste el teléfono.',
+  },
+  {
+    title: 'Recordatorios antes de la cita',
+    text: 'GEN.AI envía recordatorios automáticos por WhatsApp, correo y SMS para que el paciente no olvide su cita y pueda avisar a tiempo si no va a asistir.',
+  },
+  {
+    title: 'Reprogramar o cancelar sin llamar',
+    text: 'Si al paciente le surge un imprevisto, cambia o cancela su cita escribiendo en la misma conversación. El cupo vuelve a quedar libre de inmediato.',
+  },
+  {
+    title: 'El cupo liberado pasa a la lista de espera',
+    text: 'Cuando no había disponibilidad, el paciente pudo unirse a la lista de espera. Al liberarse un espacio, GEN.AI le avisa por WhatsApp, SMS o correo.',
+  },
+  {
+    title: 'Todo queda en tu agenda y en tu HIS',
+    text: 'Las citas se registran en el panel administrativo y, si conectas tu software de historia clínica vía API, se sincronizan sin doble digitación.',
+  },
+];
 ---
 
 <PageLayout page={page}>
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="mx-auto max-w-3xl">
+        <p class="eyebrow mb-4">Paso a paso</p>
+        <h2 class="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+          Del mensaje de WhatsApp a la cita atendida
+        </h2>
+        <ol class="mt-10 space-y-8">
+          {steps.map((step, i) => (
+            <li class="flex gap-5">
+              <span class="font-mono-data flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary/10 text-sm font-medium text-secondary">
+                {i + 1}
+              </span>
+              <div>
+                <h3 class="font-display text-lg font-semibold text-ink">{step.title}</h3>
+                <p class="mt-1 text-base leading-relaxed text-muted">{step.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
   <Solution standalone />
   <OurPlus standalone />
 </PageLayout>

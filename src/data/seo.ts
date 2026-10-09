@@ -1,4 +1,4 @@
-import { faqs } from './faqs';
+import { faqs, type FAQItem } from './faqs';
 
 export const SITE = {
   name: 'GEN.AI',
@@ -123,11 +123,11 @@ export function buildSiteGraph() {
   };
 }
 
-export function buildFAQSchema() {
+export function buildFAQSchema(items: FAQItem[] = faqs) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: items.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {

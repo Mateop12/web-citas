@@ -42,8 +42,8 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
     slug: '/solucion/',
     title: 'Cómo funciona GEN.AI: recordatorios e integración con HIS',
     description:
-      'Automatiza citas médicas con inteligencia artificial. WhatsApp, web y call center integrados. Confirmaciones automáticas e interoperabilidad con HIS para IPS en Colombia.',
-    h1: 'Software de agendamiento clínico con inteligencia artificial',
+      'Del mensaje de WhatsApp a la cita confirmada: recordatorios, reprogramación y lista de espera automáticos, con integración a tu HIS. Así funciona GEN.AI.',
+    h1: 'Cómo funciona el agendamiento automático con GEN.AI',
     intro:
       'GEN.AI centraliza WhatsApp, portal web y call center en una sola plataforma. Tu equipo deja de repetir tareas manuales mientras los pacientes agendan, confirman y reprograman las 24 horas.',
     breadcrumbLabel: 'Solución',
