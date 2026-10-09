@@ -1,0 +1,117 @@
+---
+import Heading from './Heading.astro';
+
+// Cada módulo describe funciones que el sitio ya publica (producto, solución, panel, FAQ).
+const modules = [
+  { key: 'whatsapp', title: 'Agendamiento por WhatsApp', text: 'El paciente escribe y la IA agenda. Sin llamadas ni formularios.', chip: 'IA conversacional', href: '/producto/', icon: 'M8 10h8M8 14h5m-9 6 2.5-3H18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14Z' },
+  { key: 'portal', title: 'Portal web y móvil', text: 'Reservar, cancelar y reprogramar las 24 horas desde el navegador.', chip: '24/7', href: '/producto/', icon: 'M4 5h16v11H4zM8 20h8M12 16v4' },
+  { key: 'reminders', title: 'Recordatorios', text: 'Por WhatsApp, correo y SMS. Menos citas olvidadas.', chip: 'Confirmación automática', href: '/solucion/', icon: 'M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 1 0-12 0v3.2a2 2 0 0 1-.6 1.4L4 17h5m6 0a3 3 0 0 1-6 0' },
+  { key: 'waitlist', title: 'Lista de espera', text: 'Cada cupo liberado se ofrece a quien estaba esperando.', chip: 'Cupos reasignados', href: '/solucion/', icon: 'M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01' },
+  { key: 'campaigns', title: 'Campañas de demanda inducida', text: 'Contacta a tus pacientes para controles y programas.', chip: 'WhatsApp, SMS y correo', href: '/producto/', icon: 'M4 11v2a1 1 0 0 0 1 1h2l5 4V6L7 10H5a1 1 0 0 0-1 1Zm12-3a5 5 0 0 1 0 8' },
+  { key: 'panel', title: 'Panel administrativo', text: 'Calendario, profesionales y reportes de ocupación.', chip: 'Multiusuario', href: '/panel/', icon: 'M4 5h16v14H4zM4 9h16M9 5v14' },
+  { key: 'his', title: 'Integración con HIS', text: 'Conecta tu historia clínica vía API. Sin doble digitación.', chip: 'API REST', href: '/solucion/', icon: 'M8 7h12m0 0-4-4m4 4-4 4m0 6H4m0 0 4 4m-4-4 4-4' },
+];
+---
+
+<section class="section-padding border-t border-line" aria-labelledby="modules-title">
+  <div class="container-custom">
+    <Heading
+      id="modules-title"
+      eyebrow="Cada paso de la cita, en su lugar"
+      title="Módulos de GEN.AI."
+      tone="Bien conectados."
+      aside="WhatsApp, portal, recordatorios, lista de espera y reportes en un solo flujo. Descubre lo que puedes hacer con GEN.AI."
+    />
+
+    <ul class="flex flex-wrap justify-center gap-4">
+      {modules.map((m) => (
+        <li class="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)]">
+          <a href={m.href} class="module-card group flex h-full flex-col overflow-hidden rounded-xl border border-line bg-card transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-accent/50">
+            <div class="module-visual relative h-40 overflow-hidden border-b border-line" aria-hidden="true">
+              {m.key === 'whatsapp' && (
+                <div class="absolute inset-x-5 top-6 space-y-2 text-[11px]">
+                  <p class="ml-auto w-fit rounded-xl rounded-tr-sm bg-[#dcf8c6] px-3 py-1.5 text-[#111b21]">Hola, quiero una cita de pediatría</p>
+                  <p class="w-fit rounded-xl rounded-tl-sm bg-white px-3 py-1.5 text-[#111b21] shadow-sm">Tengo martes 9:00 o 10:30. ¿Cuál prefieres?</p>
+                </div>
+              )}
+              {m.key === 'portal' && (
+                <div class="absolute inset-x-5 top-6">
+                  <p class="mb-2 text-[11px] text-muted">Medicina general · mar 2 jul</p>
+                  <div class="grid grid-cols-3 gap-2">
+                    {['8:00', '9:30', '10:30', '11:00', '14:00', '15:30'].map((h, j) => (
+                      <span class:list={['rounded-lg border py-1.5 text-center text-[11px] font-semibold', j === 2 ? 'border-accent bg-accent text-[var(--on-accent)]' : 'border-line text-ink']}>{h}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {m.key === 'reminders' && (
+                <div class="absolute inset-x-5 top-7 rounded-xl border border-line bg-surface p-3">
+                  <p class="text-[11px] font-semibold text-ink">Recordatorio de tu cita</p>
+                  <p class="mt-1 text-[11px] text-muted">Mañana 9:00 a. m. · Dr. Mendoza</p>
+                  <div class="mt-2.5 flex gap-2 text-[10px] font-semibold">
+                    <span class="rounded-md bg-accent px-2 py-1 text-[var(--on-accent)]">Confirmar</span>
+                    <span class="rounded-md border border-line px-2 py-1 text-ink">Reprogramar</span>
+                  </div>
+                </div>
+              )}
+              {m.key === 'waitlist' && (
+                <div class="absolute inset-x-5 top-6 space-y-2 text-[11px]">
+                  <p class="flex justify-between rounded-lg border border-line px-3 py-2 text-muted"><span>Cupo liberado</span><span class="font-semibold text-ink">Vie 10:00</span></p>
+                  <p class="flex justify-between rounded-lg border border-accent/50 bg-accent/10 px-3 py-2"><span class="text-ink">Ana T. · en espera</span><span class="font-semibold text-accent">Avisada</span></p>
+                </div>
+              )}
+              {m.key === 'campaigns' && (
+                <div class="absolute inset-x-5 bottom-5 flex h-24 items-end gap-2">
+                  {[34, 52, 41, 66, 58, 80, 92].map((h) => (
+                    <span class="flex-1 rounded-t bg-gradient-to-t from-accent/20 to-accent/70" style={`height:${h}%`}></span>
+                  ))}
+                </div>
+              )}
+              {m.key === 'panel' && (
+                <div class="absolute inset-x-5 top-6 grid grid-cols-7 gap-1">
+                  {Array.from({ length: 21 }, (_, j) => (
+                    <span class:list={['h-6 rounded', [3, 8, 9, 15].includes(j) ? 'bg-accent/60' : [1, 11, 17].includes(j) ? 'bg-accent/25' : 'bg-surface']}></span>
+                  ))}
+                </div>
+              )}
+              {m.key === 'his' && (
+                <div class="absolute inset-x-5 top-12 flex items-center gap-2 text-[11px] font-semibold">
+                  <span class="rounded-md border border-line px-2.5 py-1.5 text-ink">Agenda</span>
+                  <span class="h-px flex-1 bg-accent/50"></span>
+                  <span class="rounded-md bg-accent px-2.5 py-1.5 text-[var(--on-accent)]">GEN.AI</span>
+                  <span class="h-px flex-1 bg-accent/50"></span>
+                  <span class="rounded-md border border-line px-2.5 py-1.5 text-ink">HIS</span>
+                </div>
+              )}
+              <span class="absolute bottom-3 left-3 rounded-md bg-[var(--bg)]/80 px-2 py-1 text-[10px] font-semibold text-ink backdrop-blur">{m.chip}</span>
+            </div>
+
+            <div class="flex flex-1 flex-col p-5">
+              <svg class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d={m.icon} />
+              </svg>
+              <h3 class="mt-4 text-lg font-semibold tracking-[-0.03em] text-ink">{m.title}</h3>
+              <p class="mt-2 text-[13px] leading-relaxed text-muted">{m.text}</p>
+              <span class="mt-6 ml-auto flex h-8 w-8 items-center justify-center rounded-full border border-line text-ink transition-colors group-hover:border-accent group-hover:text-accent" aria-hidden="true">
+                <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9" /></svg>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <a href="/producto/" class="mt-8 inline-flex items-center gap-2 text-[13px] font-semibold text-accent hover:underline">
+      Explorar el producto
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" /></svg>
+    </a>
+  </div>
+</section>
+
+<style>
+  .module-visual {
+    background:
+      radial-gradient(80% 90% at 80% 0%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%),
+      var(--soft);
+  }
+</style>

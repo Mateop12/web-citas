@@ -1,0 +1,72 @@
+---
+import { SITE } from '../../data/seo';
+
+// Sección media + lista de la referencia ("Tu restaurante. Desde otro ángulo.")
+const days = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie'];
+const slots = [
+  ['Cardiología', 'Pediatría', '', 'Cardiología', 'Dermatología'],
+  ['', 'Medicina general', 'Pediatría', '', 'Medicina general'],
+  ['Dermatología', '', 'Medicina general', 'Pediatría', ''],
+];
+---
+
+<section class="section-padding border-t border-line" aria-labelledby="panel-title">
+  <div class="container-custom grid items-center gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+    <div class="relative overflow-hidden rounded-2xl border border-line bg-card shadow-[var(--shadow)]" aria-hidden="true">
+      <p class="absolute top-4 left-4 z-10 flex items-center gap-2 rounded-md border border-line bg-[var(--bg)] px-2.5 py-1 text-[10px] font-semibold text-ink">
+        <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+        Vista semanal
+      </p>
+      <div class="flex justify-end border-b border-line px-5 py-3">
+        <span class="text-[10px] text-muted">{SITE.appHostname}</span>
+      </div>
+      <div class="p-5 pt-10">
+        <div class="mb-4 flex items-center justify-between">
+          <p class="text-lg font-semibold tracking-[-0.03em] text-ink">Calendario · Semana 27</p>
+          <div class="flex gap-2 text-[10px] font-semibold">
+            <span class="rounded-md border border-line px-2.5 py-1 text-muted">Mes</span>
+            <span class="rounded-md bg-accent px-2.5 py-1 text-[var(--on-accent)]">Semana</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-5 gap-2 text-[11px]">
+          {days.map((d) => <p class="pb-1 text-center font-semibold text-muted">{d}</p>)}
+          {slots.flat().map((s) => (
+            <p class:list={['h-14 overflow-hidden rounded-lg p-1.5 text-[9px] leading-tight break-words sm:p-2 sm:text-[11px]', s ? 'border border-accent/40 bg-accent/10 font-medium text-ink' : 'border border-dashed border-line']}>{s}</p>
+          ))}
+        </div>
+        <div class="mt-5 grid grid-cols-3 gap-2">
+          {[['Ocupación', '86 %'], ['Ausentismo', '7 %'], ['Por WhatsApp', '64 %']].map(([l, v]) => (
+            <div class="rounded-xl border border-line bg-surface px-3 py-2.5">
+              <p class="text-[10px] text-muted">{l}</p>
+              <p class="font-mono-data text-lg font-semibold text-ink">{v}</p>
+            </div>
+          ))}
+        </div>
+        <p class="mt-2 text-right text-[10px] text-muted">Datos de ejemplo</p>
+      </div>
+    </div>
+
+    <div>
+      <p class="eyebrow mb-4">Visualiza. Organiza. Decide.</p>
+      <h2 id="panel-title" class="display-lg text-ink">
+        Tu agenda. <span class="tone">Desde un solo panel.</span>
+      </h2>
+      <p class="mt-6 max-w-lg text-base leading-relaxed text-muted">
+        Líderes de call center, agentes y personal administrativo trabajan sobre la misma agenda, desde
+        cualquier navegador, en la clínica o en remoto.
+      </p>
+      <ul class="mt-7 space-y-3.5">
+        {['Calendario por profesional y especialidad', 'Reportes de ocupación y ausentismo', 'Acceso multiusuario desde cualquier dispositivo'].map((t) => (
+          <li class="flex items-center gap-3 text-[15px] font-medium text-ink">
+            <svg class="h-4 w-4 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m5 12 4 4 10-10" /></svg>
+            {t}
+          </li>
+        ))}
+      </ul>
+      <a href="/panel/" class="mt-8 inline-flex items-center gap-2 text-[13px] font-semibold text-accent hover:underline">
+        Conoce el panel administrativo
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" /></svg>
+      </a>
+    </div>
+  </div>
+</section>
