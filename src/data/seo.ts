@@ -47,7 +47,6 @@ export const SEO = {
   ogImageAlt:
     'GEN.AI — Plataforma de IA para agendamiento médico, informes gerenciales e interoperabilidad con HIS, autoagendamiento del paciente 24/7 ',
   themeColor: '#163ba3',
-  twitterHandle: '@genai',
 } as const;
 
 export function buildCanonicalUrl(pathname: string, site = SITE.url) {
