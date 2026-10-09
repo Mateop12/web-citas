@@ -6,7 +6,6 @@ interface Props {
   showTagline?: boolean;
   stacked?: boolean;
   href?: string;
-  alt?: string;
   class?: string;
 }
 
@@ -17,7 +16,6 @@ const {
   showTagline = false,
   stacked = false,
   href = '/',
-  alt = '',
   class: className = '',
 } = Astro.props;
 
@@ -36,7 +34,7 @@ const linkClass = stacked
     <span class="inline-flex items-center gap-2.5">
       <img
         src="/logo-96.png"
-        alt={alt}
+        alt=""
         class={`${iconSize} ${shadow} object-cover transition-transform duration-300 group-hover:scale-105`}
         width={size === 'sm' ? 44 : 48}
         height={size === 'sm' ? 44 : 48}
