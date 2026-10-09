@@ -40,7 +40,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   solucion: {
     key: 'solucion',
     slug: '/solucion/',
-    title: 'Software de agendamiento clínico con IA | GEN.AI',
+    title: 'Cómo funciona GEN.AI: recordatorios e integración con HIS',
     description:
       'Automatiza citas médicas con inteligencia artificial. WhatsApp, web y call center integrados. Confirmaciones automáticas e interoperabilidad con HIS para IPS en Colombia.',
     h1: 'Software de agendamiento clínico con inteligencia artificial',
@@ -68,7 +68,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   whatsapp: {
     key: 'whatsapp',
     slug: '/producto/',
-    title: 'Software clínico con autoagendamiento, campañas y contacto multicanal | GEN.AI',
+    title: 'Portal de autoagendamiento y campañas para IPS | GEN.AI',
     description:
       'Portal web y móvil 24/7, WhatsApp con IA, SMS y correo. Campañas de demanda inducida y demanda insatisfecha para captar pacientes en IPS y clínicas de Colombia.',
     h1: 'Plataforma completa de agendamiento, campañas y contacto al paciente',
@@ -96,7 +96,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   faq: {
     key: 'faq',
     slug: '/faq/',
-    title: 'Preguntas frecuentes sobre GEN.AI | Agendamiento clínico con IA',
+    title: 'Preguntas frecuentes sobre GEN.AI | Agendamiento clínico',
     description:
       'Respuestas sobre implementación, integración con HIS, seguridad de datos clínicos, WhatsApp y autoagendamiento. FAQ de GEN.AI para IPS y clínicas.',
     h1: 'Preguntas frecuentes sobre agendamiento clínico con GEN.AI',

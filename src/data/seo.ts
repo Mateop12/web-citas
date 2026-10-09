@@ -19,7 +19,7 @@ export const SITE = {
 
 export const SEO = {
   title:
-    'GEN.AI — Software de IA para Agendamiento Médico | IPS, Clínicas y Hospitales',
+    'GEN.AI | Software de agendamiento médico con IA para IPS',
   description:
     'Software de agendamiento clínico con IA para IPS y clínicas en Colombia: autoagendamiento 24/7 por WhatsApp y web, recordatorios e integración con HIS.',
   keywords: [
