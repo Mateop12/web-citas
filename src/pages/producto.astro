@@ -3,6 +3,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 import AppBooking from '../components/AppBooking.astro';
 import ProductOutreach from '../components/ProductOutreach.astro';
 import WhatsAppBot from '../components/WhatsAppBot.astro';
+import CaseGenezen from '../components/CaseGenezen.astro';
 import { getPageSeo } from '../data/pages-seo';
 
 const page = getPageSeo('whatsapp');
@@ -10,6 +11,7 @@ const page = getPageSeo('whatsapp');
 
 <PageLayout page={page}>
   <AppBooking standalone previewMode="screenshot" variant="product" />
+  <CaseGenezen />
   <ProductOutreach />
   <WhatsAppBot standalone variant="product" />
 </PageLayout>

@@ -9,6 +9,9 @@
 - [Problema](https://gena.monkeymindtech.com/problema/): Llamadas perdidas, citas olvidadas, agendas saturadas
 - [Panel](https://gena.monkeymindtech.com/panel/): Calendario, profesionales y reportes para equipos de salud
 
+## Caso de éxito
+- Clínica Genezen (Colombia): 5 meses usando GEN.AI, más de 60.000 citas agendadas. Pasó del agendamiento manual al autoagendamiento; los pacientes solicitan su cita con más facilidad y el personal operativo agenda de forma más fácil y rápida. Portal en producción: https://citas.clinicagenezen.net/
+
 ## Soluciones
 - [Software para IPS](https://gena.monkeymindtech.com/software-para-ips/): Agendamiento, campañas de demanda inducida e integración con HIS para IPS en Colombia
 - [Agendamiento web](https://gena.monkeymindtech.com/agendamiento-web/): Portal de citas en línea 24/7 con filtros por EPS, especialidad, sede y médico
