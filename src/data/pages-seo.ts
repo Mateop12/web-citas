@@ -44,9 +44,9 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   solucion: {
     key: 'solucion',
     slug: '/solucion/',
-    title: 'Cómo funciona GEN.AI: recordatorios e integración con HIS',
+    title: 'Cómo funciona GEN.AI: flujo de citas e integración con HIS',
     description:
-      'Del mensaje de WhatsApp a la cita confirmada: recordatorios, reprogramación y lista de espera automáticos, con integración a tu HIS. Así funciona GEN.AI.',
+      'Del mensaje de WhatsApp a la cita confirmada en tu HIS: así fluye cada cita en GEN.AI, desde la reserva hasta la reprogramación y la lista de espera.',
     h1: 'Cómo funciona el agendamiento automático con GEN.AI',
     intro:
       'GEN.AI centraliza WhatsApp, portal web y call center en una sola plataforma. Tu equipo deja de repetir tareas manuales mientras los pacientes agendan, confirman y reprograman las 24 horas.',

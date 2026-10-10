@@ -7,16 +7,23 @@ import '@fontsource/inter-tight/latin-700.css';
 import bodyFont from '@fontsource/inter-tight/files/inter-tight-latin-400-normal.woff2?url';
 import headingFont from '@fontsource/inter-tight/files/inter-tight-latin-700-normal.woff2?url';
 import '../styles/global.css';
-import { SITE, SEO, buildCanonicalUrl, buildFAQSchema, buildSiteGraph } from '../data/seo';
+import {
+  SITE,
+  SEO,
+  buildCanonicalUrl,
+  buildFAQSchema,
+  buildSiteGraph,
+  buildWebPageSchema,
+  type WebPageType,
+} from '../data/seo';
 import type { FAQItem } from '../data/faqs';
 
 interface Props {
   title?: string;
   description?: string;
-  keywords?: string;
   ogImage?: string;
   noindex?: boolean;
-  includeSiteGraph?: boolean;
+  pageType?: WebPageType;
   faqItems?: FAQItem[];
   extraStructuredData?: Record<string, unknown>[];
 }
@@ -24,18 +31,23 @@ interface Props {
 const {
   title = SEO.title,
   description = SEO.description,
-  keywords = SEO.keywords,
   ogImage = '/og-image.png',
   noindex = false,
-  includeSiteGraph = false,
+  pageType,
   faqItems,
   extraStructuredData = [],
 } = Astro.props;
 
 const canonicalURL = buildCanonicalUrl(Astro.url.pathname, Astro.site?.href ?? SITE.url);
 const ogImageURL = new URL(ogImage, Astro.site ?? SITE.url).href;
+const breadcrumbId = extraStructuredData.find((s) => s['@type'] === 'BreadcrumbList')?.['@id'] as string | undefined;
 const structuredData = [
-  ...(includeSiteGraph ? [buildSiteGraph()] : []),
+  ...(noindex
+    ? []
+    : [
+        buildSiteGraph(),
+        buildWebPageSchema({ url: canonicalURL, name: title, description, type: pageType, breadcrumbId }),
+      ]),
   ...(faqItems ? [buildFAQSchema(faqItems)] : []),
   ...extraStructuredData,
 ];
@@ -53,24 +65,13 @@ const structuredData = [
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
     <meta name="author" content={SITE.name} />
     <meta name="publisher" content={SITE.name} />
     <meta name="copyright" content={`© ${new Date().getFullYear()} ${SITE.name}`} />
-    <meta name="language" content="Spanish" />
     <meta name="content-language" content="es-CO" />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
     <meta name="googlebot" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <link rel="canonical" href={canonicalURL} />
-
-    <!-- Geo / regional targeting -->
-    <meta name="geo.region" content="CO" />
-    <meta name="geo.placename" content="Colombia" />
-    <meta name="geo.position" content="6.248;-75.574" />
-    <meta name="ICBM" content="6.248, -75.574" />
-    <meta name="target" content="IPS, clínicas, hospitales, laboratorios, Latinoamérica" />
-    <meta name="category" content="Salud, Tecnología, Software médico, Inteligencia artificial" />
-    <meta name="classification" content="Software de agendamiento clínico con IA, software de autoagendamiento " />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -100,14 +101,10 @@ const structuredData = [
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang="es-CO" href={canonicalURL} />
-    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
-
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Tema: oscuro por defecto; el claro se recuerda por visitante (antes del primer pintado) -->

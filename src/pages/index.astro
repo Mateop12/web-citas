@@ -7,13 +7,14 @@ import Modules from '../components/home/Modules.astro';
 import WhatsAppFeature from '../components/home/WhatsAppFeature.astro';
 import InteropPanel from '../components/home/InteropPanel.astro';
 import PanelShowcase from '../components/home/PanelShowcase.astro';
+import CaseGenezen from '../components/CaseGenezen.astro';
 import Audiences from '../components/home/Audiences.astro';
 import HomeFAQ from '../components/home/HomeFAQ.astro';
 import FinalCTA from '../components/home/FinalCTA.astro';
 import { homeFaqs } from '../data/faqs';
 ---
 
-<BaseLayout includeSiteGraph faqItems={homeFaqs}>
+<BaseLayout faqItems={homeFaqs}>
   <Navbar />
   <main id="main-content">
     <HomeHero />
@@ -21,6 +22,7 @@ import { homeFaqs } from '../data/faqs';
     <WhatsAppFeature />
     <InteropPanel />
     <PanelShowcase />
+    <CaseGenezen />
     <Audiences />
     <HomeFAQ />
     <FinalCTA />

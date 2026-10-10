@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import LandingContent from '../components/LandingContent.astro';
+import CaseGenezen from '../components/CaseGenezen.astro';
 import { getPageSeo } from '../data/pages-seo';
 
 const page = getPageSeo('softwareIps');
@@ -8,4 +9,5 @@ const page = getPageSeo('softwareIps');
 
 <PageLayout page={page}>
   <LandingContent pageKey="softwareIps" />
+  <CaseGenezen />
 </PageLayout>

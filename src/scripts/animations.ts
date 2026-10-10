@@ -275,7 +275,8 @@ export function initNavSpy() {
 // Móvil: el botón flotante de WhatsApp tapaba las estadísticas del hero; se oculta mientras están en pantalla
 export function initFloatingWhatsApp() {
   const button = document.getElementById('whatsapp-float');
-  const stats = document.getElementById('hero-stats');
+  // En móvil se oculta mientras el hero/encabezado de la página está a la vista, para no tapar el contenido inicial.
+  const stats = document.getElementById('hero-stats') ?? document.querySelector('#main-content > header');
   if (!button || !stats) return;
 
   const mobile = window.matchMedia('(max-width: 639px)');
