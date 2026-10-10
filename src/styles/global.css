@@ -209,20 +209,23 @@
   transform: translateY(0);
 }
 
-[data-animate="fade-left"] {
-  transform: translateX(-28px);
-}
+/* Desplazamiento lateral solo en pantallas anchas: en móvil saca el elemento del viewport (scroll horizontal). */
+@media (min-width: 768px) {
+  [data-animate="fade-left"] {
+    transform: translateX(-28px);
+  }
 
-[data-animate="fade-left"].is-visible {
-  transform: translateX(0);
-}
+  [data-animate="fade-left"].is-visible {
+    transform: translateX(0);
+  }
 
-[data-animate="fade-right"] {
-  transform: translateX(28px);
-}
+  [data-animate="fade-right"] {
+    transform: translateX(28px);
+  }
 
-[data-animate="fade-right"].is-visible {
-  transform: translateX(0);
+  [data-animate="fade-right"].is-visible {
+    transform: translateX(0);
+  }
 }
 
 [data-animate="scale"] {

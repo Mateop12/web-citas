@@ -22,28 +22,6 @@ export const SEO = {
     'Software de agendamiento de citas médicas con IA | GEN.AI',
   description:
     'Software de agendamiento clínico para IPS y clínicas en Colombia: agendamiento web, bot de WhatsApp y recordatorios de citas. Implementación en 48 h.',
-  keywords: [
-    'software IA salud Colombia',
-    'inteligencia artificial IPS',
-    'agendamiento médico inteligente',
-    'autoagendamiento',
-    'tecnología salud Latinoamérica',
-    'software agendamiento clínico',
-    'agenda médica online',
-    'citas médicas WhatsApp',
-    'chatbot salud',
-    'informes gerenciales salud',
-    'interoperabilidad historia clínica',
-    'integración HIS',
-    'gestión de turnos médicos',
-    'software IPS Colombia',
-    'software clínicas Colombia',
-    'reducir ausentismo citas',
-    'confirmación automática citas',
-    'recordatorios pacientes WhatsApp',
-    'plataforma salud digital',
-    'GEN.AI',
-  ].join(', '),
   ogImageAlt:
     'GEN.AI — Plataforma de IA para agendamiento médico, informes gerenciales e interoperabilidad con HIS, autoagendamiento del paciente 24/7 ',
 } as const;
@@ -75,7 +53,7 @@ export function buildSiteGraph() {
         description:
           'Software de inteligencia artificial para agendamiento médico en IPS y clínicas de Colombia: autoagendamiento 24/7, confirmaciones automáticas, informes gerenciales e interoperabilidad con HIS.',
         email: SITE.email,
-        areaServed: 'CO',
+        areaServed: { '@type': 'Country', name: 'Colombia' },
         address: { '@type': 'PostalAddress', addressLocality: 'Medellín', addressCountry: 'CO' },
         contactPoint: {
           '@type': 'ContactPoint',
@@ -122,6 +100,29 @@ export function buildSiteGraph() {
   };
 }
 
+export type WebPageType = 'WebPage' | 'AboutPage' | 'ContactPage';
+
+export function buildWebPageSchema(page: {
+  url: string;
+  name: string;
+  description: string;
+  type?: WebPageType;
+  breadcrumbId?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': page.type ?? 'WebPage',
+    '@id': `${page.url}#webpage`,
+    url: page.url,
+    name: page.name,
+    description: page.description,
+    inLanguage: 'es-CO',
+    isPartOf: { '@id': ID.website },
+    about: { '@id': ID.software },
+    ...(page.breadcrumbId ? { breadcrumb: { '@id': page.breadcrumbId } } : {}),
+  };
+}
+
 export function buildFAQSchema(items: FAQItem[] = faqs) {
   return {
     '@context': 'https://schema.org',
@@ -141,6 +142,7 @@ export function buildBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    '@id': `${items[items.length - 1].url}#breadcrumb`,
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,

@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://gena.monkeymindtech.com',
   trailingSlash: 'always',
-  build: { inlineStylesheets: 'always' },
+  build: { inlineStylesheets: 'auto' },
   vite: {
     plugins: [tailwindcss()],
   },
