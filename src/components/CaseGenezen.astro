@@ -5,9 +5,9 @@ import Button from './ui/Button.astro';
 // Caso de éxito real. Datos entregados por el dueño (oct. 2026): 5 meses de uso, más de 60.000 citas agendadas.
 // Actualizar las cifras aquí cuando cambien; no agregar métricas sin respaldo.
 const stats = [
-  { value: '+60.000', label: 'citas agendadas con GEN.AI' },
-  { value: '5 meses', label: 'en operación' },
-  { value: '+12.000', label: 'citas al mes en promedio' },
+  { prefix: '+', n: 60000, suffix: '', label: 'citas agendadas con GEN.AI' },
+  { prefix: '', n: 5, suffix: ' meses', label: 'en operación' },
+  { prefix: '+', n: 12000, suffix: '', label: 'citas al mes en promedio' },
 ];
 
 const results = [
@@ -34,15 +34,15 @@ const results = [
 
     <dl class="grid border-y border-line sm:grid-cols-3">
       {stats.map((s, i) => (
-        <div class:list={['flex flex-col p-6 lg:py-8', i > 0 && 'border-line max-sm:border-t sm:border-l']}>
+        <div data-animate data-delay={String(i + 1)} class:list={['flex flex-col p-6 lg:py-8', i > 0 && 'border-line max-sm:border-t sm:border-l']}>
           <dt class="text-[13px] text-muted">{s.label}</dt>
-          <dd class="font-mono-data order-first text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl">{s.value}</dd>
+          <dd class="font-mono-data order-first text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl" data-counter={s.n} data-prefix={s.prefix} data-suffix={s.suffix}>{s.prefix}{s.n.toLocaleString('es-CO')}{s.suffix}</dd>
         </div>
       ))}
     </dl>
 
     <div class="mt-10 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
-      <figure>
+      <figure data-animate>
         <blockquote>
           <p class="font-display text-2xl leading-snug font-semibold tracking-[-0.03em] text-ink sm:text-3xl">
             «Pasamos de agendar manualmente en el sistema a autoagendar con GEN.AI».
@@ -64,8 +64,8 @@ const results = [
       </figure>
 
       <ul class="space-y-6">
-        {results.map((r) => (
-          <li class="rounded-xl border border-line bg-card p-6">
+        {results.map((r, i) => (
+          <li data-animate data-delay={String(i + 1)} class="rounded-xl border border-line bg-card p-6">
             <h3 class="text-lg font-semibold tracking-[-0.025em] text-ink">{r.title}</h3>
             <p class="mt-2 text-sm leading-relaxed text-muted">{r.text}</p>
           </li>

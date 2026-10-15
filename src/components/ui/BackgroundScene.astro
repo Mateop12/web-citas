@@ -1,0 +1,239 @@
+---
+// Fondo animado de todo el sitio: manchas de luz, retícula de puntos, siluetas flotando y un electrocardiograma.
+// Capa fija detrás del contenido (z-index -1). Solo anima transform/translate y stroke-dashoffset.
+const icons = {
+  calendar: 'M7 3v3M17 3v3M4 8h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z',
+  chat: 'M8 10h8M8 14h5m-9 6 2.5-3H18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14Z',
+  cross: 'M9 4h6v5h5v6h-5v5H9v-5H4V9h5V4Z',
+  clock: 'M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
+  heart: 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z',
+  check: 'm8.5 12 2.5 2.5 4.5-5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
+  bell: 'M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 1 0-12 0v3.2a2 2 0 0 1-.6 1.4L4 17h5m6 0a3 3 0 0 1-6 0',
+};
+
+type Shape = { icon: keyof typeof icons; x: number; y: number; size: number; t: number; dl: number };
+
+// x/y en % del viewport; t = duración del vaivén (s); dl = desfase (s, negativo para que arranquen ya en movimiento)
+const far: Shape[] = [
+  { icon: 'cross', x: 6, y: 14, size: 44, t: 22, dl: -4 },
+  { icon: 'clock', x: 88, y: 22, size: 52, t: 26, dl: -11 },
+  { icon: 'heart', x: 48, y: 58, size: 40, t: 24, dl: -7 },
+  { icon: 'calendar', x: 14, y: 84, size: 48, t: 28, dl: -15 },
+  { icon: 'check', x: 76, y: 92, size: 42, t: 21, dl: -2 },
+  { icon: 'bell', x: 34, y: 112, size: 40, t: 25, dl: -9 },
+];
+
+const near: Shape[] = [
+  { icon: 'calendar', x: 80, y: 8, size: 84, t: 18, dl: -3 },
+  { icon: 'chat', x: 3, y: 44, size: 92, t: 20, dl: -12 },
+  { icon: 'cross', x: 62, y: 38, size: 60, t: 16, dl: -6 },
+  { icon: 'heart', x: 90, y: 66, size: 72, t: 19, dl: -9 },
+  { icon: 'clock', x: 26, y: 102, size: 80, t: 22, dl: -14 },
+  { icon: 'chat', x: 70, y: 124, size: 76, t: 17, dl: -1 },
+];
+
+// Línea de ECG: tramo plano, latido, tramo plano. Se repite para cruzar la pantalla.
+const beat = (x: number) => `L${x} 50 L${x + 12} 50 L${x + 18} 38 L${x + 24} 50 L${x + 34} 50 L${x + 40} 12 L${x + 48} 86 L${x + 54} 50 L${x + 66} 50 L${x + 74} 42 L${x + 84} 50`;
+const ecg = `M0 50 ${[80, 380, 680, 980].map((x) => beat(x)).join(' ')} L1200 50`;
+---
+
+<div class="bg-scene" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+
+  <svg class="bg-ecg" viewBox="0 0 1200 100" preserveAspectRatio="none">
+    <path class="bg-ecg-base" d={ecg} pathLength="1" />
+    <path class="bg-ecg-pulse" d={ecg} pathLength="1" />
+  </svg>
+
+  {[['far', far], ['near', near]].map(([layer, shapes]) => (
+    <div class={`bg-layer bg-layer-${layer}`}>
+      {(shapes as Shape[]).map((s) => (
+        <svg
+          class="bg-shape"
+          style={`left:${s.x}%;top:${s.y}%;width:${s.size}px;height:${s.size}px;--t:${s.t}s;--dl:${s.dl}s`}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d={icons[s.icon]} />
+        </svg>
+      ))}
+    </div>
+  ))}
+</div>
+
+<style>
+  .bg-scene {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    color: var(--accent);
+  }
+
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(color-mix(in oklab, var(--text) 14%, transparent) 1px, transparent 1.2px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black, transparent 75%);
+    opacity: 0.5;
+  }
+
+  /* Gradiente radial en vez de filter: blur, que es mucho más caro de mover */
+  .bg-blob {
+    position: absolute;
+    width: 60vmax;
+    height: 60vmax;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  .bg-blob-1 {
+    top: -25vmax;
+    right: -15vmax;
+    background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 16%, transparent), transparent);
+    animation: blob-a 34s ease-in-out infinite alternate;
+  }
+
+  .bg-blob-2 {
+    bottom: -30vmax;
+    left: -20vmax;
+    background: radial-gradient(closest-side, color-mix(in oklab, var(--btn-from) 30%, transparent), transparent);
+    animation: blob-b 40s ease-in-out infinite alternate;
+  }
+
+  .bg-blob-3 {
+    top: 30%;
+    left: 35%;
+    width: 40vmax;
+    height: 40vmax;
+    background: radial-gradient(closest-side, color-mix(in oklab, var(--btn-to) 18%, transparent), transparent);
+    animation: blob-c 28s ease-in-out infinite alternate;
+  }
+
+  @keyframes blob-a {
+    to { transform: translate(-18vw, 22vh) scale(1.15); }
+  }
+
+  @keyframes blob-b {
+    to { transform: translate(24vw, -18vh) scale(0.9); }
+  }
+
+  @keyframes blob-c {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-20vw, 10vh) scale(1.2); }
+    100% { transform: translate(15vw, -12vh) scale(0.95); }
+  }
+
+  /* ECG: una línea tenue fija y un pulso que la recorre */
+  .bg-ecg {
+    position: absolute;
+    left: 0;
+    top: 62%;
+    width: 100%;
+    height: 90px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linejoin: round;
+    /* Se desvanece en los bordes; en escritorio, también sobre la columna de texto de la izquierda */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  }
+
+  @media (min-width: 1024px) {
+    .bg-ecg {
+      mask-image: linear-gradient(to right, transparent 40%, black 60%, black 90%, transparent);
+    }
+  }
+
+  .bg-ecg path {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .bg-ecg-base {
+    stroke-width: 1;
+    opacity: 0.07;
+  }
+
+  .bg-ecg-pulse {
+    stroke-width: 1.4;
+    opacity: 0.25;
+    stroke-dasharray: 0.14 0.86;
+    animation: ecg-run 7s linear infinite;
+  }
+
+  @keyframes ecg-run {
+    from { stroke-dashoffset: 1; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  .bg-layer {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 140vh;
+  }
+
+  .bg-shape {
+    position: absolute;
+    animation: shape-float var(--t) ease-in-out var(--dl) infinite alternate;
+  }
+
+  .bg-layer-far .bg-shape {
+    opacity: 0.07;
+  }
+
+  .bg-layer-near .bg-shape {
+    opacity: 0.11;
+  }
+
+  @keyframes shape-float {
+    from { transform: translate(0, 0) rotate(-6deg); }
+    to { transform: translate(26px, -38px) rotate(8deg); }
+  }
+
+  /* En móvil, menos siluetas y más pequeñas para no ensuciar el contenido */
+  @media (max-width: 639px) {
+    .bg-shape:nth-child(even) {
+      display: none;
+    }
+
+    .bg-shape {
+      scale: 0.7;
+    }
+  }
+
+  /* Profundidad: al hacer scroll la capa cercana se mueve más que la lejana.
+     Longhands: el minificador fusiona el atajo `animation` con el timeline y Chrome lo descarta. */
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .bg-layer {
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: scroll(root);
+      }
+
+      .bg-layer-far {
+        animation-name: layer-far;
+      }
+
+      .bg-layer-near {
+        animation-name: layer-near;
+      }
+    }
+  }
+
+  @keyframes layer-far {
+    to { translate: 0 -15vh; }
+  }
+
+  @keyframes layer-near {
+    to { translate: 0 -40vh; }
+  }
+</style>

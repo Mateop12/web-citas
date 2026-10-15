@@ -1,5 +1,6 @@
 ---
 import DemoModal from '../components/DemoModal.astro';
+import BackgroundScene from '../components/ui/BackgroundScene.astro';
 import '@fontsource/inter-tight/latin-400.css';
 import '@fontsource/inter-tight/latin-500.css';
 import '@fontsource/inter-tight/latin-600.css';
@@ -125,6 +126,7 @@ const structuredData = [
 
   </head>
   <body class="overflow-x-hidden">
+    <BackgroundScene />
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:shadow-lg"

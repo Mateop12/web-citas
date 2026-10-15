@@ -28,3 +28,9 @@ mcp.json
 # auditoría SEO: HTML crudo regenerable con audit.py
 docs/seo/*/raw/
 __pycache__/
+
+gena.monkeymindtech.com-audit/
+gena-dist/
+gena-dist.zip
+package/
+claude-seo/

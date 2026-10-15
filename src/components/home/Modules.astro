@@ -24,14 +24,17 @@ const modules = [
     />
 
     <ul class="flex flex-wrap justify-center gap-4">
-      {modules.map((m) => (
-        <li class="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)]">
+      {modules.map((m, i) => (
+        <li data-animate data-delay={String((i % 4) + 1)} class="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)]">
           <a href={m.href} class="module-card group flex h-full flex-col overflow-hidden rounded-xl border border-line bg-card transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-accent/50">
             <div class="module-visual relative h-40 overflow-hidden border-b border-line" aria-hidden="true">
               {m.key === 'whatsapp' && (
                 <div class="absolute inset-x-5 top-6 space-y-2 text-[11px]">
-                  <p class="ml-auto w-fit rounded-xl rounded-tr-sm bg-[#dcf8c6] px-3 py-1.5 text-[#111b21]">Hola, quiero una cita de pediatría</p>
-                  <p class="w-fit rounded-xl rounded-tl-sm bg-white px-3 py-1.5 text-[#111b21] shadow-sm">Tengo martes 9:00 o 10:30. ¿Cuál prefieres?</p>
+                  <p class="mv-pop ml-auto w-fit rounded-xl rounded-tr-sm bg-[#dcf8c6] px-3 py-1.5 text-[#111b21]" style="--d:.4s">Hola, quiero una cita de pediatría</p>
+                  <div class="grid justify-items-start">
+                    <p class="mv-typing flex w-fit gap-1 rounded-xl rounded-tl-sm bg-white px-3 py-2.5 shadow-sm [grid-area:1/1]" style="--d:.9s"><i></i><i></i><i></i></p>
+                    <p class="mv-pop w-fit rounded-xl rounded-tl-sm bg-white px-3 py-1.5 text-[#111b21] shadow-sm [grid-area:1/1]" style="--d:2s">Tengo martes 9:00 o 10:30. ¿Cuál prefieres?</p>
+                  </div>
                 </div>
               )}
               {m.key === 'portal' && (
@@ -39,13 +42,13 @@ const modules = [
                   <p class="mb-2 text-[11px] text-muted">Medicina general · mar 2 jul</p>
                   <div class="grid grid-cols-3 gap-2">
                     {['8:00', '9:30', '10:30', '11:00', '14:00', '15:30'].map((h, j) => (
-                      <span class:list={['rounded-lg border py-1.5 text-center text-[11px] font-semibold', j === 2 ? 'border-accent bg-accent text-[var(--on-accent)]' : 'border-line text-ink']}>{h}</span>
+                      <span style={`--d:${0.3 + j * 0.06}s`} class:list={['mv-pop rounded-lg border py-1.5 text-center text-[11px] font-semibold', j === 2 ? 'border-accent bg-accent text-[var(--on-accent)]' : 'border-line text-ink']}>{h}</span>
                     ))}
                   </div>
                 </div>
               )}
               {m.key === 'reminders' && (
-                <div class="absolute inset-x-5 top-7 rounded-xl border border-line bg-surface p-3">
+                <div class="mv-pop absolute inset-x-5 top-7 rounded-xl border border-line bg-surface p-3" style="--d:.4s">
                   <p class="text-[11px] font-semibold text-ink">Recordatorio de tu cita</p>
                   <p class="mt-1 text-[11px] text-muted">Mañana 9:00 a. m. · Dr. Mendoza</p>
                   <div class="mt-2.5 flex gap-2 text-[10px] font-semibold">
@@ -57,29 +60,29 @@ const modules = [
               {m.key === 'waitlist' && (
                 <div class="absolute inset-x-5 top-6 space-y-2 text-[11px]">
                   <p class="flex justify-between rounded-lg border border-line px-3 py-2 text-muted"><span>Cupo liberado</span><span class="font-semibold text-ink">Vie 10:00</span></p>
-                  <p class="flex justify-between rounded-lg border border-accent/50 bg-accent/10 px-3 py-2"><span class="text-ink">Ana T. · en espera</span><span class="font-semibold text-accent">Avisada</span></p>
+                  <p class="mv-pop flex justify-between rounded-lg border border-accent/50 bg-accent/10 px-3 py-2" style="--d:.9s"><span class="text-ink">Ana T. · en espera</span><span class="font-semibold text-accent">Avisada</span></p>
                 </div>
               )}
               {m.key === 'campaigns' && (
                 <div class="absolute inset-x-5 bottom-5 flex h-24 items-end gap-2">
-                  {[34, 52, 41, 66, 58, 80, 92].map((h) => (
-                    <span class="flex-1 rounded-t bg-gradient-to-t from-accent/20 to-accent/70" style={`height:${h}%`}></span>
+                  {[34, 52, 41, 66, 58, 80, 92].map((h, j) => (
+                    <span style={`height:${h}%;--d:${0.3 + j * 0.07}s`} class="mv-grow flex-1 rounded-t bg-gradient-to-t from-accent/20 to-accent/70"></span>
                   ))}
                 </div>
               )}
               {m.key === 'panel' && (
                 <div class="absolute inset-x-5 top-6 grid grid-cols-7 gap-1">
                   {Array.from({ length: 21 }, (_, j) => (
-                    <span class:list={['h-6 rounded', [3, 8, 9, 15].includes(j) ? 'bg-accent/60' : [1, 11, 17].includes(j) ? 'bg-accent/25' : 'bg-surface']}></span>
+                    <span style={`--d:${0.3 + j * 0.03}s`} class:list={['mv-pop h-6 rounded', [3, 8, 9, 15].includes(j) ? 'bg-accent/60' : [1, 11, 17].includes(j) ? 'bg-accent/25' : 'bg-surface']}></span>
                   ))}
                 </div>
               )}
               {m.key === 'his' && (
                 <div class="absolute inset-x-5 top-12 flex items-center gap-2 text-[11px] font-semibold">
                   <span class="rounded-md border border-line px-2.5 py-1.5 text-ink">Agenda</span>
-                  <span class="h-px flex-1 bg-accent/50"></span>
+                  <span class="flow-line h-px flex-1 bg-accent/50"></span>
                   <span class="rounded-md bg-accent px-2.5 py-1.5 text-[var(--on-accent)]">GEN.AI</span>
-                  <span class="h-px flex-1 bg-accent/50"></span>
+                  <span class="flow-line h-px flex-1 bg-accent/50"></span>
                   <span class="rounded-md border border-line px-2.5 py-1.5 text-ink">HIS</span>
                 </div>
               )}

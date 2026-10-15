@@ -80,8 +80,10 @@
     *::before,
     *::after {
       animation-duration: 0.01ms !important;
+      animation-delay: 0s !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+      transition-delay: 0s !important;
     }
   }
 
@@ -195,45 +197,47 @@
   }
 }
 
-/* Scroll reveal */
-[data-animate] {
-  opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-[data-animate].is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Desplazamiento lateral solo en pantallas anchas: en móvil saca el elemento del viewport (scroll horizontal). */
-@media (min-width: 768px) {
-  [data-animate="fade-left"] {
-    transform: translateX(-28px);
+/* Scroll reveal. Solo se oculta si hay JS: sin él (o si falla) el contenido queda visible. */
+@media (scripting: enabled) {
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  [data-animate="fade-left"].is-visible {
-    transform: translateX(0);
+  [data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  [data-animate="fade-right"] {
-    transform: translateX(28px);
+  /* Desplazamiento lateral solo en pantallas anchas: en móvil saca el elemento del viewport (scroll horizontal). */
+  @media (min-width: 768px) {
+    [data-animate="fade-left"] {
+      transform: translateX(-28px);
+    }
+
+    [data-animate="fade-left"].is-visible {
+      transform: translateX(0);
+    }
+
+    [data-animate="fade-right"] {
+      transform: translateX(28px);
+    }
+
+    [data-animate="fade-right"].is-visible {
+      transform: translateX(0);
+    }
   }
 
-  [data-animate="fade-right"].is-visible {
-    transform: translateX(0);
+  [data-animate="scale"] {
+    transform: scale(0.96);
   }
-}
 
-[data-animate="scale"] {
-  transform: scale(0.96);
-}
-
-[data-animate="scale"].is-visible {
-  transform: scale(1);
+  [data-animate="scale"].is-visible {
+    transform: scale(1);
+  }
 }
 
 [data-delay="1"] { transition-delay: 0.08s; }
@@ -249,6 +253,11 @@
   animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Solo movimiento, sin opacidad: para el H1 y el texto grande, que son candidatos a LCP */
+.hero-lift {
+  animation: hero-lift 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 .hero-enter-d1 { animation-delay: 0.1s; }
 .hero-enter-d2 { animation-delay: 0.22s; }
 .hero-enter-d3 { animation-delay: 0.34s; }
@@ -259,6 +268,174 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes hero-lift {
+  from { transform: translateY(14px); }
+}
+
+/* Microanimaciones de los visuales: arrancan cuando el ancestro [data-animate] recibe .is-visible.
+   Sin JS no hay .is-visible, así que se ve el estado final. Retardo por elemento con --d. */
+.is-visible .mv-pop {
+  animation: mv-pop 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s) both;
+}
+
+.is-visible .mv-grow {
+  transform-origin: bottom;
+  animation: mv-grow 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s) both;
+}
+
+@keyframes mv-pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+}
+
+@keyframes mv-grow {
+  from { transform: scaleY(0); }
+}
+
+/* "Escribiendo…" de WhatsApp: aparece, espera y se va antes de la respuesta */
+.mv-typing {
+  opacity: 0;
+}
+
+.is-visible .mv-typing {
+  animation: mv-typing 1.2s ease var(--d, 0s) both;
+}
+
+.mv-typing i {
+  @apply inline-block h-1.5 w-1.5 rounded-full bg-[#8696a0];
+  animation: typing-dot 0.9s ease-in-out infinite;
+}
+
+.mv-typing i:nth-child(2) { animation-delay: 0.15s; }
+.mv-typing i:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes mv-typing {
+  0%, 100% { opacity: 0; }
+  15%, 80% { opacity: 1; }
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-3px); }
+}
+
+/* Tarjetas flotantes del hero y del panel HIS */
+.float-y {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+.float-y-late {
+  animation-delay: -3s;
+}
+
+@keyframes float-y {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -6px; }
+}
+
+.spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+
+@keyframes spin-slow {
+  to { rotate: 360deg; }
+}
+
+/* Estado de la cita que pasa de Pendiente a Confirmada en bucle */
+.status-swap {
+  display: grid;
+}
+
+.status-swap > * {
+  grid-area: 1 / 1;
+  text-align: center;
+}
+
+.status-swap > :last-child {
+  animation: status-swap 5s ease-in-out 2s infinite alternate both;
+}
+
+.status-swap > :first-child {
+  animation: status-swap 5s ease-in-out 2s infinite alternate-reverse both;
+}
+
+@keyframes status-swap {
+  0%, 45% { opacity: 0; }
+  55%, 100% { opacity: 1; }
+}
+
+/* Punto de luz que recorre una línea de conexión (Agenda → GEN.AI → HIS) */
+.flow-line {
+  position: relative;
+  container-type: inline-size;
+}
+
+.flow-line::after {
+  content: "";
+  @apply absolute -top-px left-0 h-[3px] w-3 rounded-full bg-accent;
+  animation: solution-flow-pulse 2.4s ease-in-out infinite;
+}
+
+.flow-line + * + .flow-line::after {
+  animation-delay: 1.2s;
+}
+
+/* Transición suave entre páginas (View Transitions nativas; Firefox simplemente navega sin ella) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+#navbar {
+  view-transition-name: site-nav;
+}
+
+/* Efectos ligados al scroll, sin JS. Navegadores sin soporte no animan nada.
+   Usan `translate`/`scale` (no `transform`) para no pisar el reveal ni el parallax del ratón. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Longhands a propósito: el minificador fusiona el atajo `animation` con el timeline y Chrome lo descarta */
+    .scroll-parallax,
+    .scroll-sink,
+    .scroll-progress {
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+    }
+
+    .scroll-parallax {
+      animation-name: scroll-parallax;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+
+    .scroll-sink {
+      animation-name: scroll-sink;
+      animation-timeline: view();
+      animation-range: exit;
+    }
+
+    .scroll-progress {
+      @apply pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-accent;
+      transform-origin: left;
+      animation-name: scroll-progress;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+@keyframes scroll-parallax {
+  from { translate: 0 32px; }
+  to { translate: 0 -32px; }
+}
+
+@keyframes scroll-sink {
+  to { translate: 0 60px; }
+}
+
+@keyframes scroll-progress {
+  from { scale: 0 1; }
 }
 
 /* Live pulse ticker — signature element */

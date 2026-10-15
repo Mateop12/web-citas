@@ -4,7 +4,7 @@
 
 <section class="section-padding" aria-labelledby="his-title">
   <div class="container-custom grid items-center gap-12 overflow-hidden rounded-2xl border border-line bg-card px-6 py-10 sm:px-10 lg:grid-cols-[1.1fr_1fr] lg:px-12 lg:py-12">
-    <div>
+    <div data-animate>
       <p class="eyebrow mb-4">De la agenda a la historia clínica</p>
       <h2 id="his-title" class="display-lg text-ink">
         Interoperabilidad <span class="tone">con tu HIS.</span>
@@ -29,9 +29,9 @@
       </a>
     </div>
 
-    <div class="relative mx-auto h-72 w-full max-w-md" aria-hidden="true">
-      <div class="absolute inset-y-0 right-0 aspect-square rounded-full border border-dashed border-line"></div>
-      <div class="absolute top-10 left-0 flex items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3 rotate-[-4deg]">
+    <div class="relative mx-auto h-72 w-full max-w-md" aria-hidden="true" data-animate="fade-right">
+      <div class="spin-slow absolute inset-y-0 right-0 aspect-square rounded-full border border-dashed border-line"></div>
+      <div class="float-y float-y-late absolute top-10 left-0 flex items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3 rotate-[-4deg]">
         <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/15 text-accent">
           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h8M8 14h5m-9 6 2.5-3H18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14Z" /></svg>
         </span>
@@ -41,18 +41,18 @@
         </div>
         <svg class="ml-2 h-4 w-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m5 12 4 4 10-10" /></svg>
       </div>
-      <div class="absolute top-6 right-2 w-60 rotate-[4deg] rounded-xl border border-line bg-[var(--bg)] p-5 shadow-[var(--shadow)]">
+      <div class="float-y absolute top-6 right-2 w-60 rotate-[4deg] rounded-xl border border-line bg-[var(--bg)] p-5 shadow-[var(--shadow)]">
         <div class="flex items-center gap-2">
           <img src="/logo-96.png" alt="" width="28" height="28" class="h-7 w-7 rounded-full" loading="lazy" />
           <p class="text-sm font-bold tracking-[-0.03em] text-ink">GEN.AI</p>
         </div>
         <p class="mt-4 text-[10px] font-semibold tracking-[0.16em] text-muted uppercase">Sincronización con HIS</p>
         <div class="mt-3 space-y-2 text-[11px]">
-          <p class="flex justify-between border-b border-line pb-2 text-muted">Paciente <span class="text-ink">Actualizado</span></p>
-          <p class="flex justify-between border-b border-line pb-2 text-muted">Cita <span class="text-ink">Registrada</span></p>
-          <p class="flex justify-between text-muted">Profesional <span class="text-ink">Asignado</span></p>
+          <p class="mv-pop flex justify-between border-b border-line pb-2 text-muted" style="--d:.5s">Paciente <span class="text-ink">Actualizado</span></p>
+          <p class="mv-pop flex justify-between border-b border-line pb-2 text-muted" style="--d:.75s">Cita <span class="text-ink">Registrada</span></p>
+          <p class="mv-pop flex justify-between text-muted" style="--d:1s">Profesional <span class="text-ink">Asignado</span></p>
         </div>
-        <p class="mt-4 rounded-md bg-accent/15 px-3 py-2 text-[11px] font-semibold text-accent">Sin doble digitación</p>
+        <p class="mv-pop mt-4 rounded-md bg-accent/15 px-3 py-2 text-[11px] font-semibold text-accent" style="--d:1.3s">Sin doble digitación</p>
       </div>
     </div>
   </div>

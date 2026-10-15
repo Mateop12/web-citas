@@ -15,31 +15,31 @@ const integrations = ['WhatsApp Business', 'Google Calendar', 'Outlook', 'Tu HIS
   <div class="container-custom">
     <div class="grid items-center gap-12 py-14 lg:grid-cols-[44%_56%] lg:gap-0 lg:py-16">
       <div class="relative z-10 text-center lg:text-left">
-        <p class="eyebrow inline-flex items-center gap-3">
+        <p class="eyebrow hero-enter inline-flex items-center gap-3">
           <span class="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true"></span>
           Menos llamadas. Más citas.
         </p>
 
-        <h1 id="hero-title" class="display-xl mt-6 text-ink">
+        <h1 id="hero-title" class="display-xl hero-lift hero-enter-d1 mt-6 text-ink">
           Software de agendamiento clínico con IA
         </h1>
 
-        <p class="mt-6 text-lg leading-snug tracking-[-0.02em] text-ink sm:text-[21px]">
+        <p class="hero-lift hero-enter-d2 mt-6 text-lg leading-snug tracking-[-0.02em] text-ink sm:text-[21px]">
           Llena tu agenda sin saturar el teléfono: tus pacientes agendan, confirman y reprograman solos por WhatsApp y web, las 24 horas.
         </p>
-        <p class="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted lg:mx-0">
+        <p class="hero-enter hero-enter-d2 mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted lg:mx-0">
           Gestiona citas, confirmaciones, recordatorios, lista de espera y reportes desde una plataforma
           pensada para IPS, clínicas y centros de diagnóstico en Colombia.
         </p>
 
-        <a href="/solucion/" class="mt-5 inline-flex items-center gap-2 text-[13px] font-medium text-accent hover:underline">
+        <a href="/solucion/" class="hero-enter hero-enter-d3 mt-5 inline-flex items-center gap-2 text-[13px] font-medium text-accent hover:underline">
           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0-4-4m4 4-4 4m0 6H4m0 0 4 4m-4-4 4-4" />
           </svg>
           Integración con tu historia clínica (HIS)
         </a>
 
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+        <div class="hero-enter hero-enter-d3 mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
           <Button openDemoModal variant="primary" size="md">Solicitar demo</Button>
           <Button href="/solucion/" variant="outline" size="md">
             <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -49,7 +49,7 @@ const integrations = ['WhatsApp Business', 'Google Calendar', 'Outlook', 'Tu HIS
           </Button>
         </div>
 
-        <ul class="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-muted lg:justify-start">
+        <ul class="hero-enter hero-enter-d4 mt-7 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-muted lg:justify-start">
           <li class="flex items-center gap-2">
             <svg class="h-4 w-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z" /><path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4" />
@@ -66,8 +66,10 @@ const integrations = ['WhatsApp Business', 'Google Calendar', 'Outlook', 'Tu HIS
       </div>
 
       <!-- Visual: la agenda del día, inclinada como la captura de la referencia -->
-      <div class="relative mx-auto w-full max-w-xl lg:-mr-8 lg:max-w-none lg:pl-14" aria-hidden="true">
-        <p class="absolute -top-4 right-4 z-20 flex items-center gap-2 rounded-lg border border-line bg-card px-3 py-2 text-xs font-medium text-ink shadow-[var(--shadow)] sm:right-10">
+      <!-- Wrapper para la entrada: la animación pisaría el transform inline del parallax de #hero-visual -->
+      <div class="hero-enter hero-enter-d2">
+      <div id="hero-visual" class="hero-visual scroll-sink relative mx-auto w-full max-w-xl lg:-mr-8 lg:max-w-none lg:pl-14" aria-hidden="true">
+        <p class="float-y absolute -top-4 right-4 z-20 flex items-center gap-2 rounded-lg border border-line bg-card px-3 py-2 text-xs font-medium text-ink shadow-[var(--shadow)] sm:right-10">
           <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
           Agenda conectada. Pacientes confirmados.
         </p>
@@ -100,22 +102,27 @@ const integrations = ['WhatsApp Business', 'Google Calendar', 'Outlook', 'Tu HIS
               <div class="mb-4 grid grid-cols-3 gap-2">
                 {[['18', 'Confirmadas'], ['9', 'Pendientes'], ['5', 'Nuevas']].map(([n, l]) => (
                   <div class="rounded-xl border border-line bg-surface px-3 py-2.5">
-                    <p class="font-mono-data text-xl font-semibold text-ink">{n}</p>
+                    <p class="font-mono-data text-xl font-semibold text-ink" data-counter={n}>{n}</p>
                     <p class="text-[10px] text-muted">{l}</p>
                   </div>
                 ))}
               </div>
               <div class="space-y-2">
-                {agenda.map((a) => (
-                  <div class="flex items-center gap-3 rounded-xl border border-line px-3 py-2.5">
+                {agenda.map((a, i) => (
+                  <div class="hero-enter flex items-center gap-3 rounded-xl border border-line px-3 py-2.5" style={`animation-delay:${0.7 + i * 0.15}s`}>
                     <span class="font-mono-data text-xs font-semibold text-accent">{a.t}</span>
                     <div class="min-w-0 flex-1">
                       <p class="truncate text-[13px] font-medium text-ink">{a.n}</p>
                       <p class="truncate text-[11px] text-muted">{a.e}</p>
                     </div>
-                    <span class:list={['rounded-full px-2 py-0.5 text-[10px] font-semibold', a.ok ? 'bg-accent/15 text-accent' : 'bg-amber-400/15 text-amber-500']}>
-                      {a.ok ? 'Confirmada' : 'Pendiente'}
-                    </span>
+                    {a.ok ? (
+                      <span class="rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-semibold text-accent">Confirmada</span>
+                    ) : (
+                      <span class="status-swap text-[10px] font-semibold">
+                        <span class="rounded-full bg-amber-400/15 px-2 py-0.5 text-amber-500">Pendiente</span>
+                        <span class="rounded-full bg-accent/15 px-2 py-0.5 text-accent">Confirmada</span>
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>
@@ -123,7 +130,7 @@ const integrations = ['WhatsApp Business', 'Google Calendar', 'Outlook', 'Tu HIS
           </div>
         </div>
 
-        <div class="absolute -bottom-12 left-0 z-20 flex w-64 items-start gap-3 rounded-xl border border-line bg-card p-4 shadow-[var(--shadow)] sm:left-4 lg:-left-6">
+        <div class="float-y float-y-late absolute -bottom-12 left-0 z-20 flex w-64 items-start gap-3 rounded-xl border border-line bg-card p-4 shadow-[var(--shadow)] sm:left-4 lg:-left-6">
           <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#25D366]/15 text-[#25D366]">
             <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z" /></svg>
           </span>
@@ -133,9 +140,10 @@ const integrations = ['WhatsApp Business', 'Google Calendar', 'Outlook', 'Tu HIS
           </div>
         </div>
       </div>
+      </div>
     </div>
 
-    <div class="flex flex-col gap-5 border-t border-line py-8 sm:flex-row sm:items-center">
+    <div class="hero-enter hero-enter-d4 flex flex-col gap-5 border-t border-line py-8 sm:flex-row sm:items-center">
       <p class="shrink-0 text-[11px] font-semibold tracking-[0.18em] text-muted uppercase">Se integra con</p>
       <ul class="flex flex-wrap gap-3">
         {integrations.map((name) => (

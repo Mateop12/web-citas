@@ -5,6 +5,11 @@ export interface FAQItem {
 
 export const faqs: FAQItem[] = [
   {
+    question: '¿Qué es un software de agendamiento de citas médicas?',
+    answer:
+      'Es una plataforma donde los pacientes agendan, confirman y reprograman sus citas solos, sin llamar. Con GEN.AI lo hacen por WhatsApp y por un portal web las 24 horas, reciben recordatorios automáticos y tu equipo gestiona la agenda, la lista de espera y los reportes desde un solo panel.',
+  },
+  {
     question: '¿Cuánto tiempo toma implementar GEN.AI?',
     answer:
       'La implementación estándar toma entre 24 y 48 horas hábiles. Incluye configuración de especialidades, profesionales, horarios, integración con WhatsApp Business y capacitación para tu equipo administrativo.',
@@ -44,4 +49,4 @@ export const faqs: FAQItem[] = [
 ];
 
 // Resumen del home: respuestas cortas; el resto solo en /faq/ (evita texto duplicado)
-export const homeFaqs = faqs.slice(0, 3);
+export const homeFaqs = faqs.slice(0, 4);

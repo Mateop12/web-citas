@@ -16,9 +16,9 @@ const chat = [
 ];
 ---
 
-<section class="section-padding border-t border-line bg-surface" aria-labelledby="wa-title">
+<section class="section-padding border-t border-line bg-surface/60" aria-labelledby="wa-title">
   <div class="container-custom grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
-    <div>
+    <div data-animate>
       <p class="eyebrow mb-4">El canal que tus pacientes ya usan</p>
       <h2 id="wa-title" class="display-lg text-ink">
         Agendamiento por WhatsApp. <span class="tone">Con IA, las 24 horas.</span>
@@ -30,7 +30,7 @@ const chat = [
 
       <ol class="mt-8 max-w-lg border-t border-line">
         {steps.map((s, i) => (
-          <li class="grid grid-cols-[3rem_7rem_1fr] items-baseline gap-2 border-b border-line py-4 max-sm:grid-cols-[2.5rem_1fr]">
+          <li data-animate data-delay={String(i + 1)} class="grid grid-cols-[3rem_7rem_1fr] items-baseline gap-2 border-b border-line py-4 max-sm:grid-cols-[2.5rem_1fr]">
             <span class="font-mono-data text-xs font-semibold text-accent">{String(i + 1).padStart(2, '0')}</span>
             <span class="text-[15px] font-semibold tracking-[-0.02em] text-ink">{s.title}</span>
             <span class="text-[13px] text-muted max-sm:col-start-2">{s.text}</span>
@@ -43,7 +43,7 @@ const chat = [
       </a>
     </div>
 
-    <div class="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-line shadow-[var(--shadow)]" aria-hidden="true">
+    <div class="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-line shadow-[var(--shadow)]" aria-hidden="true" data-animate="scale">
       <div class="flex items-center gap-3 bg-[#075e54] px-4 py-3.5">
         <img src="/logo-96.png" alt="" width="36" height="36" class="h-9 w-9 rounded-full" loading="lazy" />
         <div>
@@ -52,8 +52,8 @@ const chat = [
         </div>
       </div>
       <div class="space-y-2.5 bg-[#efe7de] p-4">
-        {chat.map((m) => (
-          <div class:list={['flex', m.me ? 'justify-end' : 'justify-start']}>
+        {chat.map((m, i) => (
+          <div style={`--d:${0.4 + i * 0.45}s`} class:list={['mv-pop flex', m.me ? 'justify-end' : 'justify-start']}>
             <p class:list={['max-w-[85%] rounded-2xl px-3.5 py-2 text-[13px] leading-relaxed whitespace-pre-line text-[#111b21]', m.me ? 'rounded-tr-sm bg-[#d9fdd3]' : 'rounded-tl-sm bg-white shadow-sm']}>{m.text}</p>
           </div>
         ))}

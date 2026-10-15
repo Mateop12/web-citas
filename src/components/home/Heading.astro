@@ -13,7 +13,7 @@ interface Props {
 const { id, eyebrow, title, tone, aside, center = false, as: Tag = 'h2' } = Astro.props;
 ---
 
-<header class:list={['mb-10 gap-8', center ? 'mx-auto max-w-3xl text-center' : 'flex flex-col lg:flex-row lg:items-end lg:justify-between']}>
+<header data-animate class:list={['mb-10 gap-8', center ? 'mx-auto max-w-3xl text-center' : 'flex flex-col lg:flex-row lg:items-end lg:justify-between']}>
   <div class:list={[!center && 'max-w-2xl']}>
     <p class="eyebrow mb-4">{eyebrow}</p>
     <Tag id={id} class="display-lg text-ink">

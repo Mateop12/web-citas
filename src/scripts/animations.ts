@@ -95,7 +95,7 @@ export function initCounters() {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       const value = Math.round(target * eased);
-      el.textContent = `${prefix}${value}${suffix}`;
+      el.textContent = `${prefix}${value.toLocaleString('es-CO')}${suffix}`;
       if (progress < 1) requestAnimationFrame(tick);
     };
 
