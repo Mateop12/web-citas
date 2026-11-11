@@ -35,3 +35,4 @@ gena-dist/
 gena-dist.zip
 package/
 
+dist_*.tar.gz
