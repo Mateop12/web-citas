@@ -7,23 +7,23 @@ export const faqs: FAQItem[] = [
   {
     question: '¿Qué es un software de agendamiento de citas médicas?',
     answer:
-      'Es una plataforma donde los pacientes agendan, confirman y reprograman sus citas solos, sin llamar. Con GEN.AI lo hacen por WhatsApp y por un portal web las 24 horas, reciben recordatorios automáticos y tu equipo gestiona la agenda, la lista de espera y los reportes desde un solo panel.',
+      'Es una plataforma donde los pacientes agendan, confirman y reprograman sus citas solos, sin llamar. Con GENACITAS lo hacen por WhatsApp y por un portal web las 24 horas, reciben recordatorios automáticos y tu equipo gestiona la agenda, la lista de espera y los reportes desde un solo panel.',
   },
   {
-    question: '¿Cuánto tiempo toma implementar GEN.AI?',
+    question: '¿Cuánto tiempo toma implementar GENACITAS?',
     answer:
       'La implementación estándar toma entre 24 y 48 horas hábiles. Incluye configuración de especialidades, profesionales, horarios, integración con WhatsApp Business y capacitación para tu equipo administrativo.',
   },
   {
     question: '¿Necesito instalar algún software en las computadoras?',
     answer:
-      'No. GEN.AI es 100% web y funciona desde cualquier navegador moderno. También es completamente responsive, por lo que puedes acceder desde tablets y celulares sin problemas.',
+      'No. GENACITAS es 100% web y funciona desde cualquier navegador moderno. También es completamente responsive, por lo que puedes acceder desde tablets y celulares sin problemas.',
   },
   {
     // TODO(dueño): lista de HIS integrados para nombrarlos aquí en vez de "los principales sistemas".
     question: '¿Se integra con mi sistema de historias clínicas actual?',
     answer:
-      'Sí. GEN.AI se integra con los principales sistemas de historias clínicas (HIS) mediante API REST. También ofrecemos integración con Google Calendar, Outlook y sistemas personalizados.',
+      'Sí. GENACITAS se integra con los principales sistemas de historias clínicas (HIS) mediante API REST. También ofrecemos integración con Google Calendar, Outlook y sistemas personalizados.',
   },
   {
     question: '¿Cómo funciona el chatbot de WhatsApp?',
@@ -42,7 +42,7 @@ export const faqs: FAQItem[] = [
       'Sí. Contamos con soporte técnico en español de lunes a viernes de 8:00 AM a 6:00 PM (hora Colombia). Además, disponemos de chat en vivo, base de conocimiento y videos tutoriales.',
   },
   {
-    question: '¿Puedo probar GEN.AI antes de contratar?',
+    question: '¿Puedo probar GENACITAS antes de contratar?',
     answer:
       'Por supuesto. Ofrecemos una demo personalizada donde configuramos un entorno de prueba con los datos de tu clínica para que veas el sistema en acción con casos reales.',
   },

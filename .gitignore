@@ -1,6 +1,7 @@
 # build output
 dist/
 dist_*.zip
+claude-seo/
 # generated types
 .astro/
 
@@ -33,4 +34,4 @@ gena.monkeymindtech.com-audit/
 gena-dist/
 gena-dist.zip
 package/
-claude-seo/
+

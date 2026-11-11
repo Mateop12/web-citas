@@ -39,7 +39,7 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
     ],
     fit: {
       title: 'Pensado para la realidad de las IPS colombianas',
-      text: 'Pacientes de distintas EPS, varias sedes, alto volumen en el call center y pacientes que prefieren escribir antes que llamar. GEN.AI organiza la operación de citas alrededor de una sola agenda.',
+      text: 'Pacientes de distintas EPS, varias sedes, alto volumen en el call center y pacientes que prefieren escribir antes que llamar. GENACITAS organiza la operación de citas alrededor de una sola agenda.',
     },
     guide: {
       title: 'Cómo elegir un software',
@@ -67,16 +67,16 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
           ],
         },
         {
-          q: '¿Cómo responde GEN.AI a esos criterios?',
+          q: '¿Cómo responde GENACITAS a esos criterios?',
           html: [
-            'GEN.AI ofrece un <a href="/agendamiento-web/" class="font-medium text-primary hover:underline">portal de agendamiento web</a> y un <a href="/bot-whatsapp-citas/" class="font-medium text-primary hover:underline">bot de WhatsApp para citas</a> que trabajan sobre la misma agenda, con filtros por EPS, especialidad, tipo de consulta, sede y médico. Las citas pasan a tu HIS mediante API REST, los <a href="/recordatorios-citas-medicas/" class="font-medium text-primary hover:underline">recordatorios de citas</a> permiten confirmar, reprogramar o cancelar, y los cupos liberados se ofrecen a la lista de espera.',
+            'GENACITAS ofrece un <a href="/agendamiento-web/" class="font-medium text-primary hover:underline">portal de agendamiento web</a> y un <a href="/bot-whatsapp-citas/" class="font-medium text-primary hover:underline">bot de WhatsApp para citas</a> que trabajan sobre la misma agenda, con filtros por EPS, especialidad, tipo de consulta, sede y médico. Las citas pasan a tu HIS mediante API REST, los <a href="/recordatorios-citas-medicas/" class="font-medium text-primary hover:underline">recordatorios de citas</a> permiten confirmar, reprogramar o cancelar, y los cupos liberados se ofrecen a la lista de espera.',
             'La información se cifra con AES-256 en tránsito y en reposo; la IPS es responsable del tratamiento y GEN.AI SAS actúa como encargado. La implementación estándar toma entre 24 y 48 horas hábiles y el soporte en español atiende de lunes a viernes. Puedes ver la plataforma completa en la página de <a href="/producto/" class="font-medium text-primary hover:underline">producto</a>.',
           ],
         },
       ],
     },
     faqs: [
-      { q: '¿GEN.AI reemplaza mi software de historia clínica?', a: 'No. GEN.AI se encarga del agendamiento y de la comunicación con el paciente, y se integra con tu HIS mediante API REST para que la cita quede registrada sin doble digitación.' },
+      { q: '¿GENACITAS reemplaza mi software de historia clínica?', a: 'No. GENACITAS se encarga del agendamiento y de la comunicación con el paciente, y se integra con tu HIS mediante API REST para que la cita quede registrada sin doble digitación.' },
       { q: '¿Sirve para una IPS con varias sedes?', a: 'Sí. El paciente puede filtrar por sede al agendar y las campañas se programan por servicio, sede o población.' },
       { q: '¿Cuánto toma ponerlo en marcha?', a: 'La implementación estándar toma entre 24 y 48 horas hábiles, incluida la configuración de especialidades, profesionales y horarios, la integración con WhatsApp Business y la capacitación.' },
       { q: '¿Puedo verlo antes de contratar?', a: 'Sí. Hacemos una demo personalizada sin costo, con un entorno de prueba configurado con los datos de tu institución.' },
@@ -121,7 +121,7 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
         {
           q: '¿Portal web o WhatsApp: cuál conviene?',
           html: [
-            'No son excluyentes. El portal web es cómodo cuando el paciente quiere comparar horarios, sedes y médicos en una sola pantalla. WhatsApp resulta más natural para quien prefiere escribir y resolver todo en una conversación, o para cambiar una cita que ya tiene. En GEN.AI ambos canales trabajan sobre la misma agenda, así que los cupos que ve el paciente en el portal son los mismos que ofrece el <a href="/bot-whatsapp-citas/" class="font-medium text-primary hover:underline">bot de WhatsApp para citas médicas</a>.',
+            'No son excluyentes. El portal web es cómodo cuando el paciente quiere comparar horarios, sedes y médicos en una sola pantalla. WhatsApp resulta más natural para quien prefiere escribir y resolver todo en una conversación, o para cambiar una cita que ya tiene. En GENACITAS ambos canales trabajan sobre la misma agenda, así que los cupos que ve el paciente en el portal son los mismos que ofrece el <a href="/bot-whatsapp-citas/" class="font-medium text-primary hover:underline">bot de WhatsApp para citas médicas</a>.',
           ],
         },
         {
@@ -148,9 +148,9 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
     },
     faqs: [
       { q: '¿El paciente tiene que instalar una aplicación?', a: 'No. El portal funciona en cualquier navegador moderno, en celular, tablet o computador.' },
-      { q: '¿Qué pasa si no hay cupos disponibles?', a: 'El paciente puede unirse a la lista de espera. Cuando se libera un espacio, GEN.AI le avisa por WhatsApp, SMS o correo.' },
+      { q: '¿Qué pasa si no hay cupos disponibles?', a: 'El paciente puede unirse a la lista de espera. Cuando se libera un espacio, GENACITAS le avisa por WhatsApp, SMS o correo.' },
       { q: '¿Puedo restringir qué ve cada paciente?', a: 'El paciente filtra por EPS, especialidad, tipo de consulta, sede y médico, y solo ve las opciones válidas para su caso.' },
-      { q: '¿Hay algún portal en producción que pueda ver?', a: 'Sí. Clínica Genezen usa GEN.AI desde hace 5 meses y ha agendado más de 60.000 citas. En la página de producto enlazamos su portal de citas.' },
+      { q: '¿Hay algún portal en producción que pueda ver?', a: 'Sí. Clínica Genezen usa GENACITAS desde hace 5 meses y ha agendado más de 60.000 citas. En la página de producto enlazamos su portal de citas.' },
     ],
   },
 
@@ -186,7 +186,7 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
           q: '¿Qué es un bot de WhatsApp para agendar citas médicas?',
           html: [
             'Un bot de WhatsApp para citas médicas es un asistente automático que atiende a los pacientes en el número de WhatsApp de la institución y les permite pedir, cambiar o cancelar una cita sin hablar con una persona. A diferencia de un formulario o de una línea telefónica, el paciente usa una aplicación que ya tiene abierta y escribe a cualquier hora.',
-            'En GEN.AI, el asistente consulta la disponibilidad real de la agenda, propone horarios y deja la cita registrada en el mismo sistema que usa tu call center, sin transcripciones. El mismo chat sirve después para los <a href="/recordatorios-citas-medicas/" class="font-medium text-primary hover:underline">recordatorios de citas</a>, y la agenda es la misma que la del <a href="/agendamiento-web/" class="font-medium text-primary hover:underline">portal de agendamiento web</a>.',
+            'En GENACITAS, el asistente consulta la disponibilidad real de la agenda, propone horarios y deja la cita registrada en el mismo sistema que usa tu call center, sin transcripciones. El mismo chat sirve después para los <a href="/recordatorios-citas-medicas/" class="font-medium text-primary hover:underline">recordatorios de citas</a>, y la agenda es la misma que la del <a href="/agendamiento-web/" class="font-medium text-primary hover:underline">portal de agendamiento web</a>.',
           ],
         },
         {
@@ -199,8 +199,8 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
         {
           q: '¿Qué se necesita para usar WhatsApp Business en una clínica?',
           html: [
-            'Para automatizar citas se usa la API oficial de WhatsApp Business (la plataforma empresarial de Meta), no la aplicación gratuita de WhatsApp Business del celular. La API permite conectar el número de la institución con un sistema como GEN.AI.',
-            'Hay dos reglas de Meta que conviene conocer. Los mensajes que inicia la institución, como un recordatorio, se envían con plantillas aprobadas previamente. Y cuando el paciente escribe, se abre una ventana de 24 horas en la que se le puede responder libremente. GEN.AI configura la integración durante la implementación, que toma entre 24 y 48 horas hábiles.',
+            'Para automatizar citas se usa la API oficial de WhatsApp Business (la plataforma empresarial de Meta), no la aplicación gratuita de WhatsApp Business del celular. La API permite conectar el número de la institución con un sistema como GENACITAS.',
+            'Hay dos reglas de Meta que conviene conocer. Los mensajes que inicia la institución, como un recordatorio, se envían con plantillas aprobadas previamente. Y cuando el paciente escribe, se abre una ventana de 24 horas en la que se le puede responder libremente. GENACITAS configura la integración durante la implementación, que toma entre 24 y 48 horas hábiles.',
           ],
         },
         {
@@ -213,7 +213,7 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
     },
     faqs: [
       { q: '¿El bot entiende mensajes escritos de forma natural?', a: 'Sí. Usa inteligencia artificial que comprende lenguaje natural: el paciente escribe como lo haría con una persona y el bot guía la conversación.' },
-      { q: '¿Necesito un número de WhatsApp Business?', a: 'GEN.AI funciona con la API oficial de WhatsApp Business. La integración se configura durante la implementación, que toma entre 24 y 48 horas hábiles.' },
+      { q: '¿Necesito un número de WhatsApp Business?', a: 'GENACITAS funciona con la API oficial de WhatsApp Business. La integración se configura durante la implementación, que toma entre 24 y 48 horas hábiles.' },
       { q: '¿Qué puede hacer el paciente desde el chat?', a: 'Agendar, cancelar y reprogramar citas, y consultar la disponibilidad de la especialidad que necesita.' },
       { q: '¿Mi equipo ve las citas que agenda el bot?', a: 'Sí. Las citas quedan registradas en tu agenda y aparecen en el panel administrativo junto con las del portal y el call center.' },
     ],
@@ -226,7 +226,7 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
     steps: [
       { title: 'Se agenda la cita', text: 'Por el portal web, por WhatsApp o desde el call center: todas las citas entran a la misma agenda.' },
       { title: 'Llega la confirmación', text: 'El paciente recibe los datos de su cita y las recomendaciones para asistir preparado.' },
-      { title: 'Llega el recordatorio', text: 'Antes de la cita, GEN.AI envía el recordatorio por WhatsApp, SMS o correo.' },
+      { title: 'Llega el recordatorio', text: 'Antes de la cita, GENACITAS envía el recordatorio por WhatsApp, SMS o correo.' },
       { title: 'El paciente responde', text: 'Confirma, reprograma o cancela desde el mismo mensaje. Si cancela, el cupo vuelve a la agenda y se ofrece a la lista de espera.' },
     ],
     featuresTitle: 'Recordatorios de citas',
@@ -241,7 +241,7 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
     ],
     fit: {
       title: 'Por qué no basta con recordar',
-      text: 'Un estudio publicado en DYNA (2022) encontró que la hora de la llamada de recordatorio no es determinante en la asistencia. Con GEN.AI, además de recibir el recordatorio, el paciente puede responderlo: confirmar, cambiar o cancelar, y el cupo vuelve a la agenda.',
+      text: 'Un estudio publicado en DYNA (2022) encontró que la hora de la llamada de recordatorio no es determinante en la asistencia. Con GENACITAS, además de recibir el recordatorio, el paciente puede responderlo: confirmar, cambiar o cancelar, y el cupo vuelve a la agenda.',
     },
     guide: {
       title: 'Recordatorios de citas,',
@@ -257,13 +257,13 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
         {
           q: '¿Qué es la confirmación automática de citas?',
           html: [
-            'La confirmación automática de citas es el proceso en el que el sistema envía el recordatorio, recibe la respuesta del paciente y la registra en la agenda sin que nadie de la recepción tenga que llamar. Con GEN.AI el paciente confirma, reprograma o cancela desde el mismo mensaje; si cancela, el cupo vuelve a la agenda y se ofrece a la lista de espera. Así, una inasistencia se convierte en una cancelación anticipada que todavía se puede aprovechar.',
+            'La confirmación automática de citas es el proceso en el que el sistema envía el recordatorio, recibe la respuesta del paciente y la registra en la agenda sin que nadie de la recepción tenga que llamar. Con GENACITAS el paciente confirma, reprograma o cancela desde el mismo mensaje; si cancela, el cupo vuelve a la agenda y se ofrece a la lista de espera. Así, una inasistencia se convierte en una cancelación anticipada que todavía se puede aprovechar.',
           ],
         },
         {
           q: '¿WhatsApp, SMS o correo: qué canal usar?',
           html: [
-            'Cada canal cumple un papel distinto, y GEN.AI permite combinarlos según el perfil de tus pacientes:',
+            'Cada canal cumple un papel distinto, y GENACITAS permite combinarlos según el perfil de tus pacientes:',
           ],
           list: [
             '<strong>WhatsApp:</strong> permite una conversación. El paciente responde, reprograma o agenda una nueva cita con el <a href="/bot-whatsapp-citas/" class="font-medium text-primary hover:underline">bot de WhatsApp</a> sin salir del chat.',
@@ -274,7 +274,7 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
         {
           q: '¿Cómo saber si los recordatorios están funcionando?',
           html: [
-            'Compara periodos de tu propia operación: la tasa de ausentismo y la ocupación de la agenda antes y después de activar los recordatorios. El <a href="/panel/" class="font-medium text-primary hover:underline">panel administrativo</a> de GEN.AI reporta ambas métricas, para que veas el efecto con tus datos y no con promedios de otras instituciones.',
+            'Compara periodos de tu propia operación: la tasa de ausentismo y la ocupación de la agenda antes y después de activar los recordatorios. El <a href="/panel/" class="font-medium text-primary hover:underline">panel administrativo</a> de GENACITAS reporta ambas métricas, para que veas el efecto con tus datos y no con promedios de otras instituciones.',
           ],
         },
       ],

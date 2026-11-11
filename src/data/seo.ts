@@ -1,11 +1,11 @@
 import { faqs, type FAQItem } from './faqs';
 
 export const SITE = {
-  name: 'GEN.AI',
+  name: 'GENACITAS',
   legalName: 'GEN.AI SAS',
-  url: 'https://gena.monkeymindtech.com',
-  hostname: 'gena.monkeymindtech.com',
-  appHostname: 'app.gena.monkeymindtech.com',
+  url: 'https://genacitas.com',
+  hostname: 'genacitas.com',
+  appHostname: 'app.genacitas.com',
   email: 'info@monkeymindsoftware.com',
   locale: 'es_CO',
   language: 'es',
@@ -19,11 +19,11 @@ export const SITE = {
 
 export const SEO = {
   title:
-    'Software de agendamiento de citas médicas con IA | GEN.AI',
+    'Software de agendamiento de citas médicas con IA | GENACITAS',
   description:
     'Software de citas médicas con IA para IPS y clínicas en Colombia: agendamiento clínico por web y WhatsApp, recordatorios y reportes. Implementación en 48 h.',
   ogImageAlt:
-    'GEN.AI — Plataforma de IA para agendamiento médico, informes gerenciales e interoperabilidad con HIS, autoagendamiento del paciente 24/7 ',
+    'GENACITAS — Plataforma de IA para agendamiento médico, informes gerenciales e interoperabilidad con HIS, autoagendamiento del paciente 24/7 ',
 } as const;
 
 export function buildCanonicalUrl(pathname: string, site = SITE.url) {

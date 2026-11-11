@@ -2,7 +2,7 @@
 
 /*
   Sistema visual inspirado en Monkey RestoBar (producto hermano), llevado a salud:
-  oscuro por defecto con tema claro, con la paleta original de GEN.AI.
+  oscuro por defecto con tema claro, con la paleta original de GENACITAS.
   Los colores de Tailwind apuntan a variables que cambian con [data-theme].
 */
 @theme {
@@ -24,7 +24,7 @@
   --font-mono: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Paleta original de GEN.AI: ink #0c1929, primary #163ba3, secondary #0e7c86,
+/* Paleta original de GENACITAS: ink #0c1929, primary #163ba3, secondary #0e7c86,
    accent #5eead4, surface #f4f7fb, surface-alt #e8f0f5, muted #5a6b7d, line #d8e2ec */
 :root {
   color-scheme: dark;
@@ -365,7 +365,7 @@
   55%, 100% { opacity: 1; }
 }
 
-/* Punto de luz que recorre una línea de conexión (Agenda → GEN.AI → HIS) */
+/* Punto de luz que recorre una línea de conexión (Agenda → GENACITAS → HIS) */
 .flow-line {
   position: relative;
   container-type: inline-size;

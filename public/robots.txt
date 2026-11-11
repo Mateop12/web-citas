@@ -8,4 +8,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://gena.monkeymindtech.com/sitemap.xml
+Sitemap: https://genacitas.com/sitemap.xml

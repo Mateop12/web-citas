@@ -410,7 +410,7 @@ import { SITE } from '../data/seo';
         institution: String(formData.get('institution') ?? '').trim(),
         role: String(formData.get('role') ?? '').trim() || 'No indicado',
         message: String(formData.get('message') ?? '').trim() || 'Sin mensaje adicional',
-        _subject: `Nueva solicitud de demo - ${document.title.split('|')[0]?.trim() || 'GEN.AI'}`,
+        _subject: `Nueva solicitud de demo - ${document.title.split('|')[0]?.trim() || 'GENACITAS'}`,
         _template: 'table',
         _captcha: 'false',
       };

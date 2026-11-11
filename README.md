@@ -44,11 +44,11 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 ## SEO: avisar a buscadores después de cada deploy (IndexNow)
 
-La clave pública está en `public/b53d6e0d1a631bc7bfc9bc5e3ac9fc36.txt` (se publica en `https://gena.monkeymindtech.com/b53d6e0d1a631bc7bfc9bc5e3ac9fc36.txt`).
+La clave pública está en `public/b53d6e0d1a631bc7bfc9bc5e3ac9fc36.txt` (se publica en `https://genacitas.com/b53d6e0d1a631bc7bfc9bc5e3ac9fc36.txt`).
 Después de subir `dist/`, envía las URLs que cambiaron (Bing, Yandex, Seznam, Naver; Google no usa IndexNow):
 
 ```sh
-curl -X POST https://api.indexnow.org/indexnow   -H 'Content-Type: application/json; charset=utf-8'   -d '{"host":"gena.monkeymindtech.com","key":"b53d6e0d1a631bc7bfc9bc5e3ac9fc36","keyLocation":"https://gena.monkeymindtech.com/b53d6e0d1a631bc7bfc9bc5e3ac9fc36.txt","urlList":["https://gena.monkeymindtech.com/","https://gena.monkeymindtech.com/problema/","https://gena.monkeymindtech.com/solucion/","https://gena.monkeymindtech.com/nosotros/","https://gena.monkeymindtech.com/producto/","https://gena.monkeymindtech.com/faq/","https://gena.monkeymindtech.com/panel/","https://gena.monkeymindtech.com/contacto/","https://gena.monkeymindtech.com/software-para-ips/","https://gena.monkeymindtech.com/agendamiento-web/","https://gena.monkeymindtech.com/bot-whatsapp-citas/","https://gena.monkeymindtech.com/recordatorios-citas-medicas/"]}'
+curl -X POST https://api.indexnow.org/indexnow   -H 'Content-Type: application/json; charset=utf-8'   -d '{"host":"genacitas.com","key":"b53d6e0d1a631bc7bfc9bc5e3ac9fc36","keyLocation":"https://genacitas.com/b53d6e0d1a631bc7bfc9bc5e3ac9fc36.txt","urlList":["https://genacitas.com/","https://genacitas.com/problema/","https://genacitas.com/solucion/","https://genacitas.com/nosotros/","https://genacitas.com/producto/","https://genacitas.com/faq/","https://genacitas.com/panel/","https://genacitas.com/contacto/","https://genacitas.com/software-para-ips/","https://genacitas.com/agendamiento-web/","https://genacitas.com/bot-whatsapp-citas/","https://genacitas.com/recordatorios-citas-medicas/"]}'
 ```
 
 Respuesta esperada: `200` o `202`. Para Google, envía el sitemap desde Search Console.

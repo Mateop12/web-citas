@@ -30,7 +30,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   problema: {
     key: 'problema',
     slug: '/problema/',
-    title: 'Desafíos del agendamiento clínico en IPS y clínicas | GEN.AI',
+    title: 'Desafíos del agendamiento clínico en IPS y clínicas | GENACITAS',
     description:
       'Llamadas perdidas, ausentismo y agendas saturadas afectan la rentabilidad de tu clínica. Conoce los retos del agendamiento manual y cómo resolverlos con IA.',
     h1: 'Desafíos del agendamiento clínico que frenan tu operación',
@@ -44,12 +44,12 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   solucion: {
     key: 'solucion',
     slug: '/solucion/',
-    title: 'Agendamiento automático de citas médicas | GEN.AI',
+    title: 'Agendamiento automático de citas médicas | GENACITAS',
     description:
-      'Así funciona el agendamiento automático de citas en GEN.AI: del mensaje de WhatsApp a la cita confirmada en tu HIS, con reprogramación y lista de espera.',
-    h1: 'Cómo funciona el agendamiento automático con GEN.AI',
+      'Así funciona el agendamiento automático de citas en GENACITAS: del mensaje de WhatsApp a la cita confirmada en tu HIS, con reprogramación y lista de espera.',
+    h1: 'Cómo funciona el agendamiento automático con GENACITAS',
     intro:
-      'GEN.AI centraliza WhatsApp, portal web y call center en una sola plataforma. Tu equipo deja de repetir tareas manuales mientras los pacientes agendan, confirman y reprograman las 24 horas.',
+      'GENACITAS centraliza WhatsApp, portal web y call center en una sola plataforma. Tu equipo deja de repetir tareas manuales mientras los pacientes agendan, confirman y reprograman las 24 horas.',
     breadcrumbLabel: 'Solución',
     relatedSlugs: ['/bot-whatsapp-citas/', '/agendamiento-web/', '/panel/'],
     homeAnchor: '#solucion',
@@ -58,12 +58,12 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   nuestrosPlus: {
     key: 'nuestrosPlus',
     slug: '/nosotros/',
-    title: 'Nosotros | El equipo detrás de GEN.AI en Medellín',
+    title: 'Nosotros | El equipo detrás de GENACITAS en Medellín',
     description:
-      'Conoce a GEN.AI SAS, la empresa de Medellín que desarrolla GEN.AI, software de agendamiento clínico con IA para IPS y clínicas en Colombia.',
-    h1: 'Quiénes somos: el equipo detrás de GEN.AI',
+      'Conoce a GEN.AI SAS, la empresa de Medellín que desarrolla GENACITAS, software de agendamiento clínico con IA para IPS y clínicas en Colombia.',
+    h1: 'Quiénes somos: el equipo detrás de GENACITAS',
     intro:
-      'GEN.AI es un software de agendamiento clínico con IA desarrollado por GEN.AI SAS (Medellín, Colombia).',
+      'GENACITAS es un software de agendamiento clínico con IA desarrollado por GEN.AI SAS (Medellín, Colombia).',
     breadcrumbLabel: 'Nosotros',
     relatedSlugs: ['/problema/', '/solucion/', '/contacto/'],
     homeAnchor: '#nuestros-plus',
@@ -72,12 +72,12 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   whatsapp: {
     key: 'whatsapp',
     slug: '/producto/',
-    title: 'Software de gestión de citas médicas y pacientes | GEN.AI',
+    title: 'Software de gestión de citas médicas y pacientes | GENACITAS',
     description:
       'Software de gestión de citas médicas: portal web y móvil 24/7, WhatsApp con IA, SMS, correo y campañas de demanda inducida para IPS y clínicas de Colombia.',
     h1: 'Software de gestión de citas médicas, campañas y contacto al paciente',
     intro:
-      'GEN.AI concentra en un solo producto lo que hoy está disperso: portal de autoagendamiento web y móvil, WhatsApp con IA, SMS, correo, campañas de demanda inducida y recuperación de demanda insatisfecha. Más pacientes agendados, menos carga en recepción y trazabilidad en tu panel administrativo.',
+      'GENACITAS concentra en un solo producto lo que hoy está disperso: portal de autoagendamiento web y móvil, WhatsApp con IA, SMS, correo, campañas de demanda inducida y recuperación de demanda insatisfecha. Más pacientes agendados, menos carga en recepción y trazabilidad en tu panel administrativo.',
     breadcrumbLabel: 'Producto',
     relatedSlugs: ['/agendamiento-web/', '/bot-whatsapp-citas/', '/recordatorios-citas-medicas/'],
     homeAnchor: '#whatsapp',
@@ -86,7 +86,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   panel: {
     key: 'panel',
     slug: '/panel/',
-    title: 'Panel administrativo de agendamiento clínico | GEN.AI',
+    title: 'Panel administrativo de agendamiento clínico | GENACITAS',
     description:
       'Dashboard para equipos de salud: calendario, profesionales, reportes de ocupación y ausentismo. Panel web multiusuario para IPS y clínicas en Colombia.',
     h1: 'Panel administrativo para gestionar tu agenda médica',
@@ -100,10 +100,10 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   faq: {
     key: 'faq',
     slug: '/faq/',
-    title: 'Preguntas frecuentes sobre GEN.AI | Agendamiento clínico',
+    title: 'Preguntas frecuentes sobre GENACITAS | Agendamiento clínico',
     description:
-      'Respuestas sobre implementación, integración con HIS, seguridad de datos clínicos, WhatsApp y autoagendamiento. FAQ de GEN.AI para IPS y clínicas.',
-    h1: 'Preguntas frecuentes sobre agendamiento clínico con GEN.AI',
+      'Respuestas sobre implementación, integración con HIS, seguridad de datos clínicos, WhatsApp y autoagendamiento. FAQ de GENACITAS para IPS y clínicas.',
+    h1: 'Preguntas frecuentes sobre agendamiento clínico con GENACITAS',
     intro:
       'Resolvemos las dudas más comunes de directores, gerentes y equipos de salud antes de contratar o implementar la plataforma. Si no encuentras tu respuesta, solicita una demo personalizada.',
     breadcrumbLabel: 'FAQ',
@@ -114,12 +114,12 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   contacto: {
     key: 'contacto',
     slug: '/contacto/',
-    title: 'Solicitar demo de GEN.AI | Contacto',
+    title: 'Solicitar demo de GENACITAS | Contacto',
     description:
-      'Agenda una demo personalizada de GEN.AI para tu IPS o clínica. Autoagendamiento con IA por WhatsApp, web y call center. Respuesta en menos de 24 horas.',
-    h1: 'Solicita una demo de GEN.AI para tu clínica',
+      'Agenda una demo personalizada de GENACITAS para tu IPS o clínica. Autoagendamiento con IA por WhatsApp, web y call center. Respuesta en menos de 24 horas.',
+    h1: 'Solicita una demo de GENACITAS para tu clínica',
     intro:
-      'Cuéntanos sobre tu institución y te mostramos cómo GEN.AI puede automatizar el agendamiento, reducir ausentismo y mejorar la ocupación de tu agenda. Demo sin costo para IPS y clínicas en Colombia.',
+      'Cuéntanos sobre tu institución y te mostramos cómo GENACITAS puede automatizar el agendamiento, reducir ausentismo y mejorar la ocupación de tu agenda. Demo sin costo para IPS y clínicas en Colombia.',
     breadcrumbLabel: 'Contacto',
     relatedSlugs: ['/faq/', '/solucion/', '/producto/'],
     homeAnchor: '#demo',
@@ -128,7 +128,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   softwareIps: {
     key: 'softwareIps',
     slug: '/software-para-ips/',
-    title: 'Software para IPS y clínicas: agendamiento de citas | GEN.AI',
+    title: 'Software para IPS y clínicas: agendamiento de citas | GENACITAS',
     description:
       'Software para IPS, clínicas y hospitales en Colombia: agendamiento web, bot de WhatsApp, recordatorios, demanda inducida e integración con tu HIS.',
     h1: 'Software de agendamiento para IPS y clínicas en Colombia',
@@ -142,7 +142,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   agendamientoWeb: {
     key: 'agendamientoWeb',
     slug: '/agendamiento-web/',
-    title: 'Agendar citas médicas en línea: portal web 24/7 | GEN.AI',
+    title: 'Agendar citas médicas en línea: portal web 24/7 | GENACITAS',
     description:
       'Plataforma para que tus pacientes agenden citas médicas en línea, 24/7, filtrando por EPS, especialidad, sede y médico. Sin descargar apps.',
     h1: 'Agendamiento web de citas médicas para tu IPS o clínica',
@@ -156,7 +156,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   botWhatsapp: {
     key: 'botWhatsapp',
     slug: '/bot-whatsapp-citas/',
-    title: 'Bot de WhatsApp para agendar citas médicas | GEN.AI',
+    title: 'Bot de WhatsApp para agendar citas médicas | GENACITAS',
     description:
       'Chatbot con IA en la API oficial de WhatsApp Business para agendar, cancelar y reprogramar citas médicas las 24 horas, conectado a tu agenda y a tu HIS.',
     h1: 'Bot de WhatsApp para agendar citas médicas',
@@ -170,7 +170,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   recordatorios: {
     key: 'recordatorios',
     slug: '/recordatorios-citas-medicas/',
-    title: 'Recordatorios de citas médicas por WhatsApp y SMS | GEN.AI',
+    title: 'Recordatorios de citas médicas por WhatsApp y SMS | GENACITAS',
     description:
       'Recordatorios y confirmación automática de citas médicas por WhatsApp, SMS y correo. El paciente confirma, reprograma o cancela y el cupo vuelve a tu agenda.',
     h1: 'Recordatorios de citas médicas por WhatsApp, SMS y correo',

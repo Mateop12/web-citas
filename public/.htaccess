@@ -3,13 +3,15 @@
 
 RewriteEngine On
 
-# www -> dominio canónico. HTTP->HTTPS ya lo hace el CDN (hcdn); una regla
-# "%{HTTPS} off" aquí puede causar bucle si el CDN llega al origen por HTTP.
-RewriteCond %{HTTP_HOST} ^www\.gena\.monkeymindtech\.com$ [NC]
-RewriteRule ^(.*)$ https://gena.monkeymindtech.com/$1 [R=301,L]
+# www y dominio anterior -> genacitas.com (301, conserva la ruta).
+# HTTP->HTTPS ya lo hace el CDN (hcdn); una regla "%{HTTPS} off" aquí puede
+# causar bucle si el CDN llega al origen por HTTP.
+RewriteCond %{HTTP_HOST} ^www\.genacitas\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^(www\.)?gena\.monkeymindtech\.com$ [NC]
+RewriteRule ^(.*)$ https://genacitas.com/$1 [R=301,L]
 
 <IfModule mod_headers.c>
-  # Sin includeSubDomains: app.gena.monkeymindtech.com aún no sirve HTTPS.
+  # Sin includeSubDomains: app.genacitas.com aún no sirve HTTPS.
   Header always set Strict-Transport-Security "max-age=31536000"
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
