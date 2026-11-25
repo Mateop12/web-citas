@@ -114,7 +114,7 @@ export const PRODUCT_PAGES: Record<PageKey, ProductPageSeo> = {
   contacto: {
     key: 'contacto',
     slug: '/contacto/',
-    title: 'Solicitar demo de GENACITAS | Contacto',
+    title: 'Demo de software de agendamiento médico | GENACITAS',
     description:
       'Agenda una demo personalizada de GENACITAS para tu IPS o clínica. Autoagendamiento con IA por WhatsApp, web y call center. Respuesta en menos de 24 horas.',
     h1: 'Solicita una demo de GENACITAS para tu clínica',

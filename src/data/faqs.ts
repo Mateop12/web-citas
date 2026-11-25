@@ -7,7 +7,7 @@ export const faqs: FAQItem[] = [
   {
     question: '¿Qué es un software de agendamiento de citas médicas?',
     answer:
-      'Es una plataforma donde los pacientes agendan, confirman y reprograman sus citas solos, sin llamar. Con GENACITAS lo hacen por WhatsApp y por un portal web las 24 horas, reciben recordatorios automáticos y tu equipo gestiona la agenda, la lista de espera y los reportes desde un solo panel.',
+      'Un software de agendamiento médico o clínico es una plataforma donde los pacientes agendan, confirman y reprograman sus citas solos, sin llamar. Con GENACITAS lo hacen por WhatsApp y por un portal web las 24 horas, reciben recordatorios automáticos y tu equipo gestiona la agenda, la lista de espera y los reportes desde un solo panel.',
   },
   {
     question: '¿Cuánto tiempo toma implementar GENACITAS?',
