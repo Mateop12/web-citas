@@ -1,0 +1,96 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import PageBreadcrumb from '../../components/ui/PageBreadcrumb.astro';
+import Button from '../../components/ui/Button.astro';
+import { getRelatedPages } from '../../data/pages-seo';
+import { SITE, buildBlogPostingSchema, buildBreadcrumbSchema, buildCanonicalUrl } from '../../data/seo';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, h1, pubDate, updatedDate, related } = post.data;
+const modified = updatedDate ?? pubDate;
+
+const siteBase = Astro.site?.href ?? SITE.url;
+const url = buildCanonicalUrl(`/blog/${post.id}/`, siteBase);
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const isoDay = (d: Date) => d.toISOString().slice(0, 10);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Inicio', url: buildCanonicalUrl('/', siteBase) },
+  { name: 'Blog', url: buildCanonicalUrl('/blog/', siteBase) },
+  { name: h1, url },
+]);
+const postingSchema = buildBlogPostingSchema({
+  url,
+  headline: h1,
+  description,
+  datePublished: pubDate,
+  dateModified: modified,
+});
+const relatedPages = getRelatedPages(related);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  article={{ published: pubDate, modified }}
+  extraStructuredData={[breadcrumbSchema, postingSchema]}
+>
+  <Navbar />
+  <main id="main-content">
+    <article>
+      <header class="section-band border-b border-line/60 px-4 pt-32 pb-12 sm:px-6 lg:px-8 lg:pt-40 lg:pb-16">
+        <div class="mx-auto max-w-3xl">
+          <PageBreadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Blog', href: '/blog/' }, { label: h1 }]} />
+          <h1 class="display-lg text-ink">{h1}</h1>
+          <p class="mt-5 text-base leading-relaxed text-muted sm:text-lg">{description}</p>
+          <p class="mt-6 text-sm text-muted">
+            Por <a href="/nosotros/" class="font-medium text-ink hover:text-primary">Equipo {SITE.name}</a> ·
+            Publicado el <time datetime={isoDay(pubDate)}>{formatDate(pubDate)}</time>
+            {updatedDate && (
+              <> · Actualizado el <time datetime={isoDay(updatedDate)}>{formatDate(updatedDate)}</time></>
+            )}
+          </p>
+        </div>
+      </header>
+
+      <div class="prose mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-0 lg:py-20">
+        <Content />
+      </div>
+    </article>
+
+    <aside class="border-t border-line bg-surface/40 px-4 py-12 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        {relatedPages.length > 0 && (
+          <>
+            <p class="eyebrow mb-4">Sigue leyendo</p>
+            <ul class="grid gap-3 sm:grid-cols-2">
+              {relatedPages.map((page) => (
+                <li>
+                  <a href={page.slug} class="group flex h-full flex-col rounded-2xl border border-line bg-card p-5 transition-colors hover:border-primary/30">
+                    <span class="text-sm font-semibold text-ink group-hover:text-primary">{page.breadcrumbLabel}</span>
+                    <span class="mt-2 line-clamp-2 text-xs leading-relaxed text-muted">{page.description}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+        <div class="mt-10 flex flex-col items-start gap-4 rounded-2xl border border-line bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
+          <p class="text-[15px] text-ink">¿Quieres ver cómo funciona en tu IPS o clínica?</p>
+          <Button openDemoModal variant="primary" size="md">Solicitar demo</Button>
+        </div>
+      </div>
+    </aside>
+  </main>
+  <Footer />
+</BaseLayout>

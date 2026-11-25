@@ -31,7 +31,11 @@
 | `/recordatorios-citas-medicas/` | recordatorio de citas médicas | por WhatsApp, por SMS, confirmación de citas | **Nueva** |
 | `/producto/` | plataforma de agendamiento (página general) | demanda inducida, demanda insatisfecha | Título reorientado; enlaza a las 4 nuevas |
 | `/solucion/` | cómo funciona el agendamiento automático | — | Sin cambios |
-| `/problema/` | inasistencia a citas médicas (informativa) | ausentismo en IPS | Enlaza a recordatorios |
+| `/problema/` | desafíos del agendamiento clínico | ausentismo en IPS | Enlaza a recordatorios y al artículo de inasistencia (cambio del 2026-11-25) |
+| `/blog/inasistencia-citas-medicas/` | inasistencia a citas médicas (informativa) | ausentismo, tasa de inasistencia | **Nueva** (2026-11-25) |
+| `/blog/resolucion-1552-de-2013-oportunidad-citas/` | resolución 1552 de 2013 | oportunidad de citas, agendas abiertas | **Nueva** (2026-11-25) |
+| `/blog/demanda-inducida-en-salud/` | demanda inducida en salud | demanda inducida 3280, ejemplos | **Nueva** (2026-11-25) |
+| `/blog/software-medico-colombia/` | software médico Colombia | tipos de software, interoperabilidad | **Nueva** (2026-11-25) |
 
 Las variantes *gratis* no se atacan: GEN.AI no tiene plan gratuito publicado, y una página para ellas atraería tráfico que no convierte.
 

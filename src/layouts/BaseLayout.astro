@@ -27,6 +27,7 @@ interface Props {
   pageType?: WebPageType;
   faqItems?: FAQItem[];
   extraStructuredData?: Record<string, unknown>[];
+  article?: { published: Date; modified: Date };
 }
 
 const {
@@ -37,6 +38,7 @@ const {
   pageType,
   faqItems,
   extraStructuredData = [],
+  article,
 } = Astro.props;
 
 const canonicalURL = buildCanonicalUrl(Astro.url.pathname, Astro.site?.href ?? SITE.url);
@@ -75,7 +77,9 @@ const structuredData = [
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    {article && <meta property="article:published_time" content={article.published.toISOString()} />}
+    {article && <meta property="article:modified_time" content={article.modified.toISOString()} />}
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

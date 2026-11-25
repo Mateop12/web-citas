@@ -21,12 +21,12 @@ export const SEO = {
   title:
     'Software de agendamiento de citas médicas con IA | GENACITAS',
   description:
-    'Software de citas médicas con IA para IPS y clínicas en Colombia: agendamiento clínico por web y WhatsApp, recordatorios y reportes. Implementación en 48 h.',
+    'Software de agendamiento médico con IA para IPS y clínicas en Colombia: citas por web y WhatsApp, recordatorios y reportes. Implementación en 48 h.',
   ogImageAlt:
     'GENACITAS — Plataforma de IA para agendamiento médico, informes gerenciales e interoperabilidad con HIS, autoagendamiento del paciente 24/7 ',
 } as const;
 
-export function buildCanonicalUrl(pathname: string, site = SITE.url) {
+export function buildCanonicalUrl(pathname: string, site: string = SITE.url) {
   return new URL(pathname, site).href;
 }
 
@@ -120,6 +120,31 @@ export function buildWebPageSchema(page: {
     isPartOf: { '@id': ID.website },
     about: { '@id': ID.software },
     ...(page.breadcrumbId ? { breadcrumb: { '@id': page.breadcrumbId } } : {}),
+  };
+}
+
+// TODO(dueño): autor real (Person con cargo y LinkedIn) en lugar de la organización.
+export function buildBlogPostingSchema(post: {
+  url: string;
+  headline: string;
+  description: string;
+  datePublished: Date;
+  dateModified: Date;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${post.url}#article`,
+    headline: post.headline,
+    description: post.description,
+    url: post.url,
+    mainEntityOfPage: { '@id': `${post.url}#webpage` },
+    datePublished: post.datePublished.toISOString(),
+    dateModified: post.dateModified.toISOString(),
+    author: { '@id': ID.organization },
+    publisher: { '@id': ID.organization },
+    image: `${SITE.url}/og-image.png`,
+    inLanguage: 'es-CO',
   };
 }
 

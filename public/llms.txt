@@ -18,6 +18,13 @@
 - [Bot de WhatsApp](https://genacitas.com/bot-whatsapp-citas/): Chatbot con IA en la API oficial de WhatsApp Business para agendar, cancelar y reprogramar
 - [Recordatorios de citas](https://genacitas.com/recordatorios-citas-medicas/): Recordatorios y confirmación por WhatsApp, SMS y correo, con lista de espera
 
+## Blog
+- [Blog](https://genacitas.com/blog/): Guías sobre agendamiento médico en Colombia, con fuentes oficiales
+- [Resolución 1552 de 2013](https://genacitas.com/blog/resolucion-1552-de-2013-oportunidad-citas/): Agendas abiertas, plazo de 3 días hábiles, registro e indicadores de oportunidad de citas; relación con la Resolución 2117 de 2025
+- [Inasistencia a citas médicas](https://genacitas.com/blog/inasistencia-citas-medicas/): Causas, cómo medir la tasa de inasistencia y siete acciones para reducirla
+- [Demanda inducida en salud](https://genacitas.com/blog/demanda-inducida-en-salud/): Definición, Resolución 3280 de 2018, momentos de curso de vida y ejemplos de campañas
+- [Software médico en Colombia](https://genacitas.com/blog/software-medico-colombia/): Tipos de software (historia clínica, agendamiento, facturación y RIPS), normas que aplican e integración
+
 ## Preguntas frecuentes
 - [FAQ](https://genacitas.com/faq/): Implementación en 24 a 48 horas hábiles, API para HIS, chatbot de WhatsApp Business, cifrado AES-256, soporte en español (lun-vie 8:00-18:00 hora de Colombia)
 

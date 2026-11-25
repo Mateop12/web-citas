@@ -49,7 +49,7 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
           q: '¿Qué es un software de agendamiento para IPS?',
           html: [
             'Un software de agendamiento para IPS es la herramienta que organiza la asignación de citas de una Institución Prestadora de Servicios de Salud: la disponibilidad de cada profesional y sede, los canales por los que el paciente pide su cita y la comunicación posterior, como confirmaciones, recordatorios y reprogramaciones. No reemplaza la historia clínica: se integra con ella para que cada cita quede registrada una sola vez.',
-            'En Colombia, además, tiene que manejar reglas propias del sistema de salud. El paciente llega con una EPS, necesita una especialidad y un tipo de consulta concretos, y a veces debe presentar una autorización. Un buen software muestra al paciente solo las combinaciones válidas para su caso y le indica qué llevar el día de la cita.',
+            'En Colombia, además, tiene que manejar reglas propias del sistema de salud. El paciente llega con una EPS, necesita una especialidad y un tipo de consulta concretos, y a veces debe presentar una autorización. Un buen software muestra al paciente solo las combinaciones válidas para su caso y le indica qué llevar el día de la cita. También debe ayudar a cumplir las reglas de oportunidad de la <a href="/blog/resolucion-1552-de-2013-oportunidad-citas/" class="font-medium text-primary hover:underline">Resolución 1552 de 2013</a> y a ejecutar las campañas de <a href="/blog/demanda-inducida-en-salud/" class="font-medium text-primary hover:underline">demanda inducida</a> de la ruta de promoción y mantenimiento.',
           ],
         },
         {
@@ -251,7 +251,7 @@ export const LANDINGS: Partial<Record<PageKey, Landing>> = {
           q: '¿Qué tan grande es el problema de la inasistencia?',
           html: [
             'Según un estudio publicado en la revista DYNA (2022), en 2016 se agendaron 3.253.172 citas médicas en Bogotá y los pacientes no asistieron a 422.971, cerca del 13 %. Cada inasistencia es un cupo que otro paciente necesitaba y tiempo de un profesional que queda sin usar. <a href="https://doi.org/10.15446/dyna.v89n220.97160" class="font-medium text-primary hover:underline" rel="noopener" target="_blank">Fuente: Navarro Romero et al., DYNA 89(220)</a>.',
-            'El recordatorio por sí solo no resuelve el problema: el paciente necesita una forma fácil de avisar que no podrá asistir, a tiempo para que el cupo se reasigne. Más contexto en <a href="/problema/" class="font-medium text-primary hover:underline">los desafíos del agendamiento clínico</a>.',
+            'El recordatorio por sí solo no resuelve el problema: el paciente necesita una forma fácil de avisar que no podrá asistir, a tiempo para que el cupo se reasigne. Más contexto en <a href="/problema/" class="font-medium text-primary hover:underline">los desafíos del agendamiento clínico</a> y en la guía sobre <a href="/blog/inasistencia-citas-medicas/" class="font-medium text-primary hover:underline">causas de la inasistencia y cómo reducirla</a>.',
           ],
         },
         {
